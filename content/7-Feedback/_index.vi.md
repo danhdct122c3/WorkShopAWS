@@ -1,44 +1,94 @@
 ---
 title: "Chia sẻ, đóng góp ý kiến"
-date: 2024-01-01
+date: 2026-08-09
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
->Tại đây bạn có thể tự do đóng góp ý kiến cá nhân về những trải nghiệm khi tham gia chương trình First Cloud AI Journey, giúp team FCAJ cải thiện những vấn đề còn thiếu sót dựa trên các hạng mục sau:
+> Đây là những chia sẻ thật lòng của tôi sau **8 tuần** tham gia chương trình **First Cloud AI Journey (FCAJ)**, với mong muốn đóng góp ý kiến giúp chương trình ngày càng tốt hơn.
 
-### Đánh giá chung
+---
 
-**1. Môi trường làm việc**  
-Môi trường làm việc rất thân thiện và cởi mở. Các thành viên trong FCAJ luôn sẵn sàng hỗ trợ khi mình gặp khó khăn, kể cả ngoài giờ làm việc. Không gian làm việc gọn gàng, thoải mái, giúp mình tập trung tốt hơn. Tuy nhiên, mình nghĩ có thể bổ sung thêm một số buổi giao lưu hoặc team bonding để mọi người hiểu nhau hơn.
+### 1. Môi trường học tập & làm việc
 
-**2. Sự hỗ trợ của mentor / team admin**  
-Mentor hướng dẫn rất chi tiết, giải thích rõ ràng khi mình chưa hiểu và luôn khuyến khích mình đặt câu hỏi. Team admin hỗ trợ các thủ tục, tài liệu và tạo điều kiện để mình làm việc thuận lợi. Mình đánh giá cao việc mentor cho phép mình thử và tự xử lý vấn đề thay vì chỉ đưa đáp án.
+Môi trường học tập của FCAJ rất thoải mái, linh hoạt và tạo điều kiện tốt cho người học. Điểm mà tôi đánh giá cao nhất là **lịch làm việc rất linh hoạt** — chương trình không áp đặt giờ giấc cứng nhắc, thay vào đó tập trung vào kết quả đầu ra (deliverables). Điều này giúp tôi chủ động sắp xếp thời gian học tập và phát triển theo nhịp độ phù hợp với bản thân, đồng thời vẫn đảm bảo tiến độ dự án.
 
-**3. Sự phù hợp giữa công việc và chuyên ngành học**  
-Công việc mình được giao phù hợp với kiến thức mình đã học ở trường, đồng thời mở rộng thêm những mảng mới mà mình chưa từng được tiếp cận. Nhờ vậy, mình vừa củng cố kiến thức nền tảng, vừa học thêm kỹ năng thực tế.
+Nội dung học sát với xu hướng công nghệ thực tế, không chỉ dừng lại ở lý thuyết mà buộc người học phải tự tay triển khai trên môi trường AWS thật — đây là cách học hiệu quả nhất mà tôi từng trải nghiệm.
 
-**4. Cơ hội học hỏi & phát triển kỹ năng**  
-Trong quá trình thực tập, mình học được nhiều kỹ năng mới như sử dụng công cụ quản lý dự án, kỹ năng làm việc nhóm, và cả cách giao tiếp chuyên nghiệp trong môi trường công ty. Mentor cũng chia sẻ nhiều kinh nghiệm thực tế giúp mình định hướng tốt hơn cho sự nghiệp.
+---
 
-**5. Văn hóa & tinh thần đồng đội**  
-Văn hóa công ty rất tích cực: mọi người tôn trọng lẫn nhau, làm việc nghiêm túc nhưng vẫn vui vẻ. Khi có dự án gấp, mọi người cùng nhau cố gắng, hỗ trợ không phân biệt vị trí. Điều này giúp mình cảm thấy mình là một phần của tập thể, dù chỉ là thực tập sinh.
+### 2. Sự hỗ trợ của team admin & mentor
 
-**6. Chính sách / phúc lợi cho thực tập sinh**  
-Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về thời gian linh hoạt khi cần thiết. Ngoài ra, việc được tham gia các buổi đào tạo nội bộ là một điểm cộng lớn.
+Đây là điểm **tôi ấn tượng nhất** trong suốt kỳ thực tập. Mỗi khi có thắc mắc hay gặp vấn đề kỹ thuật, team admin đều **phản hồi rất nhanh và cởi mở** — dù là câu hỏi đơn giản hay phức tạp. Không có cảm giác bị bỏ mặc hay phải tự vật lộn một mình quá lâu.
 
+Phong cách hỗ trợ của team là "định hướng để tự giải quyết" thay vì đưa thẳng đáp án — cách này tuy đòi hỏi người học phải nỗ lực hơn, nhưng lại giúp tôi hiểu sâu và nhớ lâu hơn rất nhiều so với việc copy-paste giải pháp có sẵn.
 
-### Một số câu hỏi khác
-- Điều bạn **hài lòng nhất** trong thời gian thực tập?  
-- Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
-- Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
+---
 
+### 3. Sự phù hợp giữa nội dung và thực tế ngành
+
+Nội dung chương trình bám rất sát xu hướng thị trường: **Serverless Architecture, Event-Driven Design, AI/ML với Rekognition và Bedrock, Observability với X-Ray và CloudWatch**. Đây đều là những kỹ năng đang được các công ty công nghệ tìm kiếm cao, nên tôi cảm thấy thời gian đầu tư vào FCAJ là rất xứng đáng và thiết thực.
+
+---
+
+### 4. Cơ hội học hỏi & kỹ năng tích lũy được
+
+Trong 8 tuần, tôi đã học và thực hành được:
+
+**Kỹ thuật:**
+- Thiết kế kiến trúc Serverless + Event-Driven từ đầu đến cuối
+- Tích hợp thực tế 10+ dịch vụ AWS: Lambda, DynamoDB, S3, Rekognition, EventBridge, SNS, SQS, CloudWatch, X-Ray, Cognito, Athena
+- Phát triển Full-stack: Backend FastAPI (Python) + Frontend React (Vite)
+- Xử lý các vấn đề thực tế: CORS, NoSQL schema design, message queue reliability, distributed tracing
+
+**Tư duy:**
+- Thiết kế database NoSQL tối ưu với GSI
+- Debug có hệ thống (Layer by layer approach)
+- Thiết kế API idempotent, chống race condition
+
+**Mềm:**
+- Viết tài liệu kỹ thuật (Workshop Documentation)
+- Tự quản lý tiến độ dự án 8 tuần không có PM giám sát
+
+---
+
+### 5. Văn hóa & tinh thần cộng đồng
+
+Một trong những điều tôi trân trọng nhất ở FCAJ là **tinh thần cộng đồng AWS rất mạnh**. Các events được tổ chức chuyên nghiệp và thực chất:
+
+- **FCAJ Community Day (27/06/2026):** Chuỗi Live Demo trực tiếp về AI Agents, DevOps tự động hóa và Voice Bot — rất trực quan và gần gũi với thực tế.
+- **FCAJ x Agentic AI Build Week:** Tinh thần *"Show Up. Build. Pitch. WIN!"* truyền cảm hứng lớn để dám bước ra ngoài vùng an toàn.
+- **Agent Forge HCMC Workshop:** Workshop chuyên sâu về Agentic AI và hệ sinh thái AWS — mang lại góc nhìn rất mới về tương lai của AI trong doanh nghiệp.
+
+Những kết nối từ các events này — với cả người học lẫn kỹ sư AWS thực thụ — có giá trị lâu dài hơn nhiều so với kiến thức kỹ thuật thuần túy.
+
+---
+
+### 6. Chính sách & hỗ trợ cho người tham gia
+
+AWS account với credits để thực hành trực tiếp trên môi trường thật là điểm cộng rất lớn. Được tự tay tạo DynamoDB table, cấu hình Lambda trigger, thiết lập CloudWatch Alarm và xem X-Ray Service Map thực giúp tôi tự tin hơn rất nhiều khi ra môi trường công việc thực tế, thay vì chỉ biết lý thuyết hoặc chạy trên simulator.
+
+---
+
+### Câu hỏi thêm
+
+**Điều hài lòng nhất?**
+
+Được tự do thiết kế và xây dựng một sản phẩm hoàn chỉnh từ số 0 — từ thiết kế database, xây dựng API, phát triển giao diện, cho đến triển khai monitoring và viết tài liệu. Nhìn lại một hệ thống với 8 Workflow nghiệp vụ đầy đủ mà mình tự tay xây dựng là trải nghiệm rất đáng tự hào.
+
+**Điều chương trình có thể cải thiện?**
+
+Nên bổ sung thêm các buổi **review kiến trúc kỹ thuật** định kỳ (2–3 tuần/lần) để người học nhận được feedback sớm về thiết kế hệ thống, tránh phải refactor lại khi đã đi quá sâu vào hướng sai.
+
+**Nếu giới thiệu cho bạn bè?**
+
+Có, chắc chắn. FCAJ là một trong số ít chương trình cho phép bạn học AWS bằng cách **làm thật** — không chỉ xem demo. Đặc biệt phù hợp với những bạn muốn nhanh chóng có kinh nghiệm thực chiến trên nền tảng cloud.
+
+---
 
 ### Đề xuất & mong muốn
-- Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
-- Bạn có muốn tiếp tục chương trình này trong tương lai?
-- Góp ý khác (tự do chia sẻ):
+
+- **Thêm track chuyên sâu:** Nên có các track riêng cho Data Engineering (Athena, Glue, Kinesis) hoặc AI/ML (Bedrock, SageMaker) để người học có thể đi sâu thay vì chỉ chạm bề mặt mỗi dịch vụ.
+- **Nhiều hands-on workshop hơn:** Các event như Agent Forge HCMC Workshop rất thiết thực và truyền cảm hứng. Mong chương trình tổ chức thêm, đặc biệt về AI Agents và Generative AI trên AWS.
+- **Cặp đôi code review:** Có thể thêm hình thức review code hoặc review kiến trúc từ mentor/alumni để người học phát hiện sớm các vấn đề thiết kế trước khi đi quá sâu.
