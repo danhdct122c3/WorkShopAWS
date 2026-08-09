@@ -1,31 +1,41 @@
 ---
-title: "Blog 1"
-date: 2024-01-01
+title: "Blog 1: Rekognition Liveness"
+date: 2026-08-10
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
+# Chống giả mạo nhận diện khuôn mặt với Amazon Rekognition Face Liveness
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+Khi xây dựng các hệ thống nhận diện khuôn mặt, chúng ta thường gặp phải một lỗ hổng bảo mật kinh điển: **làm sao để ngăn chặn người dùng lấy một bức ảnh chụp sẵn hoặc video quay sẵn trên điện thoại đưa ra trước camera để qua mặt hệ thống?**
 
-Các điểm chính cần nắm:
+Nếu chỉ dùng API `SearchFacesByImage` của Amazon Rekognition, AI sẽ chỉ tìm cách khớp khuôn mặt trong ảnh với database, chứ không biết đó là ảnh chụp người thật hay ảnh chụp lại màn hình điện thoại.
 
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
+### Giải pháp: Tích hợp Amazon Rekognition Face Liveness
 
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
+Rất may, AWS đã cung cấp tính năng **Face Liveness** giúp giải quyết triệt để bài toán này. Đây là cách mình đã tích hợp vào hệ thống:
 
-...Hình ảnh...
+**1. Luồng xử lý:**
+- **Bước 1 (Backend):** Khi người dùng quét khuôn mặt, Frontend gọi Backend. Backend gọi API `CreateFaceLivenessSession` của Rekognition để lấy về một `SessionId` duy nhất.
+- **Bước 2 (Frontend):** Mình dùng SDK `@aws-amplify/ui-react-liveness`. SDK này hiển thị một giao diện hình bầu dục lên màn hình người dùng, yêu cầu họ đưa mặt vào khung hình. Màn hình sẽ chớp các dải màu ngẫu nhiên (Challenge) để phản chiếu lên khuôn mặt user, trong khi camera stream video trực tiếp về AWS.
+- **Bước 3 (Backend):** Sau khi hoàn thành, Frontend báo cho Backend. Backend gọi API `GetFaceLivenessSessionResults` truyền vào `SessionId`.
 
-...Link...
+**2. Đánh giá kết quả (Confidence Score):** 
+AWS sẽ trả về một điểm số `Confidence`.
+- Nếu **Confidence < 90%**: Khả năng cao là giả mạo (dùng mặt nạ, ảnh 3D, hoặc màn hình iPad). Hệ thống từ chối ngay lập tức.
+- Nếu **Confidence >= 90%**: Là người thật. Lúc này, AWS trả kèm hình ảnh khung hình tốt nhất (Reference Image). Mình dùng ảnh này tiếp tục gọi `SearchFacesByImage` để xác định xem đó là nhân viên nào.
 
-...Hướng dẫn...
+### Ưu điểm của kiến trúc này
+- **Bảo mật tuyệt đối:** Hoàn toàn loại bỏ được trò gian lận dùng ảnh thẻ hay video quay sẵn.
+- **Trải nghiệm mượt mà:** Khác với các hệ thống cũ bắt người dùng phải "chớp mắt 3 lần", "quay đầu sang trái/phải", AWS Liveness chỉ yêu cầu người dùng giữ yên khuôn mặt trong vùng bầu dục, mọi thứ xử lý cực nhanh dưới background.
+- **Không lưu trữ video:** Video stream chỉ dùng để phân tích Liveness trong lúc thực thi và tự động bị hủy, đảm bảo tuân thủ quyền riêng tư dữ liệu (Data Privacy).
+
+Hy vọng bài viết này sẽ giúp các bạn giải quyết được bài toán hóc búa khi làm các dự án eKYC hoặc chấm công tự động trên AWS!
+
+### Tài liệu tham khảo
+1. [Amazon Rekognition Face Liveness Architecture](https://docs.aws.amazon.com/rekognition/latest/dg/recommendations-liveness.html)
+2. [AWS Amplify - Add Face Liveness detection](https://ui.docs.amplify.aws/react/connected-components/liveness)
+
+---
+*👉 Link bài viết trên group AWS Study Group: [Cập nhật link sau khi đăng]*
