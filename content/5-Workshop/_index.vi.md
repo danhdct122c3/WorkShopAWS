@@ -6,28 +6,24 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Triển khai Hệ thống Smart Campus Platform (Serverless) trên AWS
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+**Smart Campus** là một nền tảng quản lý khuôn viên thông minh 100% Serverless, giải quyết bài toán điểm danh bằng khuôn mặt (AI) và tự động hóa các luồng công việc nhân sự với mức chi phí tối ưu nhất nhờ cơ chế Pay-As-You-Go.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Trong Workshop này, bạn sẽ được hướng dẫn triển khai từ đầu đến cuối (End-to-End) toàn bộ kiến trúc của hệ thống, học cách kết nối và cấu hình bảo mật cho hơn 15 dịch vụ AWS khác nhau, từ Frontend, API, Database, cho đến các luồng Event-Driven và Data Analytics.
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+Thay vì cấu hình bằng tay (ClickOps), workshop này cũng sẽ hướng dẫn bạn các bước thiết lập chuẩn chỉ, cấu hình các biến môi trường và liên kết các dịch vụ theo đúng nguyên tắc **Đặc quyền tối thiểu (Least Privilege)**.
 
-#### Nội dung
+#### Nội dung Workshop
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+1. [Giới thiệu tổng quan kiến trúc](5.1-Workshop-overview/)
+2. [Chuẩn bị tài nguyên (Prerequisite)](5.2-Prerequiste/)
+3. [Phần 1: Cấu hình Xác thực & Bảo mật (Cognito, WAF, IAM)](5.3-Auth-Security/)
+4. [Phần 2: Cấu hình Database & Lưu trữ (DynamoDB, S3)](5.4-Database-Storage/)
+5. [Phần 3: Cấu hình AI & API (Rekognition, Lambda, API Gateway)](5.5-AI-API/)
+6. [Phần 4: Kiến trúc Event-Driven (EventBridge, SQS, SNS/SES)](5.6-Event-Driven/)
+7. [Phần 5: Data Pipeline & Analytics (Firehose, Athena)](5.7-Analytics/)
+8. [Phần 6: CI/CD & Giám sát hệ thống (CodeBuild, CodePipeline, CloudWatch)](5.8-CICD-Monitoring/)
+9. [Dọn dẹp tài nguyên (Clean-up)](5.9-Cleanup/)
