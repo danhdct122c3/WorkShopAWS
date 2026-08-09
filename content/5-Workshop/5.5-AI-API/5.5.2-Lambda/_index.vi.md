@@ -73,8 +73,8 @@ Hàm Lambda này sẽ chịu trách nhiệm toàn bộ logic xử lý API của 
 | `SECURITY_ALERT_TOPIC_ARN` | `arn:aws:sns:...:smart-campus-security` | ARN của Topic đã tạo ở mục 5.6.2 |
 | `NOTIFICATION_TOPIC_ARN` | `arn:aws:sns:...:smart-campus-notifications` | ARN của Topic đã tạo ở mục 5.6.2 |
 
-> [!NOTE]
-> Các giá trị như Topic ARN, Pool ID sẽ có sau khi bạn lần lượt hoàn thành các phần tiếp theo. Bạn có thể điền các biến này trước khi chạy thử Lambda lần đầu tiên.
+> [!IMPORTANT]
+> Các biến `SECURITY_ALERT_TOPIC_ARN`, `NOTIFICATION_TOPIC_ARN` cần lấy từ **Amazon SNS** (mục 5.6.2), `SES_SENDER_EMAIL` từ **Amazon SES** (mục 5.6.1). Bạn có thể để trống hoặc điền giá trị tạm thời trước, **rồi nhớ quay lại mục này để cập nhật đầy đủ sau khi hoàn thành toàn bộ mục 5.6**, trước khi tiến hành kiểm thử ở mục 5.10.
 
 > ![Biến môi trường](/aws-image/setupLambda/lambda17.png)
 *(Bấm **Save** để lưu)*.

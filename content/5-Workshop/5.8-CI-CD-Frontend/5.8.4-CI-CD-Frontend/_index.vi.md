@@ -1,9 +1,9 @@
 ---
 title : "Tự động hóa CI/CD Frontend"
 date : 2024-01-01
-weight : 3
+weight : 4
 chapter : false
-pre : " <b> 5.8.3. </b> "
+pre : " <b> 5.8.4. </b> "
 ---
 
 #### Thiết lập luồng CI/CD cho Frontend với AWS CodePipeline
@@ -46,7 +46,7 @@ Thay vì mỗi lần cập nhật giao diện, bạn phải chạy lệnh build 
 **Bước 4: Cấu hình Deploy (Triển khai)**
 1. **Deploy provider**: Chọn **Amazon S3**.
 2. **Region**: Trùng với Region của Bucket S3.
-3. **Bucket**: Chọn tên S3 Bucket tĩnh bạn đã tạo ở bài 5.8.1 (ví dụ `danhdct-smart-campus-frontend`). 
+3. **Bucket**: Chọn tên S3 Bucket tĩnh bạn đã tạo ở bài 5.8.2 (ví dụ: `smart-campus-frontend-2026`). 
 4. Đánh dấu tick vào ô **Extract file before deploy** (Rất quan trọng, để bung file nén ZIP chứa code build ra).
 5. Bấm **Next**, xem lại cấu hình rồi bấm **Create pipeline**.
 > ![Deploy to S3](/aws-image/setupCodePipeline/pipeline32.png)

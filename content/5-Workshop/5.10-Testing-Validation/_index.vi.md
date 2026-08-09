@@ -6,9 +6,27 @@ chapter : false
 pre : " <b> 5.10. </b> "
 ---
 
-### Mục tiêu (Goal)
+### Mục tiêu
 
-Để đảm bảo hệ thống Smart Campus đáp ứng được các tiêu chuẩn chấm điểm và hoạt động đúng thiết kế, chúng ta cần thực hiện quy trình kiểm thử End-to-End. Phần này hướng dẫn bạn cách kích hoạt luồng hệ thống và xác thực kết quả ở từng dịch vụ AWS.
+Sau khi đã hoàn thành toàn bộ các bước triển khai từ mục **5.3 đến 5.9**, phần này sẽ hướng dẫn bạn **kiểm thử End-to-End** toàn hệ thống Smart Campus — từ việc gọi API, xác thực kết quả lưu trữ, theo dõi log/metric, đến việc dọn dẹp tài nguyên sau khi hoàn thành.
+
+Mỗi bước kiểm thử đều có **kết quả mong đợi cụ thể**, giúp bạn tự xác nhận hệ thống đang hoạt động đúng thiết kế.
+
+---
+
+### Các bước kiểm thử
+
+| Mục | Nội dung | Dịch vụ liên quan |
+|---|---|---|
+| **5.10.1** | Kiểm thử API (Swagger UI & Postman) | API Gateway, Lambda, Cognito |
+| **5.10.2** | Kiểm thử điểm danh nhận diện khuôn mặt | Rekognition, DynamoDB, S3 |
+| **5.10.3** | Kiểm thử luồng thông báo sự kiện | EventBridge, SNS, SQS |
+| **5.10.4** | Kiểm thử Log & Metric giám sát | CloudWatch, X-Ray |
+| **5.10.5** | Dọn dẹp tài nguyên (Clean-up) | Tất cả dịch vụ đã tạo |
+
+> [!IMPORTANT]
+> Trước khi bắt đầu kiểm thử, hãy đảm bảo bạn đã **quay lại mục 5.5.2** để điền đầy đủ tất cả biến môi trường cho hàm Lambda (SNS Topic ARN, SES Email...) từ phần 5.6.
+
 
 #### 1. Kiểm thử gửi Request (Postman / Frontend)
 1. Lấy URL của API Gateway (Ví dụ: `https://xyz.execute-api.ap-southeast-1.amazonaws.com/prod/attendance`).

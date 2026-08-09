@@ -33,48 +33,39 @@ Bây giờ ta cần tạo một hàm Lambda đóng vai trò "công nhân": Đọ
 3. Bấm **Create function**.
 > ![Điền thông tin và Tạo hàm](/aws-image/setupLambdaWorker/lambda1.png)
 > ![Tạo thành công](/aws-image/setupLambdaWorker/lambda2.png)
-4. Trong màn hình Lambda, cuộn xuống tab **Code**: Mở file `analytics_worker.py` trong source code thư mục `backend/app/workers/`, copy toàn bộ nội dung (hoặc copy đoạn code dưới đây) dán đè vào file `lambda_function.py` trên giao diện.
+4. Trong màn hình Lambda, cuộn xuống tab **Code**: Xóa toàn bộ nội dung mặc định trong file `lambda_function.py` và dán đoạn code sau vào (đây là phiên bản **standalone** chỉ dùng `boto3`, có thể chạy thẳng trên AWS Console mà không cần đóng gói):
+
+> [!NOTE]
+> Đây là phiên bản **Standalone** được đơn giản hóa dành cho Workshop. Nếu bạn muốn chạy toàn bộ source code dự án (`backend/app/workers/analytics_worker.py`), hãy đóng gói thành file ZIP và upload theo hướng dẫn ở mục **5.5.2**.
+
 ```python
-"""Analytics Worker (Workflow 5 – Analytics Pipeline).
-
-Consumes AttendanceRecorded events from EventBridge and streams data to:
-    S3 Data Lake (Direct Put) → Glue Catalog → Athena → QuickSight
-
-Published Events:
-    None (fire-and-forget streaming)
-"""
-
 import json
 import logging
-import boto3
+import os
 import uuid
-from functools import lru_cache
+import boto3
 
-from app.core.config import settings
-from app.shared.aws.eventbridge import publish_event
-
-logger = logging.getLogger(__name__)
+logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
+# Đọc tên bucket từ biến môi trường (sẽ cấu hình ở Bước 5)
+DATA_LAKE_BUCKET = os.environ.get("DATA_LAKE_BUCKET", "")
+AWS_REGION = os.environ.get("AWS_REGION", "ap-southeast-1")
 
-@lru_cache
-def get_s3_client():
-    return boto3.client("s3", region_name=settings.aws_region)
+s3_client = boto3.client("s3", region_name=AWS_REGION)
 
 
 def _write_to_s3(record: dict) -> str:
-    """Stream a single attendance record directly to S3 Data Lake."""
-    client = get_s3_client()
+    """Ghi một bản ghi điểm danh vào S3 Data Lake theo cấu trúc phân vùng."""
     data = json.dumps(record, ensure_ascii=False, default=str)
-    
-    # Generate unique filename with partitioning prefix
-    year = record.get("year", "0000")
+
+    year  = record.get("year",  "0000")
     month = record.get("month", "00")
-    day = record.get("day", "00")
+    day   = record.get("day",   "00")
     file_name = f"year={year}/month={month}/day={day}/{uuid.uuid4().hex}.json"
-    
-    client.put_object(
-        Bucket=settings.data_lake_bucket,
+
+    s3_client.put_object(
+        Bucket=DATA_LAKE_BUCKET,
         Key=file_name,
         Body=data.encode("utf-8"),
         ContentType="application/json"
@@ -82,55 +73,54 @@ def _write_to_s3(record: dict) -> str:
     return file_name
 
 
-def handler(event: dict, context) -> dict:
+def lambda_handler(event, context):
     """
-    AWS Lambda entry point for Analytics Worker.
-
-    Triggered by SQS Queue (smart-campus-analytics-queue) containing batches
-    of EventBridge 'AttendanceRecorded' events.
+    Entry point của Lambda Analytics Worker.
+    Được kích hoạt bởi SQS Queue (smart-campus-analytics-queue)
+    chứa các sự kiện 'AttendanceRecorded' từ EventBridge.
     """
     records = event.get("Records", [])
-    logger.info("AnalyticsWorker (SQS) received %d records", len(records))
+    logger.info("AnalyticsWorker nhận được %d records từ SQS", len(records))
 
     failed_message_ids = []
 
-    for record in records:
-        message_id = record.get("messageId")
+    for sqs_record in records:
+        message_id = sqs_record.get("messageId")
         try:
-            # EventBridge payload is embedded in the SQS body
-            body_str = record.get("body", "{}")
-            eb_event = json.loads(body_str)
-            
+            # Payload của EventBridge được nhúng trong body của SQS message
+            eb_event  = json.loads(sqs_record.get("body", "{}"))
             detail_type = eb_event.get("detail-type", "")
-            detail = eb_event.get("detail", {})
+            detail      = eb_event.get("detail", {})
 
             if detail_type != "AttendanceRecorded":
-                logger.info("Skipping non-attendance event: %s (MsgId: %s)", detail_type, message_id)
+                logger.info("Bỏ qua sự kiện không phải điểm danh: %s", detail_type)
                 continue
 
-            # Build analytics record (flattened for Athena/QuickSight)
+            ts = detail.get("timestamp", "")
             analytics_record = {
-                "event_type": detail_type,
+                "event_type":    detail_type,
                 "attendance_id": detail.get("attendanceId"),
-                "user_id": detail.get("userId"),
-                "status": detail.get("status"),
-                "timestamp": detail.get("timestamp"),
-                # Partitioning fields for Glue/Athena
-                "year": detail.get("timestamp", "")[:4] if detail.get("timestamp") else None,
-                "month": detail.get("timestamp", "")[5:7] if detail.get("timestamp") else None,
-                "day": detail.get("timestamp", "")[8:10] if detail.get("timestamp") else None,
+                "user_id":       detail.get("userId"),
+                "status":        detail.get("status"),
+                "timestamp":     ts,
+                # Trường phân vùng cho Glue/Athena
+                "year":  ts[:4]  if ts else None,
+                "month": ts[5:7] if ts else None,
+                "day":   ts[8:10] if ts else None,
             }
 
-            record_id = _write_to_s3(analytics_record)
-            logger.info("Wrote to S3 Data Lake. MsgId=%s, File=%s", message_id, record_id)
+            file_key = _write_to_s3(analytics_record)
+            logger.info("Đã ghi vào S3 Data Lake. MsgId=%s, Key=%s", message_id, file_key)
 
         except Exception as exc:
-            logger.error("Failed to process message %s: %s", message_id, exc, exc_info=True)
+            logger.error("Lỗi khi xử lý message %s: %s", message_id, exc, exc_info=True)
             failed_message_ids.append(message_id)
 
-    # Return partial batch failure standard format
+    # Trả về định dạng Partial Batch Failure chuẩn của Lambda + SQS
     return {
-        "batchItemFailures": [{"itemIdentifier": msg_id} for msg_id in failed_message_ids]
+        "batchItemFailures": [
+            {"itemIdentifier": msg_id} for msg_id in failed_message_ids
+        ]
     }
 ```
 > ![Dán Code](/aws-image/setupLambdaWorker/lambda3.png)

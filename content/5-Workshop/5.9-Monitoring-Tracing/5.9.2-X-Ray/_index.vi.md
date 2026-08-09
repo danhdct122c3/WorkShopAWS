@@ -30,5 +30,5 @@ Với kiến trúc Serverless, một request từ Frontend có thể đi qua hà
 
 1. Dùng Postman hoặc Frontend gọi vài API điểm danh để tạo dữ liệu. Sau đó truy cập dịch vụ **X-Ray** trên AWS Console (hoặc qua CloudWatch > X-Ray traces), chọn mục **Service map** ở menu bên trái. Tại đây, bạn sẽ thấy bản đồ trực quan minh họa luồng đi của request.
 > ![Bản đồ Service Map](/aws-image/setupXRay/xray8.png)
-2. Chuyển sang mục **Traces** ở menu trái để xem danh sách các request. Bấm vào một request cụ thể để xem biểu đồ dạng thác nước (waterfall). Biểu đồ này giúp bạn dễ dàng xác định được dịch vụ nào đang tốn nhiều thời gian xử lý nhất, từ đó có phương án tối ưu độ trễ (latency).
+2. Bạn có thể nhấp vào bất kỳ một node (dịch vụ) nào trên bản đồ (Ví dụ: bảng DynamoDB) để xem chi tiết biểu đồ **Metrics** bên dưới (bao gồm Latency, Requests, Faults). Ngoài ra, bạn cũng có thể chuyển sang mục **Traces** ở menu trái để phân tích sâu hơn từng request dưới dạng biểu đồ thác nước (waterfall), nhằm tìm ra chính xác nút thắt cổ chai.
 > ![Chi tiết Trace](/aws-image/setupXRay/xray9.png)

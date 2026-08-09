@@ -37,17 +37,19 @@ Giả sử chúng ta muốn nhận email báo động mỗi khi Lambda có lỗi
 > ![Cấu hình Statistic](/aws-image/setupCloudWatch/cloudwatch7.png)
 8. **Conditions**: Chọn Threshold type là **Static**. Phần *Whenever Errors is*, chọn **Greater/Equal** và nhập `1`. Bấm **Next**.
 > ![Cấu hình Condition](/aws-image/setupCloudWatch/cloudwatch8.png)
-9. Ở phần **Notification**: Mục *Alarm state trigger*, chọn **In alarm**. Mục *Send a notification to the following SNS topic*, chọn **Select an existing SNS topic** và chọn `smart-campus-notifications` (Topic bạn đã tạo ở phần SNS).
-> ![Chọn SNS Topic](/aws-image/setupCloudWatch/cloudwatch9.png)
-10. Cuộn xuống và bấm **Next**.
-> ![Bấm Next](/aws-image/setupCloudWatch/cloudwatch10.png)
-11. Đặt tên cho Alarm ở ô **Alarm name** (Ví dụ: `Lambda-Error-Alert`).
-> ![Đặt tên Alarm](/aws-image/setupCloudWatch/cloudwatch11.png)
-12. Cuộn xuống và bấm **Next**.
-> ![Bấm Next Name](/aws-image/setupCloudWatch/cloudwatch12.png)
+9. Ở bước **Configure actions**, phần **Notification**, bấm nút **Add notification**.
+> ![Add notification](/aws-image/setupCloudWatch/cloudwatch9.png)
+10. Mục *Alarm state trigger*, chọn **In alarm**. Mục *Send a notification to the following SNS topic*, chọn **Select an existing SNS topic** và chọn `smart-campus-notifications` (Topic bạn đã tạo ở phần SNS).
+> ![Cấu hình SNS Topic](/aws-image/setupCloudWatch/cloudwatch10.png)
+11. Cuộn xuống dưới cùng và bấm **Next**.
+> ![Bấm Next](/aws-image/setupCloudWatch/cloudwatch11.png)
+12. Ở bước **Add alarm details**, đặt tên cho Alarm ở ô **Alarm name** (Ví dụ: `Lambda-Error-Alert`). Bạn có thể điền thêm mô tả ở ô bên dưới nếu cần. Sau đó cuộn xuống và bấm **Next**.
+> ![Đặt tên Alarm](/aws-image/setupCloudWatch/cloudwatch12.png)
 13. Màn hình Review cho phép bạn xem lại toàn bộ cấu hình. Cuộn xuống dưới cùng và bấm **Create alarm**.
 > ![Create Alarm](/aws-image/setupCloudWatch/cloudwatch13.png)
 14. Hệ thống báo xanh thành công, Alarm của bạn đã được tạo và sẵn sàng theo dõi lỗi.
 > ![Thành công](/aws-image/setupCloudWatch/cloudwatch14.png)
 
-Vậy là xong! Bây giờ, hễ hệ thống điểm danh chết hoặc có lỗi (Exception), bạn sẽ nhận được Email cảnh báo ngay lập tức để kịp thời khắc phục.
+Vậy là xong! Bây giờ, hễ hệ thống điểm danh chết hoặc có lỗi (Exception), bạn sẽ nhận được Email cảnh báo ngay lập tức để kịp thời khắc phục. Dưới đây là ví dụ về một email báo động (ALARM) mà bạn sẽ nhận được từ Amazon SNS thông báo rằng hệ thống đang gặp lỗi:
+
+> ![Email Cảnh Báo](/aws-image/setupCloudWatch/cloudwatch18.png)
