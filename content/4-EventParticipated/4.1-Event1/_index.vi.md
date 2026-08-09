@@ -89,4 +89,8 @@ pre: " <b> 4.1. </b> "
 Tham gia sự kiện **FCAJ Community Day** là một trải nghiệm kỹ thuật vô cùng thực tế và giá trị. Điểm ấn tượng nhất là chương trình không chỉ thuần lý thuyết mà được minh họa bằng chuỗi các bài **Live Demo trực tiếp** cực kỳ trực quan: từ việc Voice Bot phản hồi tương tác bằng giọng nói về sản phẩm Apple, kịch bản giả lập hacker tấn công DDoS vào cụm ECS Task của ứng dụng E-commerce để DevOps Agent nhảy vào tự động truy vết Log, cho đến việc thao tác trực tiếp trên giao diện Amazon Quick Desktop. Không khí giao lưu diễn ra rất sôi nổi qua các phiên đặt câu hỏi (Q&A) hóc búa về bài toán chi phí hạ tầng (Cost Optimization), giúp tôi tiếp thu được nhiều kinh nghiệm xương máu từ các chuyên gia đi trước.
 
 #### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của bạn tại đây
+![Event Image](/aws-image/event1/1786290035581_117422063285167014_2562150942337330825_15bb7201c893376a16de87a95a3357e2.jpg)
+![Event Image](/aws-image/event1/1786290035606_117422063285167014_2562150942337330825_7f8192c4c50ecd6f280995f5608d374d.jpg)
+![Event Image](/aws-image/event1/1786290035633_117422063285167014_2562150942337330825_ab8387e8923e50641d53c500dabacabf.jpg)
+![Event Image](/aws-image/event1/1786290035658_117422063285167014_2562150942337330825_c2542ff656894cf661a9acdf320bb2f1.jpg)
+![Event Image](/aws-image/event1/1786290035682_117422063285167014_2562150942337330825_6b6076c1733655bdee5208daf13cd454.jpg)

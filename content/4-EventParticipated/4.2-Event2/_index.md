@@ -1,16 +1,10 @@
 ---
-title: "Event 2"
+title: "FCAJ x Agentic AI Build Week"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
-
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
-
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
 
 ### Event Objectives
 
@@ -121,6 +115,14 @@ Attending the **“GenAI-powered App-DB Modernization”** workshop was extremel
 - AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
 
 #### Some event photos
-*Add your event photos here*  
+![Event Image](/aws-image/event2/1786289938790_117422063285167014_2562150942337330825_9826e7c9a37b676323df79073c35f939.jpg)
+![Event Image](/aws-image/event2/1786289938835_117422063285167014_2562150942337330825_4f4d73c4900292562860a738bf838f34.jpg)
+![Event Image](/aws-image/event2/1786289938886_117422063285167014_2562150942337330825_f31f05388391f8db149333b205272b9a.jpg)
+![Event Image](/aws-image/event2/1786289938950_117422063285167014_2562150942337330825_aa208e1157edaa727ef3eb8dcb5d6503.jpg)
+![Event Image](/aws-image/event2/1786289939015_117422063285167014_2562150942337330825_91e91e50a5fe62040b33a0866470ba77.jpg)
+![Event Image](/aws-image/event2/1786289939060_117422063285167014_2562150942337330825_aa6bbb8de3ecfd430ed8bf6499c88a84.jpg)
+![Event Image](/aws-image/event2/1786289939143_117422063285167014_2562150942337330825_17e5ab30a97259d4f393a1aa8733dea6.jpg)
+![Event Image](/aws-image/event2/1786289939203_117422063285167014_2562150942337330825_1757a1a86f6ee9b9dc4b0757e8d4e8de.jpg)
+![Event Image](/aws-image/event2/1786289939250_117422063285167014_2562150942337330825_1be42adc6efe5edfea1a97b928456c61.jpg)  
 
 > Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.

@@ -1,5 +1,5 @@
 ---
-title: "Event 1"
+title: "FCAJ Community Day"
 date: 2024-01-01
 weight: 1
 chapter: false
@@ -118,6 +118,10 @@ Attending the **“GenAI-powered App-DB Modernization”** workshop was extremel
 - AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
 
 #### Some event photos
-*Add your event photos here*  
+![Event Image](/aws-image/event1/1786290035581_117422063285167014_2562150942337330825_15bb7201c893376a16de87a95a3357e2.jpg)
+![Event Image](/aws-image/event1/1786290035606_117422063285167014_2562150942337330825_7f8192c4c50ecd6f280995f5608d374d.jpg)
+![Event Image](/aws-image/event1/1786290035633_117422063285167014_2562150942337330825_ab8387e8923e50641d53c500dabacabf.jpg)
+![Event Image](/aws-image/event1/1786290035658_117422063285167014_2562150942337330825_c2542ff656894cf661a9acdf320bb2f1.jpg)
+![Event Image](/aws-image/event1/1786290035682_117422063285167014_2562150942337330825_6b6076c1733655bdee5208daf13cd454.jpg)
 
 > Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.

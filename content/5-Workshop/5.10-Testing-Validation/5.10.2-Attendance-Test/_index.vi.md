@@ -23,6 +23,7 @@ pre : " <b> 5.10.2. </b> "
 **Bước 2: Đăng ký khuôn mặt lần đầu**
 
 Vì đây là lần đầu tiên tài khoản này sử dụng hệ thống, ứng dụng sẽ yêu cầu bạn đăng ký khuôn mặt.
+> ![Giao diện đăng ký khuôn mặt](/aws-image/setupTestcheckin/checkin1.png)
 
 1. Tại trang Điểm danh, bạn sẽ thấy thông báo **Tài khoản của bạn chưa có khuôn mặt**.
 2. Nhấn nút **Bật Camera** và cho phép trình duyệt truy cập Webcam.
@@ -33,13 +34,14 @@ Vì đây là lần đầu tiên tài khoản này sử dụng hệ thống, ứ
 
 ---
 
-**Bước 3: Xác thực ảnh đã lưu trên S3**
+**Bước 3: Xác thực dữ liệu đăng ký khuôn mặt (S3)**
 
 1. Vào AWS Console > **S3** > Bucket `smart-campus-images-{id}`.
-2. Mở thư mục `face/`.
-3. Bạn sẽ thấy file ảnh vừa chụp bằng Webcam được lưu với định dạng `{user_id}/{face_id}.jpg`.
+2. Mở thư mục `faces/`. Bạn sẽ thấy file ảnh vừa chụp bằng Webcam được lưu.
+> ![Danh sách ảnh trên S3](/aws-image/setupTestcheckin/checkin5.png)
+> ![Chi tiết ảnh S3](/aws-image/setupTestcheckin/checkin3.png)
 
-> **Kết quả mong đợi:** File ảnh tồn tại trong S3, có thể preview được chính xác ảnh bạn vừa chụp.
+> **Kết quả mong đợi:** File ảnh tồn tại trong S3.
 
 ---
 
@@ -51,17 +53,19 @@ Sau khi đã đăng ký khuôn mặt, giao diện Điểm danh sẽ chuyển san
 2. Nhấn nút **Chụp ảnh (Check in)**.
 3. Hệ thống sẽ gọi API `POST /api/attendance/recognize` để đối chiếu với ảnh gốc trong Rekognition.
 
-> **Kết quả mong đợi:** Có thông báo "Điểm danh thành công!", màn hình hiển thị tên, phòng ban và độ tin cậy (Confidence) của khuôn mặt. Đồng thời, một bản ghi điểm danh mới xuất hiện trong bảng "Lịch sử điểm danh hôm nay".
+> **Kết quả mong đợi:** Màn hình hiển thị tên, độ tin cậy (Confidence) của khuôn mặt. Nếu bạn check-in thành công lần đầu, sẽ có thông báo thành công. Nếu bạn điểm danh lại nhiều lần trong ngày, hệ thống sẽ hiện cảnh báo **"Điểm danh đã được ghi nhận trước đó (bỏ qua trùng lặp)"** như trong ảnh dưới.
+> ![Kết quả Check-in](/aws-image/setupTestcheckin/checkin4.png)
 
 ---
 
 **Bước 5: Xác thực bản ghi trong DynamoDB**
 
-1. Vào AWS Console > **DynamoDB** > Tables > `smart-campus-attendance`.
+1. Vào AWS Console > **DynamoDB** > Tables > `smart-campus-faces`.
 2. Bấm nút **Explore table items**.
-3. Bạn sẽ thấy bản ghi mới xuất hiện với các trường: `record_id`, `user_id`, `date`, `timestamp`, `status`.
+3. Bạn sẽ thấy bản ghi mới xuất hiện chứa metadata của khuôn mặt (bao gồm `faceId`, `confidence`, `s3Key`, `userId`).
+> ![Xác thực DynamoDB](/aws-image/setupTestcheckin/checkin6.png)
 
-> **Kết quả mong đợi:** Bản ghi điểm danh vừa thực hiện đã được ghi vào DynamoDB.
+> **Kết quả mong đợi:** Dữ liệu nhận diện khuôn mặt đã được lưu trữ thành công vào DynamoDB.
 
 ---
 
@@ -69,7 +73,8 @@ Sau khi đã đăng ký khuôn mặt, giao diện Điểm danh sẽ chuyển san
 
 Để đảm bảo hệ thống xử lý đúng, hãy thử:
 1. Nhờ một người khác (không phải bạn) ngồi vào trước Camera và nhấn Check in.
-2. Hoặc đưa một vật dụng (điện thoại, cốc nước) che mặt hoặc không có mặt người và nhấn Check in.
+2. Hoặc đưa một vật dụng (điện thoại, cốc nước) che mặt hoặc che hoàn toàn camera để không có mặt người và nhấn Check in.
 
-> **Kết quả mong đợi:** Hệ thống báo lỗi không nhận diện được hoặc không tìm thấy khuôn mặt trùng khớp.
+> **Kết quả mong đợi:** Hệ thống báo lỗi **"Không nhận diện được - Không phát hiện khuôn mặt trong ảnh"**.
+> ![Lỗi không nhận diện được](/aws-image/setupTestcheckin/checkin7.png)
 

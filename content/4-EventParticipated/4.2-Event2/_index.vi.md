@@ -1,5 +1,5 @@
 ---
-title: "Event 2"
+title: "FCAJ x Agentic AI Build Week"
 date: 2024-01-01
 weight: 1
 chapter: false
@@ -77,5 +77,13 @@ pre: " <b> 4.2. </b> "
 - Điều truyền cảm hứng nhất là tinh thần **Show Up. Build. Pitch** — cứ dấn thân, đăng ký đi rồi tính tiếp. Mọi nỗi sợ về việc "trình độ chưa đủ" đều bị xóa nhòa khi bạn được đưa vào một môi trường buộc phải tư duy và bứt phá giới hạn. Thông qua các phần trình bày, tôi không chỉ nạp thêm được vô số kiến thức mới về cách thiết kế Multi-Agent hay xử lý Real-time Video Stream, mà còn tự hứa với bản thân sẽ bước ra khỏi vùng an toàn, tham gia ít nhất một giải Hackathon trong thời gian tới để cọ xát và mở rộng network của chính mình.
 
 #### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
+![Event Image](/aws-image/event2/1786289938790_117422063285167014_2562150942337330825_9826e7c9a37b676323df79073c35f939.jpg)
+![Event Image](/aws-image/event2/1786289938835_117422063285167014_2562150942337330825_4f4d73c4900292562860a738bf838f34.jpg)
+![Event Image](/aws-image/event2/1786289938886_117422063285167014_2562150942337330825_f31f05388391f8db149333b205272b9a.jpg)
+![Event Image](/aws-image/event2/1786289938950_117422063285167014_2562150942337330825_aa208e1157edaa727ef3eb8dcb5d6503.jpg)
+![Event Image](/aws-image/event2/1786289939015_117422063285167014_2562150942337330825_91e91e50a5fe62040b33a0866470ba77.jpg)
+![Event Image](/aws-image/event2/1786289939060_117422063285167014_2562150942337330825_aa6bbb8de3ecfd430ed8bf6499c88a84.jpg)
+![Event Image](/aws-image/event2/1786289939143_117422063285167014_2562150942337330825_17e5ab30a97259d4f393a1aa8733dea6.jpg)
+![Event Image](/aws-image/event2/1786289939203_117422063285167014_2562150942337330825_1757a1a86f6ee9b9dc4b0757e8d4e8de.jpg)
+![Event Image](/aws-image/event2/1786289939250_117422063285167014_2562150942337330825_1be42adc6efe5edfea1a97b928456c61.jpg)
 > Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
