@@ -41,8 +41,7 @@ artifacts:
     - backend/lambda_function.zip
 ```
 
-> [!TIP]
-> After you commit this file to GitHub and the Pipeline runs for the first time, the Build step will automatically package the source code and update the Lambda function. Moving forward, every time there is a `git push` to the `main` branch, Lambda will automatically be updated.
+
 
 **Step 1: Initialize CodePipeline**
 1. Search for and access the **CodePipeline** service on the AWS Console.

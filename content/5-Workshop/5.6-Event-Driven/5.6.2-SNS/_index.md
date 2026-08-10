@@ -41,4 +41,4 @@ Similar to SES, the Email owner must agree to receive messages from SNS.
 > ![Subscription confirmed](/aws-image/setupSNS/sns-8.png)
 3. Return to the SNS screen, reload the page, and the status will change to **Confirmed**.
 
-Now, the `smart-campus-notifications` notification channel is completely ready. Any event (such as a Stranger Alert) sent to this Topic will instantly turn into an Email sent straight to HR.
+Now, the `smart-campus-notifications` notification channel is completely ready. Any event sent to this Topic will instantly turn into an Email sent straight to HR.

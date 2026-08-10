@@ -21,7 +21,7 @@ Trong hệ thống này, các dịch vụ AWS cần giao tiếp với nhau (Ví 
 ### 3. Cài đặt các công cụ (Tools) tại máy tính nội bộ
 Mặc dù bạn có thể cấu hình toàn bộ hệ thống bằng giao diện (AWS Console), việc cài đặt các công cụ dưới đây sẽ giúp bạn test API và quản lý source code dễ dàng hơn:
 - **Visual Studio Code (VSCode):** Để đọc và chỉnh sửa mã nguồn Frontend (React) và Backend (Python/FastAPI).
-- **Postman** hoặc **Thunder Client**: Dùng để test các API Endpoint mà chúng ta sắp tạo trên Amazon API Gateway.
+- **Postman** : Dùng để test các API Endpoint mà chúng ta sắp tạo trên Amazon API Gateway.
 - **Git:** Cần thiết để push source code lên kho lưu trữ và tích hợp với AWS CodePipeline sau này.
 
 ### 4. Source Code dự án

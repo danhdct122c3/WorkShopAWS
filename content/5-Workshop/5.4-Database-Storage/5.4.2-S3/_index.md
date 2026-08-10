@@ -13,8 +13,8 @@ Our system needs 2 separate buckets with different security policies:
 - **Name:** `smart-campus-frontend-{your-id}`.
 - Function: Store the Frontend source code (built to the `dist` folder).
 
-> [!NOTE]
-> Instructions for creating this bucket in full (including configuring Public Access and Static Website Hosting) will be provided in section **5.8.1**. At this step, you just need to remember that such a bucket will be needed.
+
+> Instructions for creating this bucket in full (including configuring Public Access and Static Website Hosting) will be provided in section **5.8.1**. 
 
 **Bucket 2: S3 Images (For storing face images)**
 - **Name:** `smart-campus-images-{your-id}`.

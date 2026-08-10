@@ -8,7 +8,7 @@ pre : " <b> 5.7. </b> "
 
 ### Mục tiêu (Goal)
 
-Ở các phần trước, mỗi khi có sinh viên điểm danh, hệ thống lưu kết quả vào DynamoDB (để truy vấn nhanh theo từng User) và bắn sự kiện qua EventBridge sang SQS/SNS. 
+Ở các phần trước, mỗi khi có người checkin, hệ thống lưu kết quả vào DynamoDB (để truy vấn nhanh theo từng User) và bắn sự kiện qua EventBridge sang SQS/SNS. 
 Đồng thời, chúng ta cũng có hàm Lambda **Analytics Worker** (phản hồi với hàng đợi SQS) tự động lấy các sự kiện điểm danh này và **ghi trực tiếp** thành các file JSON vào một **S3 Data Lake**.
 
 Sau khi dữ liệu đã nằm an toàn trên Data Lake, ta có thể dùng AWS Glue để tự động nội suy cấu trúc bảng (Schema), và dùng Amazon Athena để truy vấn dữ liệu bằng SQL. Toàn bộ quá trình này hoàn toàn tự động, phi máy chủ (Serverless) và tách biệt khỏi hệ thống API chính (OLTP). Thay vì phải Query trên DynamoDB (rất tốn kém và không phù hợp cho truy vấn thống kê lớn), chúng ta sẽ sử dụng kiến trúc Data Lake Serverless với **AWS Glue** và **Amazon Athena**.

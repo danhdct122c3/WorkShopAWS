@@ -21,7 +21,7 @@ In this system, AWS services need to communicate with each other (e.g., Lambda c
 ### 3. Install Local Tools
 Although you can configure the entire system using the UI (AWS Console), installing the tools below will help you test APIs and manage source code more easily:
 - **Visual Studio Code (VSCode):** To read and edit Frontend (React) and Backend (Python/FastAPI) source code.
-- **Postman** or **Thunder Client**: Used to test the API Endpoints we are about to create on Amazon API Gateway.
+- **Postman**: Used to test the API Endpoints we are about to create on Amazon API Gateway.
 - **Git:** Necessary to push source code to the repository and integrate with AWS CodePipeline later.
 
 ### 4. Project Source Code

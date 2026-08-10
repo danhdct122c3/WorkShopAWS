@@ -35,8 +35,7 @@ Now we need to create a Lambda function acting as a "worker": Reading events fro
 > ![Successfully created](/aws-image/setupLambdaWorker/lambda2.png)
 4. In the Lambda screen, scroll down to the **Code** tab: Delete all default content in the `lambda_function.py` file and paste the following code into it (this is a **standalone** version using only `boto3`, which can run directly on the AWS Console without packaging):
 
-> [!NOTE]
-> This is a simplified **Standalone** version for the Workshop. If you want to run the entire project source code (`backend/app/workers/analytics_worker.py`), please package it into a ZIP file and upload it following the instructions in section **5.5.2**.
+
 
 ```python
 import json

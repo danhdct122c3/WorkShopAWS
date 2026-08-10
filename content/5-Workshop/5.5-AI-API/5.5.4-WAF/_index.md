@@ -82,8 +82,8 @@ To ensure that the attendance API `/api/attendance/recognize` can only be access
 > ![Connectivity Config](/aws-image/setupWAF/waf22.png)
 15. Double-check the information on the **Review and create** page and click **Create distribution**.
 > ![Review and Create](/aws-image/setupWAF/waf20.png)
-16. Wait for the *Deploying* process to complete. You can use the **Distribution domain name** (e.g., `d2utvhhrx300xg.cloudfront.net`) as the new Endpoint to call the API instead of the direct Invoke URL!
+16. Wait for the *Deploying* process to complete. You can use the **Distribution domain name** as the new Endpoint to call the API instead of the direct Invoke URL!
 > ![Distribution Success](/aws-image/setupWAF/waf21.png)
 
-> **[ARCHITECTURE EXPLANATION]**
-> Because HTTP API of API Gateway does not support direct integration with AWS WAF, putting CloudFront as an intermediary buffer layer is an excellent design solution. CloudFront helps accelerate speed via the Edge Network while also acting as an attachment point for WAF to block unauthorized attendance access from outside the company network.
+
+> Because HTTP API of API Gateway does not support direct integration with AWS WAF, putting CloudFront as an intermediary buffer layer helps accelerate speed via the Edge Network while also acting as an attachment point for WAF to block unauthorized access.

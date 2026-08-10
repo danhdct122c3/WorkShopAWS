@@ -20,7 +20,6 @@ Amazon DynamoDB được chọn vì tốc độ phản hồi cực nhanh (chỉ 
 | `smart-campus-holidays` | `date` | - | Quản lý ngày nghỉ lễ |
 | `smart-campus-leaves` | `request_id` | *(Tùy chọn theo Backend)* | Quản lý đơn xin nghỉ phép |
 | `smart-campus-notifications` | `notification_id` | *(Tùy chọn theo Backend)* | Quản lý lịch sử gửi thông báo |
-| `smart-campus-security` | `incident_id` | - | Lưu trữ nhật ký bảo mật |
 | `smart-campus-settings` | `setting_key` | - | Quản lý cấu hình chung |
 | `smart-campus-tasks` | `task_id` | *(Tùy chọn theo Backend)* | Quản lý các công việc tự động |
 

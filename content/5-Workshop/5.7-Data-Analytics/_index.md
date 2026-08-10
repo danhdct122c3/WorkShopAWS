@@ -8,7 +8,7 @@ pre : " <b> 5.7. </b> "
 
 ### Goal
 
-In the previous sections, whenever a student marks attendance, the system saves the result into DynamoDB (for fast per-user querying) and emits an event via EventBridge to SQS/SNS. 
+In the previous sections, whenever a user checkin, the system saves the result into DynamoDB (for fast per-user querying) and emits an event via EventBridge to SQS/SNS. 
 Simultaneously, we also have an **Analytics Worker** Lambda function (responding to the SQS queue) that automatically pulls these attendance events and **writes directly** as JSON files into an **S3 Data Lake**.
 
 Once the data safely resides in the Data Lake, we can use AWS Glue to automatically infer the table schema, and use Amazon Athena to query the data using SQL. This entire process is fully automated, serverless, and isolated from the main API system (OLTP). Instead of having to query DynamoDB (which is very expensive and unsuitable for large statistical queries), we will use a Serverless Data Lake architecture with **AWS Glue** and **Amazon Athena**.

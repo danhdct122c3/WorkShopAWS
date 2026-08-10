@@ -8,7 +8,7 @@ pre : " <b> 5.5.4. </b> "
 
 #### 5.5.4. Cấu hình bảo vệ API bằng AWS WAF và CloudFront
 
-> [!NOTE]
+
 > **Phân biệt 2 CloudFront Distribution trong workshop này:**
 > - **CloudFront này (5.3.3):** Đứng trước **API Gateway** — mục đích là gắn WAF để bảo vệ Backend API, ngăn chặn truy cập từ bên ngoài Campus.
 > - **CloudFront ở bài 5.8.2:** Đứng trước **S3 Frontend** — mục đích là tăng tốc tải trang web cho người dùng cuối.
@@ -82,8 +82,8 @@ pre : " <b> 5.5.4. </b> "
 > ![Connectivity Config](/aws-image/setupWAF/waf22.png)
 15. Kiểm tra lại thông tin ở trang **Review and create** và bấm **Create distribution**.
 > ![Review and Create](/aws-image/setupWAF/waf20.png)
-16. Chờ quá trình *Deploying* hoàn tất. Bạn có thể sử dụng **Distribution domain name** (ví dụ: `d2utvhhrx300xg.cloudfront.net`) làm Endpoint mới để gọi API thay cho Invoke URL trực tiếp!
+16. Chờ quá trình *Deploying* hoàn tất. Bạn có thể sử dụng **Distribution domain name** làm Endpoint mới để gọi API thay cho Invoke URL trực tiếp!
 > ![Distribution Success](/aws-image/setupWAF/waf21.png)
 
 > **[GIẢI THÍCH KIẾN TRÚC]**
-> Do HTTP API của API Gateway không hỗ trợ tích hợp trực tiếp với AWS WAF, việc đưa CloudFront làm lớp đệm trung gian là một giải pháp thiết kế tuyệt vời. CloudFront vừa giúp tăng tốc độ qua Edge Network, vừa là điểm gắn WAF để chặn đứng các truy cập điểm danh trái phép từ bên ngoài mạng lưới công ty.
+> Do HTTP API của API Gateway không hỗ trợ tích hợp trực tiếp với AWS WAF, việc đưa CloudFront làm lớp đệm trung gian vừa giúp tăng tốc độ qua Edge Network, vừa là điểm gắn WAF để chặn đứng truy cập trái phép.

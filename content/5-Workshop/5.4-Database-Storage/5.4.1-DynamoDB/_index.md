@@ -20,7 +20,6 @@ For the Smart Campus system to operate perfectly as designed by the Backend, the
 | `smart-campus-holidays` | `date` | - | Manage public holidays |
 | `smart-campus-leaves` | `request_id` | *(Optional depending on Backend)* | Manage leave requests |
 | `smart-campus-notifications` | `notification_id` | *(Optional depending on Backend)* | Manage notification sending history |
-| `smart-campus-security` | `incident_id` | - | Store security logs |
 | `smart-campus-settings` | `setting_key` | - | Manage general configurations |
 | `smart-campus-tasks` | `task_id` | *(Optional depending on Backend)* | Manage automated tasks |
 

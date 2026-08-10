@@ -9,7 +9,7 @@ pre : " <b> 5.6.3. </b> "
 #### 4.3. Configure Amazon SQS (Queue)
 Amazon SQS (Simple Queue Service) acts as a "buffer". By routing events into SQS before calling Lambda to process them (sending emails, writing Analytics logs), the system will never be overloaded or lose data even when thousands of students mark attendance simultaneously.
 
-> **[IMPORTANT NOTE]** To ensure data integrity, best practice is to always create an accompanying **Dead-Letter Queue (DLQ)**. The DLQ will hold messages that error out and cannot be processed for you to investigate later.
+
 
 **Step 1: Create a Dead-Letter Queue (DLQ)**
 

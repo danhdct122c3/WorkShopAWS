@@ -38,8 +38,4 @@ API Gateway is the sole entry point receiving all requests from the Frontend and
 9. Verify by opening a new tab, pasting the Invoke URL, and appending `/docs` at the end. If the **Swagger UI** interface appears, API Gateway has successfully connected to Lambda!
 > ![Check Swagger UI](/aws-image/setupAPI/api9.png)
 
-> [!TIP]
-> Within the scope of this Lab, API Gateway is configured in Public mode for easy testing via Swagger UI. In a Production environment, you should add a **JWT Authorizer** (Cognito) for sensitive Routes.
-
-> [!NOTE]
-> 📋 **Checklist:** Save the **Invoke URL** (format `https://[id].execute-api.ap-southeast-1.amazonaws.com/`). The next step (5.5.4 WAF) will use this URL to configure CloudFront to protect the API.
+**Checklist:** Save the **Invoke URL**. The next step (5.5.4 WAF) will use this URL to configure CloudFront to protect the API.

@@ -9,7 +9,6 @@ pre : " <b> 5.6.3. </b> "
 #### 4.3. Cấu hình Amazon SQS (Hàng đợi)
 Amazon SQS (Simple Queue Service) đóng vai trò là một "vùng đệm" (Buffer). Bằng cách cho các sự kiện đi vào SQS trước khi gọi Lambda xử lý (gửi email, ghi log Analytics), hệ thống sẽ không bao giờ bị quá tải hoặc mất dữ liệu ngay cả khi có hàng nghìn sinh viên điểm danh cùng lúc.
 
-> **[LƯU Ý QUAN TRỌNG]** Để đảm bảo tính toàn vẹn dữ liệu, best practice là luôn tạo một **Dead-Letter Queue (DLQ)** đi kèm. DLQ sẽ chứa những message bị lỗi không xử lý được để bạn điều tra sau này.
 
 **Bước 1: Tạo Dead-Letter Queue (DLQ)**
 

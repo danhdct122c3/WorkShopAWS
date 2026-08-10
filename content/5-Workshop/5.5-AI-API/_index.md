@@ -1,5 +1,5 @@
 ---
-title : "AI & Core API Configuration"
+title : "Core API Config"
 date : 2024-01-01
 weight : 5
 chapter : false
@@ -14,7 +14,7 @@ This is the "heart" of the Smart Campus system. In this section, you will sequen
 3. Create an **API Gateway** — the entry point receiving requests from the Frontend and routing them down to Lambda.
 4. Configure **AWS WAF** — to protect the attendance API, blocking access from outside the Campus network.
 
-> [!TIP]
+
 > The execution order is very important: **Rekognition → Lambda → API Gateway → WAF**. Each step depends on the results of the previous one.
 
 ### Detailed Practice Content

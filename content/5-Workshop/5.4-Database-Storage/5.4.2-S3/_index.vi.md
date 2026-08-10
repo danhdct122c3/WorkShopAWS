@@ -13,8 +13,8 @@ Hệ thống của chúng ta cần 2 bucket riêng biệt với các chính sác
 - **Tên:** `smart-campus-frontend-{your-id}`.
 - Chức năng: Lưu trữ mã nguồn Frontend (đã build ra thư mục `dist`).
 
-> [!NOTE]
-> Bucket này sẽ được hướng dẫn tạo đầy đủ (bao gồm cấu hình Public Access và Static Website Hosting) tại mục **5.8.1**. Tại bước này bạn chỉ cần ghi nhớ sẽ cần một bucket như vậy.
+
+Bucket này sẽ được hướng dẫn tạo đầy đủ (bao gồm cấu hình Public Access và Static Website Hosting) tại mục **5.8.1**.
 
 **Bucket 2: S3 Images (Lưu ảnh khuôn mặt)**
 - **Tên:** `smart-campus-images-{your-id}`.

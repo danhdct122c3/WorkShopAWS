@@ -41,8 +41,7 @@ artifacts:
     - backend/lambda_function.zip
 ```
 
-> [!TIP]
-> Sau khi bạn commit file này lên GitHub và Pipeline chạy lần đầu, bước Build sẽ tự động đóng gói source code và cập nhật Lambda function. Các lần sau, mỗi khi có `git push` lên nhánh `main`, Lambda sẽ tự động được cập nhật.
+
 
 **Bước 1: Khởi tạo CodePipeline**
 1. Tìm kiếm và truy cập dịch vụ **CodePipeline** trên AWS Console.

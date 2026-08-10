@@ -41,4 +41,4 @@ Tương tự như SES, chủ sở hữu Email phải đồng ý nhận tin nhắ
 > ![Subscription confirmed](/aws-image/setupSNS/sns-8.png)
 3. Quay lại màn hình SNS, tải lại trang, trạng thái sẽ chuyển thành **Confirmed**.
 
-Bây giờ, kênh thông báo `smart-campus-notifications` đã hoàn toàn sẵn sàng. Bất kỳ sự kiện nào (như Cảnh báo người lạ) được gửi vào Topic này sẽ lập tức biến thành một Email gửi thẳng đến nhân sự.
+Bây giờ, kênh thông báo `smart-campus-notifications` đã hoàn toàn sẵn sàng. Bất kỳ sự kiện nào được gửi vào Topic này sẽ lập tức biến thành một Email gửi thẳng đến nhân sự.

@@ -24,8 +24,7 @@ Mỗi bước kiểm thử đều có **kết quả mong đợi cụ thể**, gi
 | **5.10.4** | Kiểm thử Log & Metric giám sát | CloudWatch, X-Ray |
 | **5.10.5** | Dọn dẹp tài nguyên (Clean-up) | Tất cả dịch vụ đã tạo |
 
-> [!IMPORTANT]
-> Trước khi bắt đầu kiểm thử, hãy đảm bảo bạn đã **quay lại mục 5.5.2** để điền đầy đủ tất cả biến môi trường cho hàm Lambda (SNS Topic ARN, SES Email...) từ phần 5.6.
+
 
 
 #### 1. Kiểm thử gửi Request (Postman / Frontend)

@@ -38,8 +38,7 @@ API Gateway là cổng duy nhất tiếp nhận toàn bộ request từ Frontend
 9. Kiểm tra bằng cách mở tab mới, dán Invoke URL và thêm `/docs` vào cuối. Nếu giao diện **Swagger UI** hiện ra là API Gateway đã kết nối thành công với Lambda!
 > ![Kiểm tra Swagger UI](/aws-image/setupAPI/api9.png)
 
-> [!TIP]
-> Trong phạm vi bài Lab này, API Gateway được cấu hình ở chế độ Public để dễ kiểm thử qua Swagger UI. Trong môi trường Production, bạn nên bổ sung **JWT Authorizer** (Cognito) cho các Route nhạy cảm.
 
-> [!NOTE]
-> 📋 **Checklist:** Lưu lại **Invoke URL** (dạng `https://[id].execute-api.ap-southeast-1.amazonaws.com/`). Bước tiếp theo (5.5.4 WAF) sẽ dùng URL này để cấu hình CloudFront bảo vệ API.
+
+
+> 📋 **Checklist:** Lưu lại **Invoke URL**  Bước tiếp theo (5.5.4 WAF) sẽ dùng URL này để cấu hình CloudFront bảo vệ API.

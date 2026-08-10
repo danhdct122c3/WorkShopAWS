@@ -35,8 +35,7 @@ Bây giờ ta cần tạo một hàm Lambda đóng vai trò "công nhân": Đọ
 > ![Tạo thành công](/aws-image/setupLambdaWorker/lambda2.png)
 4. Trong màn hình Lambda, cuộn xuống tab **Code**: Xóa toàn bộ nội dung mặc định trong file `lambda_function.py` và dán đoạn code sau vào (đây là phiên bản **standalone** chỉ dùng `boto3`, có thể chạy thẳng trên AWS Console mà không cần đóng gói):
 
-> [!NOTE]
-> Đây là phiên bản **Standalone** được đơn giản hóa dành cho Workshop. Nếu bạn muốn chạy toàn bộ source code dự án (`backend/app/workers/analytics_worker.py`), hãy đóng gói thành file ZIP và upload theo hướng dẫn ở mục **5.5.2**.
+
 
 ```python
 import json

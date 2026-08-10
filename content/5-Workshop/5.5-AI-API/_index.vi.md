@@ -1,5 +1,5 @@
 ---
-title : "Cấu hình AI & Core API"
+title : "Cấu hình Core API"
 date : 2024-01-01
 weight : 5
 chapter : false
@@ -14,7 +14,7 @@ pre : " <b> 5.5. </b> "
 3. Tạo **API Gateway** — điểm tiếp nhận request từ Frontend, chuyển hướng xuống Lambda.
 4. Cấu hình **AWS WAF** — bảo vệ API điểm danh, chặn các truy cập từ bên ngoài mạng Campus.
 
-> [!TIP]
+
 > Thứ tự thực hiện rất quan trọng: **Rekognition → Lambda → API Gateway → WAF**. Mỗi bước phụ thuộc vào kết quả của bước trước.
 
 ### Các nội dung thực hành chi tiết
