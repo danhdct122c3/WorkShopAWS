@@ -1,9 +1,9 @@
----
+﻿---
 title: "Week 8: Project Summary & Report Writing"
 date: 2026-06-22
 weight: 8
 chapter: false
-pre: " <b> 1.2.8. </b> "
+pre: " <b> 1.8. </b> "
 ---
 
 # Week 8: Project Summary & Report Writing
@@ -36,3 +36,4 @@ Complete the internship report documents, record a demo video, design presentati
 ## 5. Plan for Next Week
 - Review this week's completed work.
 - Begin research and implementation of tasks for Week Project Wrap-up.
+

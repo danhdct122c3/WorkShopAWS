@@ -1,9 +1,9 @@
----
+﻿---
 title: "Week 4: Build Core API & Rule Engine"
 date: 2026-06-22
 weight: 4
 chapter: false
-pre: " <b> 1.2.4. </b> "
+pre: " <b> 1.4. </b> "
 ---
 
 # Week 4: Build Core API & Rule Engine
@@ -36,3 +36,4 @@ Complete CRUD for Users, Tasks. Write a Rule Engine to calculate On-time/Late at
 ## 5. Plan for Next Week
 - Review this week's completed work.
 - Begin research and implementation of tasks for Week 5.
+

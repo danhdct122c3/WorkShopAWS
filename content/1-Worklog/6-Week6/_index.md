@@ -1,9 +1,9 @@
----
+﻿---
 title: "Week 6: Integrate Multi-factor Authentication (Cognito)"
 date: 2026-06-22
 weight: 6
 chapter: false
-pre: " <b> 1.2.6. </b> "
+pre: " <b> 1.6. </b> "
 ---
 
 # Week 6: Integrate Multi-factor Authentication (Cognito)
@@ -36,3 +36,4 @@ Create an Amazon Cognito User Pool. Write middleware to block APIs, only allowin
 ## 5. Plan for Next Week
 - Review this week's completed work.
 - Begin research and implementation of tasks for Week 7.
+

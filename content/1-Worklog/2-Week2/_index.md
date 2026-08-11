@@ -1,9 +1,9 @@
----
+﻿---
 title: "Week 2: Business Analysis & ERD Diagram"
 date: 2026-06-22
 weight: 2
 chapter: false
-pre: " <b> 1.2.2. </b> "
+pre: " <b> 1.2. </b> "
 ---
 
 # Week 2: Business Analysis & ERD Diagram
@@ -36,3 +36,4 @@ Analyze business requirements. Design the NoSQL Entity Relationship Diagram (ERD
 ## 5. Plan for Next Week
 - Review this week's completed work.
 - Begin research and implementation of tasks for Week 3.
+

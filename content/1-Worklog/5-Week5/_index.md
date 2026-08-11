@@ -1,9 +1,9 @@
----
+﻿---
 title: "Week 5: Handle File Uploads (Presigned URL)"
 date: 2026-06-22
 weight: 5
 chapter: false
-pre: " <b> 1.2.5. </b> "
+pre: " <b> 1.5. </b> "
 ---
 
 # Week 5: Handle File Uploads (Presigned URL)
@@ -36,3 +36,4 @@ Handle the file upload problem by issuing Presigned URLs (AWS S3) instead of pas
 ## 5. Plan for Next Week
 - Review this week's completed work.
 - Begin research and implementation of tasks for Week 6.
+
