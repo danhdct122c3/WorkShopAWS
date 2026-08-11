@@ -104,4 +104,4 @@ At this point, the Pipeline will start running but the Build step will show a re
 
 **Complete**
 Return to the CodePipeline page, click the **Release change** (or Retry) button to run again. If all steps show green, your Backend has successfully gone to the cloud automatically!
-> ![Complete](/aws-image/setupCodePipeline/pipeline25.png)
+> ![Complete](/aws-image/setupCodePipeline/pipelinenew.png)

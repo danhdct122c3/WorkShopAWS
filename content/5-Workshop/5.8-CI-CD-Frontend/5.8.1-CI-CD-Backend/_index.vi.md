@@ -104,5 +104,5 @@ Lúc này Pipeline sẽ bắt đầu chạy nhưng bước Build sẽ báo lỗi
 
 **Hoàn tất**
 Quay lại trang CodePipeline, bấm nút **Release change** (hoặc Retry) để chạy lại. Nếu tất cả các bước đều hiện màu xanh là Backend của bạn đã tự động lên mây thành công!
-> ![Hoàn tất](/aws-image/setupCodePipeline/pipeline25.png)
+> ![Hoàn tất](/aws-image/setupCodePipeline/pipelinenew.png)
 
