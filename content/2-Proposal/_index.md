@@ -97,11 +97,10 @@ The entire Smart Campus Platform architecture is designed to strictly adhere to 
 ## 5. Expected Timeline
 | Week | Task Items |
 | :--- | :--- |
-| **Week 1-2** | Requirements analysis, system architecture design, UML and Architecture diagramming. Setup AWS network resources, CloudFront, WAF, static S3. |
-| **Week 3-5** | Build Backend API (FastAPI) on AWS Lambda and DynamoDB. Integrate Cognito and Rekognition for facial attendance features. |
-| **Week 6-8** | Design Event-Driven Architecture with EventBridge and SQS. Finalize Notification flows (SNS/SES). |
-| **Week 9-10**| Build Data Lake Pipeline (Firehose -> S3 -> Glue -> Athena) for Analytics Reporting. Build ReactJS Frontend connecting to API. |
-| **Week 11-12**| Integrate CI/CD (CodeBuild, CodePipeline), Automation Testing, performance optimization (X-Ray), summary and report writing. |
+| **Week 1-2** | Requirements analysis, system architecture design. Setup AWS network resources, CloudFront, WAF, static S3. Build basic ReactJS Frontend. |
+| **Week 3-4** | Build Backend API (FastAPI) on AWS Lambda and DynamoDB. Integrate Cognito and Rekognition for facial attendance features. |
+| **Week 5-6** | Design Event-Driven Architecture with EventBridge and SQS. Build Data Lake Pipeline for Analytics Reporting. |
+| **Week 7-8** | Integrate CI/CD (CodeBuild, CodePipeline), Automation Testing, finalize Notification flows (SNS/SES), summary and report writing. |
 
 ## 6. Monthly Budget Estimation
 The budget estimation is calculated based on the actual operating scale of a medium-sized campus: **200 employees, each checking in an average of 1 to 4 times/day** (morning arrival, lunch break, afternoon return, evening departure). In total, the system will process approximately **20,000 attendance checks/month** and about **150,000 API requests/month** (including task assignment, reporting, leaves).

@@ -98,11 +98,10 @@ Toàn bộ kiến trúc của Smart Campus Platform được thiết kế tuân 
 ## 5. Timeline dự kiến
 | Tuần | Hạng mục công việc |
 | :--- | :--- |
-| **Tuần 1-2** | Phân tích yêu cầu, thiết kế kiến trúc hệ thống, vẽ sơ đồ UML và Architecture. Thiết lập tài nguyên mạng AWS, CloudFront, WAF, S3 tĩnh. |
-| **Tuần 3-5** | Xây dựng Backend API (FastAPI) trên AWS Lambda và DynamoDB. Tích hợp Cognito và Rekognition cho tính năng điểm danh bằng khuôn mặt. |
-| **Tuần 6-8** | Thiết kế Event-Driven Architecture với EventBridge và SQS. Hoàn thiện luồng Gửi thông báo (SNS/SES). |
-| **Tuần 9-10**| Xây dựng Data Lake Pipeline (Firehose -> S3 -> Glue -> Athena) phục vụ Báo cáo Analytics. Xây dựng Frontend ReactJS kết nối API. |
-| **Tuần 11-12**| Tích hợp CI/CD (CodeBuild, CodePipeline), Automation Testing, tối ưu hiệu năng (X-Ray), tổng kết và viết báo cáo. |
+| **Tuần 1-2** | Phân tích yêu cầu, thiết kế kiến trúc hệ thống. Thiết lập mạng AWS, CloudFront, WAF, S3 tĩnh. Xây dựng Frontend ReactJS cơ bản. |
+| **Tuần 3-4** | Xây dựng Backend API (FastAPI) trên AWS Lambda và DynamoDB. Tích hợp Cognito và Rekognition cho tính năng điểm danh bằng khuôn mặt. |
+| **Tuần 5-6** | Thiết kế Event-Driven Architecture với EventBridge và SQS. Xây dựng Data Lake Pipeline phục vụ Báo cáo Analytics. |
+| **Tuần 7-8** | Tích hợp CI/CD (CodeBuild, CodePipeline), Automation Testing, hoàn thiện luồng Gửi thông báo (SNS/SES), tổng kết và viết báo cáo. |
 
 ## 6. Ước Tính Ngân Sách Hàng Tháng (Monthly Budget Estimation)
 Dự toán ngân sách được tính dựa trên quy mô vận hành thực tế tại 1 khuôn viên vừa: **200 nhân viên, mỗi người điểm danh trung bình từ 1 đến 4 lượt/ngày** (sáng đến, trưa đi ăn, chiều quay lại, tối về). Tổng cộng hệ thống sẽ xử lý khoảng **20.000 lượt điểm danh/tháng** và khoảng **150.000 API requests/tháng** (bao gồm cả giao việc, báo cáo, nghỉ phép).
