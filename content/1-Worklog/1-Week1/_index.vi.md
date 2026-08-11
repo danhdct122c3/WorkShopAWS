@@ -16,22 +16,13 @@ Tìm hiểu nội quy chương trình thực tập. Làm quen với hệ sinh th
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 |---|---|---|---|---|
-| 2 | - Làm quen với các thành viên FCAJ<br>- Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập | 22/06/2026 | 22/06/2026 | https://docs.aws.amazon.com/ |
-| 3 | - Tìm hiểu AWS và các loại dịch vụ<br>  + Compute<br>  + Storage<br>  + Networking<br>  + Database | 23/06/2026 | 23/06/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 4 | - Tạo AWS Free Tier account<br>- Tìm hiểu AWS Console & AWS CLI<br>- **Thực hành:**<br>  + Tạo AWS account<br>  + Cài AWS CLI & cấu hình<br>  + Cách sử dụng AWS CLI | 24/06/2026 | 24/06/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 5 | - Tìm hiểu EC2 cơ bản:<br>  + Instance types<br>  + AMI | 25/06/2026 | 25/06/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 6 | - Tìm hiểu các dịch vụ Serverless cơ bản (S3, Lambda, DynamoDB)<br>- Cập nhật tài liệu báo cáo tuần | 26/06/2026 | 26/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 2 | - Đọc quy định, tìm hiểu mô hình Cloud Computing (IaaS, PaaS, SaaS).<br>- Phân tích AWS Global Infrastructure (Region, AZ) và các dịch vụ cốt lõi. | 22/06/2026 | 22/06/2026 | https://docs.aws.amazon.com/ |
+| 3 | - Khởi tạo tài khoản AWS Free Tier và làm quen với AWS Console.<br>- Nghiên cứu IAM (Users, Roles, Policies) và nguyên tắc Least Privilege. | 23/06/2026 | 23/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Thiết lập AWS Budgets và cài đặt, cấu hình AWS CLI.<br>- Tạo IAM User và thực hành gọi API thông qua AWS CLI. | 24/06/2026 | 24/06/2026 | https://docs.aws.amazon.com/ |
+| 5 | - Tìm hiểu kiến trúc Serverless, Event-Driven Architecture (Pub/Sub, Streaming).<br>- Nghiên cứu cơ chế hoạt động của Amazon EventBridge, API Gateway và AWS Lambda. | 25/06/2026 | 25/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 6 | - Viết hàm Lambda `Hello World` và cấu hình trigger từ API Gateway.<br>- Kiểm thử thành công REST endpoint Serverless bằng Postman. | 26/06/2026 | 26/06/2026 | https://docs.aws.amazon.com/ |
+
 
 
 ## 3. Các kết quả đạt được
-- Hoàn thành các tính năng và mục tiêu đề ra trong tuần.
-- Tích hợp thành công với các dịch vụ AWS liên quan (nếu có).
-- Đảm bảo chất lượng công việc đáp ứng yêu cầu của dự án.
-
-## 4. Khó khăn & Hướng giải quyết
-- **Khó khăn:** Quá trình tìm hiểu và tích hợp đôi lúc gặp lỗi không mong muốn. Cần nhiều thời gian đọc log và tài liệu kỹ thuật của AWS.
-- **Giải pháp:** Phối hợp cùng các thành viên khác trong nhóm để trao đổi, đọc kỹ tài liệu hướng dẫn và tham khảo thêm ý kiến của Mentor.
-
-## 5. Kế hoạch tuần tiếp theo
-- Rà soát lại công việc của tuần này (Review).
-- Bắt tay vào nghiên cứu và triển khai các nhiệm vụ của Tuần 2.
+- Nắm được nền tảng AWS, cài đặt thành công CLI và tạo REST endpoint Serverless đầu tiên.

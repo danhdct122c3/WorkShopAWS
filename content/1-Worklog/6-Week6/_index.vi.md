@@ -17,22 +17,13 @@ Tạo Amazon Cognito User Pool. Viết lớp middleware để chặn các API, c
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 |---|---|---|---|---|
-| 2 | - Thiết lập Amazon Cognito User Pool. Cấu hình các chính sách yêu cầu bảo mật (Password policy). | 27/07/2026 | 27/07/2026 | Tài liệu AWS / Github |
-| 3 | - Viết script tự động đồng bộ: Thêm User mới vào DynamoDB sẽ tự tạo account trong Cognito. | 28/07/2026 | 28/07/2026 | StackOverflow |
-| 4 | - Xây dựng lớp bảo vệ API (Dependency Auth). Fetch Public Keys (JWKS) từ Cognito về để lưu cache. | 29/07/2026 | 29/07/2026 | API Docs |
-| 5 | - Dùng thư viện python-jose giải mã và kiểm tra Signature JWT Access Token. | 30/07/2026 | 30/07/2026 | AWS Blogs |
-| 6 | - Gắn Dependency Auth vào các Endpoint. Khai báo Security Schema để test trực tiếp trên Swagger UI. | 31/07/2026 | 31/07/2026 | Báo cáo tuần |
+| 2 | - Tích hợp AWS Cognito cho luồng Auth: Gọi `admin_create_user` để tạo tài khoản.<br>- Xử lý logic Cognito tự sinh Temporary Password mà không cần email thủ công. | 27/07/2026 | 27/07/2026 | https://docs.aws.amazon.com/ |
+| 3 | - Xây dựng API `respond-challenge` để xử lý trạng thái NEW_PASSWORD_REQUIRED.<br>- Thêm middleware kiểm tra JWT token và phân quyền RBAC. | 28/07/2026 | 28/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Hoàn thiện API đăng nhập: Trả về JWT Access Token và Id Token cho client.<br>- Cập nhật API tự đăng ký khuôn mặt mà không cần qua Admin. | 29/07/2026 | 29/07/2026 | https://docs.aws.amazon.com/ |
+| 5 | - Thêm rào chắn chống trùng lặp khuôn mặt: Gọi `SearchFacesByImage` trước khi `IndexFaces`.<br>- Phát triển tính năng đăng nhập bằng khuôn mặt trả về JWT thay thế mật khẩu. | 30/07/2026 | 30/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 6 | - Rà soát phân quyền API Backend theo RBAC: Chặn các role không hợp lệ truy cập.<br>- Khắc phục lỗi rò rỉ, tối ưu bảo mật theo 6 trụ cột AWS Well-Architected Framework. | 31/07/2026 | 31/07/2026 | https://docs.aws.amazon.com/ |
+
 
 
 ## 3. Các kết quả đạt được
-- Hoàn thành các tính năng và mục tiêu đề ra trong tuần.
-- Tích hợp thành công với các dịch vụ AWS liên quan (nếu có).
-- Đảm bảo chất lượng công việc đáp ứng yêu cầu của dự án.
-
-## 4. Khó khăn & Hướng giải quyết
-- **Khó khăn:** Quá trình tìm hiểu và tích hợp đôi lúc gặp lỗi không mong muốn. Cần nhiều thời gian đọc log và tài liệu kỹ thuật của AWS.
-- **Giải pháp:** Phối hợp cùng các thành viên khác trong nhóm để trao đổi, đọc kỹ tài liệu hướng dẫn và tham khảo thêm ý kiến của Mentor.
-
-## 5. Kế hoạch tuần tiếp theo
-- Rà soát lại công việc của tuần này (Review).
-- Bắt tay vào nghiên cứu và triển khai các nhiệm vụ của Tuần 7.
+- Tích hợp hoàn chỉnh AWS Cognito, bảo mật toàn bộ API bằng JWT, và hoàn thiện RBAC Backend.

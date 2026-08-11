@@ -17,22 +17,13 @@ Hoàn thành CRUD cho Users, Tasks. Viết Rule Engine tính toán logic Điểm
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 |---|---|---|---|---|
-| 2 | - Viết API CRUD Quản lý công việc và Đơn từ. Sử dụng GSI truy vấn danh sách theo mã nhân viên. | 13/07/2026 | 13/07/2026 | Tài liệu AWS / Github |
-| 3 | - Áp dụng kỹ thuật Denormalization trên DynamoDB để tránh JOIN bảng, giảm thời gian phản hồi. | 14/07/2026 | 14/07/2026 | StackOverflow |
-| 4 | - Viết API nhận log điểm danh (đã qua nhận diện AI) từ frontend truyền xuống. | 15/07/2026 | 15/07/2026 | API Docs |
-| 5 | - Xây dựng Rule Engine Điểm danh: Query giờ làm việc chuẩn để gán trạng thái PRESENT hoặc LATE. | 16/07/2026 | 16/07/2026 | AWS Blogs |
-| 6 | - Mở rộng Rule Engine xử lý Early Leave và viết Unit Test cho khối logic bằng Pytest. | 17/07/2026 | 17/07/2026 | Báo cáo tuần |
+| 2 | - Thiết lập S3 Bucket (Block Public Access) và viết lớp wrapper `rekognition.py`.<br>- Tích hợp các hàm `IndexFaces` và `SearchFacesByImage` vào Backend. | 13/07/2026 | 13/07/2026 | https://docs.aws.amazon.com/ |
+| 3 | - Hoàn thành API đăng ký khuôn mặt (nhận ảnh base64, decode, validate).<br>- Xử lý lưu ảnh gốc lên S3 và gọi IndexFaces để sinh `faceId` lưu vào DynamoDB. | 14/07/2026 | 14/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Xây dựng Rule Engine điểm danh với 3 ca làm việc (Morning, Afternoon, Evening).<br>- Cài đặt logic tự động phân loại trạng thái điểm danh (PRESENT, LATE, REJECTED). | 15/07/2026 | 15/07/2026 | https://docs.aws.amazon.com/ |
+| 5 | - Tối ưu truy vấn bằng cách tạo thêm GSI `date-index`, `userid-index` trên DynamoDB.<br>- Áp dụng cơ chế Idempotency chống điểm danh trùng lặp trong cùng một ca. | 16/07/2026 | 16/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 6 | - Cấu hình đẩy sự kiện `AttendanceRecorded`, `AttendanceRejected` lên EventBridge.<br>- Xử lý lỗi boto3 không hỗ trợ Float bằng cách parse BoundingBox sang String. | 17/07/2026 | 17/07/2026 | https://docs.aws.amazon.com/ |
+
 
 
 ## 3. Các kết quả đạt được
-- Hoàn thành các tính năng và mục tiêu đề ra trong tuần.
-- Tích hợp thành công với các dịch vụ AWS liên quan (nếu có).
-- Đảm bảo chất lượng công việc đáp ứng yêu cầu của dự án.
-
-## 4. Khó khăn & Hướng giải quyết
-- **Khó khăn:** Quá trình tìm hiểu và tích hợp đôi lúc gặp lỗi không mong muốn. Cần nhiều thời gian đọc log và tài liệu kỹ thuật của AWS.
-- **Giải pháp:** Phối hợp cùng các thành viên khác trong nhóm để trao đổi, đọc kỹ tài liệu hướng dẫn và tham khảo thêm ý kiến của Mentor.
-
-## 5. Kế hoạch tuần tiếp theo
-- Rà soát lại công việc của tuần này (Review).
-- Bắt tay vào nghiên cứu và triển khai các nhiệm vụ của Tuần 5.
+- Hoàn thành luồng đăng ký khuôn mặt và Rule Engine điểm danh thông minh, tích hợp thành công Rekognition & EventBridge.

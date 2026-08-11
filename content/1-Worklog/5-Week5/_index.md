@@ -25,14 +25,4 @@ Handle the file upload problem by issuing Presigned URLs (AWS S3) instead of pas
 
 
 ## 3. Achievements
-- Completed features and objectives set for the week.
-- Successfully integrated with related AWS services (if any).
-- Ensured work quality meets project requirements.
-
-## 4. Challenges & Solutions
-- **Challenges:** The research and integration process occasionally encountered unexpected errors. Required significant time reading logs and AWS technical documentation.
-- **Solutions:** Coordinated with other team members for discussions, thoroughly read the guidelines, and sought additional advice from Mentors.
-
-## 5. Plan for Next Week
-- Review this week's completed work.
-- Begin research and implementation of tasks for Week 6.
+- Successfully deployed Data Lake (Firehose, Glue, Athena) and SNS event notification system.

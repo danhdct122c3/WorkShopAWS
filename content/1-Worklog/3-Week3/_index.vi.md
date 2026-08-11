@@ -17,22 +17,13 @@ Khởi tạo FastAPI, cấu trúc thư mục (Router/Service). Áp dụng thiế
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 |---|---|---|---|---|
-| 2 | - Khởi tạo Virtual Environment. Cài đặt các thư viện: FastAPI, Boto3. Thiết lập cấu trúc module. | 06/07/2026 | 06/07/2026 | Tài liệu AWS / Github |
-| 3 | - Triển khai mô hình dữ liệu lên Amazon DynamoDB với 5 bảng chính: Users, Tasks, Leaves, Attendance, Settings. | 07/07/2026 | 07/07/2026 | StackOverflow |
-| 4 | - Viết lớp Repository cấu hình Boto3 Resource. Xử lý phép chuyển đổi dữ liệu Python sang DynamoDB. | 08/07/2026 | 08/07/2026 | API Docs |
-| 5 | - Định nghĩa các Pydantic Schema để kiểm tra tính hợp lệ dữ liệu đầu vào (Data Validation). | 09/07/2026 | 09/07/2026 | AWS Blogs |
-| 6 | - Viết luồng API đăng ký và lấy thông tin Nhân sự (CRUD Users) theo mô hình Controller - Service. | 10/07/2026 | 10/07/2026 | Báo cáo tuần |
+| 2 | - Khởi tạo FastAPI server theo cấu trúc module hóa (app/modules/).<br>- Thiết lập CORS Middleware và hệ thống Error Handler tập trung. | 06/07/2026 | 06/07/2026 | https://docs.aws.amazon.com/ |
+| 3 | - Tích hợp thư viện boto3 để kết nối Backend tới DynamoDB, S3 và Rekognition.<br>- Viết các hàm utilities/helpers phục vụ cho thao tác AWS services. | 07/07/2026 | 07/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Phát triển module `users` và `faces` theo chuẩn Repository – Service – Router.<br>- Viết API phục vụ quản lý thông tin người dùng cơ bản. | 08/07/2026 | 08/07/2026 | https://docs.aws.amazon.com/ |
+| 5 | - Phát triển module `attendance` và `notifications`, xử lý nghiệp vụ ghi log điểm danh.<br>- Bổ sung module `reports` và `ai_assistant`, xây dựng mock data để kiểm thử. | 09/07/2026 | 09/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 6 | - Tổng hợp và cấu hình Swagger UI để tự động sinh tài liệu API (API Docs).<br>- Kiểm thử chéo toàn bộ các endpoint đã phát triển thông qua Swagger UI. | 10/07/2026 | 10/07/2026 | https://docs.aws.amazon.com/ |
+
 
 
 ## 3. Các kết quả đạt được
-- Hoàn thành các tính năng và mục tiêu đề ra trong tuần.
-- Tích hợp thành công với các dịch vụ AWS liên quan (nếu có).
-- Đảm bảo chất lượng công việc đáp ứng yêu cầu của dự án.
-
-## 4. Khó khăn & Hướng giải quyết
-- **Khó khăn:** Quá trình tìm hiểu và tích hợp đôi lúc gặp lỗi không mong muốn. Cần nhiều thời gian đọc log và tài liệu kỹ thuật của AWS.
-- **Giải pháp:** Phối hợp cùng các thành viên khác trong nhóm để trao đổi, đọc kỹ tài liệu hướng dẫn và tham khảo thêm ý kiến của Mentor.
-
-## 5. Kế hoạch tuần tiếp theo
-- Rà soát lại công việc của tuần này (Review).
-- Bắt tay vào nghiên cứu và triển khai các nhiệm vụ của Tuần 4.
+- Xây dựng thành công bộ khung FastAPI, hoàn thiện 7 module cốt lõi chuẩn Repository-Pattern và test API qua Swagger.
