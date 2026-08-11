@@ -94,15 +94,21 @@ Combines the power of Big Data analytics and real-time data retrieval.
 ---
 
 ### 3. In-Scope Services
-To complete this lab, the main AWS services used include:
-- **Edge & Frontend:** Amazon S3 (Static Website), Amazon CloudFront, AWS WAF.
-- **Authentication & API:** Amazon Cognito, Amazon API Gateway.
-- **Core Compute & AI:** AWS Lambda, Amazon Rekognition.
-- **Database & Storage:** Amazon DynamoDB, Amazon S3.
-- **Event & Queue:** Amazon EventBridge, Amazon SQS, Amazon SNS/SES.
-- **Data Analytics:** Amazon Athena, AWS Glue.
-- **CI/CD & Observability:** AWS CodeBuild, AWS CodePipeline, Amazon CloudWatch.
-- **Security:** AWS IAM.
+
+| No. | AWS SERVICE | ROLE & TASK IN SMART CAMPUS | REASON FOR CHOICE & TECHNICAL BENEFITS |
+| :---: | :--- | :--- | :--- |
+| 1 | **Amazon CloudFront** | Distributes React Frontend app from S3 Bucket to users. Acts as an anchor for AWS WAF. | Accelerates page load via Edge Location caching. Automatic HTTPS support, reduces bandwidth load. |
+| 2 | **AWS WAF** | Firewall protecting attendance, blocking non-office IPs. | Prevents remote attendance fraud, combats Web attacks and Spam requests. |
+| 3 | **Amazon S3** | **Bucket 1:** Hosts Frontend. <br> **Bucket 2:** Stores face images & secure docs. <br> **Bucket 3:** S3 Data Lake for logs. | Cheap storage, 99.999999999% reliability. Supports S3 Presigned URL for hiding secure files. Integrates well with Athena. |
+| 4 | **Amazon API Gateway** | RESTful/HTTP API gateway receiving requests from Frontend and calling AWS Lambda. | Supports Rate Limiting, built-in JWT authentication via Cognito Authorizer with zero code. |
+| 5 | **AWS Lambda** | **API Handler:** Processes API logic. <br> **Workers:** Processes background Events. | Pay-As-You-Go Serverless model (only pay when code runs). Instant auto-scaling, no server management. |
+| 6 | **Amazon DynamoDB** | Stores all business data (Users, Tasks, Leaves, Attendance). | Serverless NoSQL Database, millisecond response times, flexible with Global Secondary Indexes. |
+| 7 | **Amazon Cognito** | Manages User Pool, login authentication, and JWT Token issuance. | No need to build custom Auth system. High security, forces password change on first login. |
+| 8 | **Amazon EventBridge** | Event Bus routing events (e.g., `AttendanceRecorded`) and running Cronjobs. | Decouples modules following Event-Driven standards, making it easy to add new features. |
+| 9 | **Amazon SQS** | Message Queue placed before Workers. | Ensures no data loss when errors occur. Integrates Dead Letter Queue (DLQ) for retries. |
+| 10 | **Amazon Rekognition** | Matches employee faces via camera upon check-in. | Extremely powerful built-in AI, no model training time required. High accuracy (Confidence > 95%). |
+| 11 | **Amazon Glue & Athena** | The pipeline of Glue & Athena for aggregating S3 attendance logs, analyzing, and querying with SQL. | Automated file batching to save S3/Athena costs. Separates OLTP and OLAP systems. |
+| 12 | **AWS CodeBuild & CodePipeline** | Sets up CI/CD Pipeline to auto-build Frontend and package Lambda Backend. | Fully automated Continuous Deployment from source code. Ensures safety and consistency between releases. |
 
 ### 4. Expected Outcomes upon Workshop Completion
 By the end of this practical series, you will have fully built an enterprise platform:

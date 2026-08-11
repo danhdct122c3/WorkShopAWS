@@ -96,15 +96,21 @@ Kết hợp sức mạnh phân tích dữ liệu lớn và truy xuất dữ li�
 ---
 
 ### 3. Các dịch vụ trong phạm vi  (In-Scope Services)
-Để hoàn thành bài lab này, các dịch vụ AWS chính được sử dụng bao gồm:
-- **Edge & Frontend:** Amazon S3 (Static Website), Amazon CloudFront, AWS WAF.
-- **Authentication & API:** Amazon Cognito, Amazon API Gateway.
-- **Core Compute & AI:** AWS Lambda, Amazon Rekognition.
-- **Database & Storage:** Amazon DynamoDB, Amazon S3.
-- **Event & Queue:** Amazon EventBridge, Amazon SQS, Amazon SNS/SES.
-- **Data Analytics:** Amazon Athena, AWS Glue.
-- **CI/CD & Observability:** AWS CodeBuild, AWS CodePipeline, Amazon CloudWatch.
-- **Security:** AWS IAM.
+
+| STT | DỊCH VỤ AWS | VAI TRÒ & NHIỆM VỤ TRONG SMART CAMPUS | LÝ DO LỰA CHỌN & LỢI ÍCH KỸ THUẬT |
+| :---: | :--- | :--- | :--- |
+| 1 | **Amazon CloudFront** | Phân phối ứng dụng React Frontend từ S3 Bucket đến người dùng. Đóng vai trò mỏ neo cho AWS WAF. | Tăng tốc tải trang bằng caching ở các Edge Locations. Hỗ trợ HTTPS tự động, giảm tải băng thông. |
+| 2 | **AWS WAF** | Tường lửa bảo vệ điểm danh, chặn các IP không thuộc văn phòng. | Ngăn chặn gian lận điểm danh từ xa, chống các đợt tấn công Web và Spam request. |
+| 3 | **Amazon S3** | **Bucket 1:** Lưu trữ Frontend. <br> **Bucket 2:** Lưu trữ ảnh khuôn mặt & tài liệu bảo mật. <br> **Bucket 3:** S3 Data Lake lưu log. | Chi phí lưu trữ rẻ, độ tin cậy 99.999999999%. Hỗ trợ S3 Presigned URL ẩn file bảo mật. Tích hợp tốt với Athena. |
+| 4 | **Amazon API Gateway** | Cổng giao tiếp RESTful/HTTP API tiếp nhận request từ Frontend và gọi AWS Lambda. | Hỗ trợ Rate Limiting, tích hợp sẵn xác thực JWT qua Cognito Authorizer mà không cần code. |
+| 5 | **AWS Lambda** | **API Handler:** Xử lý logic API. <br> **Workers:** Xử lý Event chạy nền. | Mô hình Serverless Pay-As-You-Go (chỉ trả tiền khi code chạy). Tự động scale tức thì, không quản lý server. |
+| 6 | **Amazon DynamoDB** | Lưu trữ toàn bộ dữ liệu nghiệp vụ (Users, Tasks, Leaves, Attendance). | Database NoSQL Serverless, tốc độ phản hồi tính bằng mili-giây, linh hoạt với Global Secondary Index. |
+| 7 | **Amazon Cognito** | Quản lý User Pool, xác thực đăng nhập và cấp phát JWT Token. | Không phải tự build hệ thống Auth. Bảo mật cao, hỗ trợ bắt buộc đổi mật khẩu lần đầu đăng nhập. |
+| 8 | **Amazon EventBridge** | Event Bus định tuyến các sự kiện (ví dụ: `AttendanceRecorded`) và chạy Cronjob. | Tách rời các module (Decoupling) theo chuẩn Event-Driven, dễ dàng thêm nghiệp vụ mới. |
+| 9 | **Amazon SQS** | Hàng đợi tin nhắn (Queue) đứng trước các Worker. | Đảm bảo không mất dữ liệu khi có lỗi xảy ra. Tích hợp Dead Letter Queue (DLQ) để retry. |
+| 10 | **Amazon Rekognition** | So khớp khuôn mặt nhân viên qua camera khi check-in. | AI có sẵn siêu mạnh, không tốn thời gian train model. Độ chính xác cao (Confidence > 95%). |
+| 11 | **Glue & Athena** | Bộ đôi Glue & Athena pipeline gom log điểm danh trên S3, phân tích và truy vấn bằng SQL. | Batching file tự động để tiết kiệm phí S3/Athena. Tách bạch hệ thống OLTP và OLAP. |
+| 12 | **AWS CodeBuild & CodePipeline** | Thiết lập CI/CD Pipeline tự động build Frontend và đóng gói Lambda Backend. | Triển khai liên tục (Continuous Deployment) một cách hoàn toàn tự động từ source code. Đảm bảo an toàn và nhất quán giữa các lần release. |
 
 ### 4. Kết quả mong đợi sau khi kết thúc Workshop
 Kết thúc chuỗi bài thực hành này, bạn sẽ dựng hoàn chỉnh một nền tảng doanh nghiệp:

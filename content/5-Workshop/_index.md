@@ -28,3 +28,4 @@ Instead of manual configuration (ClickOps), this workshop will also guide you th
 8. [Part 6: Deployment & CI/CD Automation (Backend, S3, CloudFront, Frontend)](5.8-CI-CD-Frontend/)
 9. [Part 7: Monitoring & Tracing (CloudWatch, X-Ray)](5.9-Monitoring-Tracing/)
 10. [Part 8: Testing & Validation (Testing, Cleanup)](5.10-Testing-Validation/)
+11. [Cleanup Resources (Clean-up)](5.11-Cleanup/)
