@@ -31,7 +31,7 @@ Hàm Lambda này sẽ chịu trách nhiệm toàn bộ logic xử lý API của 
    # 6. Nén toàn bộ thư mục dist thành file lambda_function.zip
    Compress-Archive -Path "dist\*" -DestinationPath "lambda_function.zip" -CompressionLevel Optimal
    ```
-> ![Script đóng gói Lambda](/aws-image/setupLambda/lambda2.png)
+
 
 **Bước 2: Tạo hàm Lambda trên AWS**
 1. Tìm kiếm và truy cập dịch vụ **Lambda** trên AWS Console.

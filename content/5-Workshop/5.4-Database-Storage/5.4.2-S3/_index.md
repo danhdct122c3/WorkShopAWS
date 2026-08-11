@@ -25,4 +25,5 @@ Our system needs 2 separate buckets with different security policies:
   - Disable **Bucket Versioning**.
   - After creating, go inside the bucket and create a folder named `face`.
 > ![Configure S3 Images](/aws-image/setupS3/s3-3_3.png)
+![Cấu hình S3 Images](/aws-image/setupS3/setups3-bucket-new.png)
 > ![Create face folder](/aws-image/setupS3/s3-5.png)

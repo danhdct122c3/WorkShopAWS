@@ -25,4 +25,5 @@ Bucket này sẽ được hướng dẫn tạo đầy đủ (bao gồm cấu hì
   - Tắt **Bucket Versioning**.
   - Sau khi tạo xong, vào trong bucket tạo một thư mục (folder) tên là `face`.
 > ![Cấu hình S3 Images](/aws-image/setupS3/s3-3_3.png)
+![Cấu hình S3 Images](/aws-image/setupS3/setups3-bucket-new.png)
 > ![Tạo folder face](/aws-image/setupS3/s3-5.png)

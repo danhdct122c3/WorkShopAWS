@@ -31,7 +31,7 @@ This Lambda function will be responsible for all the API processing logic of the
    # 6. Compress the entire dist folder into lambda_function.zip
    Compress-Archive -Path "dist\*" -DestinationPath "lambda_function.zip" -CompressionLevel Optimal
    ```
-> ![Lambda packaging script](/aws-image/setupLambda/lambda2.png)
+
 
 **Step 2: Create a Lambda function on AWS**
 1. Search for and access the **Lambda** service on the AWS Console.
