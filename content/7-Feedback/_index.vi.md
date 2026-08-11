@@ -6,7 +6,6 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-> Đây là những chia sẻ thật lòng của tôi sau **8 tuần** tham gia chương trình **First Cloud AI Journey (FCAJ)**, với mong muốn đóng góp ý kiến giúp chương trình ngày càng tốt hơn.
 
 ## Đánh giá chung
 

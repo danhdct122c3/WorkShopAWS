@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-> These are my sincere sharings after **8 weeks** participating in the **First Cloud AI Journey (FCAJ)** program, with the desire to contribute feedback to help the program become even better.
+
 
 ## Overall Assessment
 
