@@ -8,7 +8,7 @@ pre: " <b> 3.1. </b> "
 
 # PAGINATION STRATEGY TRONG AMAZON DYNAMODB - CÁCH TIẾT KIỆM CHI PHÍ VÀ TỐI ƯU PERFORMANCE
 
----
+
 
 Amazon DynamoDB cung cấp cơ chế pagination thông qua **LastEvaluatedKey** và **ExclusiveStartKey**, cho phép bạn chia nhỏ kết quả truy vấn thành từng phần (page) thay vì load toàn bộ dữ liệu một lần. Đây không phải là tính năng tùy chọn mà là chiến lược thiết yếu giúp giảm chi phí Read Capacity Units (RCU) lên đến hàng nghìn lần, cải thiện thời gian phản hồi từ vài phút xuống còn vài trăm millisecond, và đảm bảo ứng dụng có thể scale được khi dữ liệu tăng trưởng.
 

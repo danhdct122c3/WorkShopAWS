@@ -112,3 +112,24 @@ Kết thúc chuỗi bài thực hành này, bạn sẽ dựng hoàn chỉnh mộ
 - **Data Pipeline tự động:** Sở hữu hệ thống Data Lake tách biệt hoàn toàn OLTP và OLAP.
 - **DevOps CI/CD:** Hệ thống CodePipeline tự động build và deploy code mà không cần thao tác tay.
 - **Dọn dẹp (Cleanup):** Có khả năng dọn dẹp tài nguyên nhanh chóng để kiểm soát hoàn toàn chi phí AWS.
+
+---
+
+### 5. Định hướng phát triển tương lai
+
+Mặc dù hệ thống Smart Campus đã hoàn thành các tính năng cốt lõi, nhóm vẫn xác định được nhiều hướng cải tiến tiềm năng để nâng cấp hệ thống lên tầm cao hơn trong tương lai:
+
+#### 5.1. Nâng cấp hệ thống AI & Nhận diện
+- **Liveness Detection (Anti-spoofing):** Tích hợp cơ chế chống giả mạo khuôn mặt bằng ảnh chụp hoặc video giả, đảm bảo độ chính xác tuyệt đối cho hệ thống điểm danh.
+- **Chuyển sang Amazon Rekognition Video:** Hỗ trợ nhận diện khuôn mặt từ luồng camera trực tiếp (Live Stream) thay vì upload từng ảnh, tăng tốc độ xử lý lên nhiều lần.
+
+#### 5.2. Phân tích dữ liệu nâng cao (Advanced Analytics)
+- **Tích hợp Amazon QuickSight:** Thay vì tự vẽ biểu đồ trên Frontend, tích hợp **Amazon QuickSight** để tạo các bảng điều khiển BI (Business Intelligence) chuyên nghiệp, hỗ trợ drill-down và lọc dữ liệu đa chiều.
+- **Machine Learning dự báo:** Sử dụng **Amazon SageMaker** để huấn luyện mô hình dự báo xu hướng đi muộn, dự đoán năng suất nhóm và đề xuất điều chỉnh ca làm việc tự động.
+- **Real-time Streaming với Kinesis:** Thay thế SQS bằng **Amazon Kinesis Data Streams** cho luồng phân tích dữ liệu thời gian thực cực kỳ cao tải (hàng triệu event/giây).
+
+#### 5.3. Tối ưu Hạ tầng & Chi phí
+- **Infrastructure as Code (IaC):** Chuyển toàn bộ cấu hình tài nguyên AWS sang **AWS CDK** hoặc **Terraform** để quản lý hạ tầng theo phiên bản (version control) và tái sử dụng dễ dàng.
+- **Multi-region Deployment:** Triển khai hệ thống trên nhiều AWS Region để đảm bảo tính sẵn sàng cao (High Availability) và giảm độ trễ cho người dùng toàn cầu.
+- **AWS Savings Plans / Reserved Capacity:** Khi hệ thống đạt ngưỡng traffic ổn định, chuyển từ mô hình On-demand sang Reserved để tiết kiệm thêm 30-60% chi phí vận hành.
+

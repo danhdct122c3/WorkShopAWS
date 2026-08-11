@@ -6,32 +6,37 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-Trong suốt thời gian thực tập tại **FCAJ (First Cloud AI Journey)** từ ngày **22/06/2026** đến **15/08/2026**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức lập trình vào môi trường thực tế trên nền tảng điện toán đám mây AWS.
+Trong suốt thời gian thực tập tại **FCAJ (First Cloud AI Journey)** từ ngày **22/06/2026** đến **15/08/2026**, mình đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức lập trình vào môi trường thực tế trên nền tảng điện toán đám mây AWS.
 
-Tôi đã tham gia xây dựng dự án **Smart Campus Platform** — hệ thống quản lý công việc và điểm danh nhận diện khuôn mặt bằng AI cho doanh nghiệp, triển khai theo kiến trúc **Serverless & Event-Driven** trên AWS. Qua dự án, tôi đã cải thiện được các kỹ năng: **thiết kế kiến trúc hệ thống phân tán, tích hợp dịch vụ AWS (API Gateway, Lambda, DynamoDB, Rekognition, SNS, SQS, CloudWatch, X-Ray, Cognito), phát triển Backend với FastAPI và Frontend với React, cũng như viết tài liệu kỹ thuật chuyên nghiệp**.
+Trong dự án **Smart Campus Platform**, mình đảm nhiệm vai trò chính là **Backend Developer**. Nhiệm vụ cốt lõi của mình là thiết kế cơ sở dữ liệu NoSQL, phát triển các API bằng framework **FastAPI**, và đặc biệt là đưa ra các **giải pháp kỹ thuật (Solutions)** để xử lý các bài toán nghiệp vụ phức tạp. Cụ thể, mình đã trực tiếp đề xuất và thiết kế các luồng xử lý như: 
+- Giải quyết bài toán tải file báo cáo dung lượng lớn tránh quá tải API Gateway bằng giải pháp **Amazon S3 Presigned URL**.
+- Tối ưu hóa truy vấn dữ liệu điểm danh và công việc bằng kỹ thuật **Denormalization** và tạo Global Secondary Index (GSI) trên **Amazon DynamoDB**.
+- Bảo mật hệ thống với kiến trúc xác thực đa lớp, tích hợp **Amazon Cognito** kết hợp viết Middleware chặn và giải mã JWT Token (python-jose).
+- Thiết kế hệ thống phân quyền linh hoạt (Role-Based Access Control) cho Admin, Manager và Staff.
+- Đóng gói toàn bộ Backend thành kiến trúc Serverless siêu tốc với thư viện **Mangum** chạy trên **AWS Lambda** & **Amazon API Gateway**.
 
-Về tác phong làm việc, tôi luôn cố gắng hoàn thành nhiệm vụ đúng hạn, chủ động tìm hiểu tài liệu và giải quyết vấn đề, đồng thời tích cực tham gia các sự kiện do FCAJ tổ chức để mở rộng kiến thức và kết nối cộng đồng.
+Về tác phong làm việc, mình luôn cố gắng hoàn thành nhiệm vụ đúng hạn, chủ động tìm hiểu tài liệu kỹ thuật để đưa ra các kiến trúc tối ưu nhất (Best Practices), đồng thời tích cực hỗ trợ các thành viên khác trong nhóm (Frontend, DevOps) để quá trình tích hợp hệ thống diễn ra mượt mà nhất.
 
-Để phản ánh một cách khách quan quá trình thực tập, tôi xin tự đánh giá bản thân theo các tiêu chí dưới đây:
+Để phản ánh một cách khách quan quá trình thực tập, mình xin tự đánh giá bản thân theo các tiêu chí dưới đây:
 
 | STT | Tiêu chí | Mô tả | Tốt | Khá | Trung bình |
 |-----|----------|-------|:---:|:---:|:----------:|
-| 1 | **Kiến thức và kỹ năng chuyên môn** | Nắm vững kiến trúc Serverless Event-Driven, tích hợp thành công 10+ dịch vụ AWS vào hệ thống thực tế | ✅ | ☐ | ☐ |
-| 2 | **Khả năng học hỏi** | Tiếp thu nhanh các công nghệ mới hoàn toàn trong 8 tuần: DynamoDB NoSQL design, Rekognition AI, Athena analytics, SQS reliability patterns | ✅ | ☐ | ☐ |
-| 3 | **Chủ động** | Tự nghiên cứu tài liệu AWS chính thức, đề xuất và triển khai các giải pháp cải tiến kiến trúc như SQS Buffer, Hybrid Chunk Pagination | ✅ | ☐ | ☐ |
-| 4 | **Tinh thần trách nhiệm** | Hoàn thành đầy đủ 8 Workflow nghiệp vụ trong đúng 8 tuần, kèm Workshop Documentation chi tiết | ✅ | ☐ | ☐ |
-| 5 | **Kỷ luật** | Duy trì lịch làm việc đều đặn và cập nhật worklog theo tuần, tuy nhiên một số thời điểm ước lượng thời gian chưa chính xác khi gặp bug phức tạp | ☐ | ✅ | ☐ |
-| 6 | **Tính cầu tiến** | Luôn tìm hiểu thêm best practices của AWS sau khi hoàn thành từng tính năng, áp dụng các kỹ thuật như Idempotency, DLQ, Partial Batch Response | ✅ | ☐ | ☐ |
-| 7 | **Giao tiếp** | Viết tài liệu Workshop và báo cáo thu hoạch rõ ràng; kỹ năng trình bày miệng cần tiếp tục cải thiện | ☐ | ✅ | ☐ |
-| 8 | **Hợp tác nhóm** | Tham gia tích cực 3 events cộng đồng AWS: FCAJ Community Day, Agentic AI Build Week, Agent Forge HCMC Workshop | ✅ | ☐ | ☐ |
-| 9 | **Ứng xử chuyên nghiệp** | Tôn trọng quy định chương trình, chủ động hỏi khi có vấn đề, giữ thái độ học hỏi và cởi mở với feedback | ✅ | ☐ | ☐ |
-| 10 | **Tư duy giải quyết vấn đề** | Xử lý được nhiều bug phức tạp (CORS, DynamoDB schema mismatch, Rekognition Float type, Cognito challenge flow, Lambda X-Ray Segment conflict) | ☐ | ✅ | ☐ |
-| 11 | **Đóng góp vào dự án** | Xây dựng hoàn chỉnh hệ thống từ đầu đến cuối; tài liệu Workshop phục vụ cộng đồng học AWS | ✅ | ☐ | ☐ |
-| 12 | **Tổng thể** | Hoàn thành tốt mục tiêu thực tập, tích lũy kiến thức và kỹ năng thực chiến vượt kỳ vọng ban đầu | ✅ | ☐ | ☐ |
+| 1 | **Kiến thức chuyên môn** | Nắm vững kiến trúc Serverless AWS và phát triển API với FastAPI. | ✅ | ☐ | ☐ |
+| 2 | **Khả năng học hỏi** | Tiếp thu nhanh công nghệ mới và tự giải quyết các vấn đề kỹ thuật. | ✅ | ☐ | ☐ |
+| 3 | **Sự chủ động** | Tự giác tìm hiểu tài liệu và đề xuất các giải pháp kiến trúc phù hợp. | ✅ | ☐ | ☐ |
+| 4 | **Trách nhiệm** | Đảm bảo hoàn thành đúng tiến độ các nhiệm vụ Backend được giao. | ✅ | ☐ | ☐ |
+| 5 | **Kỷ luật** | Tuân thủ nội quy, lịch họp và cập nhật tiến độ công việc đầy đủ. | ☐ | ✅ | ☐ |
+| 6 | **Cầu tiến** | Không ngừng tối ưu code và cập nhật các best practice từ AWS. | ✅ | ☐ | ☐ |
+| 7 | **Giao tiếp** | Trao đổi thông tin rõ ràng, hiệu quả với các thành viên trong nhóm. | ☐ | ✅ | ☐ |
+| 8 | **Hợp tác nhóm** | Phối hợp tốt với team Frontend và DevOps để tích hợp hệ thống. | ✅ | ☐ | ☐ |
+| 9 | **Ứng xử** | Luôn lắng nghe góp ý, giữ thái độ hòa nhã và chuyên nghiệp. | ✅ | ☐ | ☐ |
+| 10 | **Giải quyết vấn đề** | Phân tích bài toán logic tốt, biết cách xử lý lỗi hệ thống hiệu quả. | ☐ | ✅ | ☐ |
+| 11 | **Đóng góp** | Xây dựng thành công toàn bộ hệ thống Backend cho Smart Campus. | ✅ | ☐ | ☐ |
+| 12 | **Đánh giá chung** | Hoàn thành tốt mục tiêu thực tập, tích lũy nhiều kinh nghiệm thực tế. | ✅ | ☐ | ☐ |
 
 ### Cần cải thiện
 
 * **Kỷ luật ước lượng thời gian:** Cần luyện kỹ năng phân tách task nhỏ hơn và đặt time-box rõ ràng, tránh để một bug phức tạp tiêu tốn quá nhiều thời gian mà không có checkpoint để đánh giá lại hướng tiếp cận.
-* **Đọc hiểu tài liệu kỹ thuật tiếng Anh:** Cần nâng cao tốc độ đọc AWS documentation gốc tiếng Anh, giảm sự phụ thuộc vào bản dịch hay tóm tắt trung gian để tiếp cận thông tin chính xác hơn và nhanh hơn.
-* **Kỹ năng trình bày:** Cần luyện thêm khả năng giải thích kiến trúc hệ thống một cách ngắn gọn, súc tích cho người không có nền tảng kỹ thuật — một kỹ năng rất quan trọng trong môi trường làm việc thực tế.
-* **Tư duy debug có hệ thống:** Khi gặp lỗi, cần có thói quen đọc log kỹ và kiểm tra từng lớp (Layer by layer: Frontend → Network → Backend → AWS Service) thay vì thử sai ngẫu nhiên.
+* **Đọc hiểu tài liệu kỹ thuật tiếng Anh:** Cần nâng cao tốc độ đọc AWS documentation gốc tiếng Anh, giảm sự phụ thuộc vào các tutorial trên mạng để tiếp cận thông tin chính xác hơn.
+* **Kỹ năng trình bày:** Cần luyện thêm khả năng giải trình bày, giải thích vấn đề.
+* **Tư duy debug có hệ thống:** Khi gặp lỗi, cần có thói quen check Amazon CloudWatch Logs kỹ càng và kiểm tra từng lớp thay vì tìm vùng lỗi theo cảm tính.

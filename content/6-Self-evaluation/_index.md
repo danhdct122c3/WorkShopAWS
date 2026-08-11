@@ -1,39 +1,42 @@
 ---
-title: "Self-Assessment"
-date: 2024-01-01
+title: "Self Evaluation"
+date: 2026-08-09
 weight: 6
 chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+During my internship at **FCAJ (First Cloud AI Journey)** from **June 22, 2026** to **August 15, 2026**, I had the opportunity to learn, practice, and apply my programming knowledge in a real-world environment on the AWS cloud platform.
 
-During my internship at **[Company/Organization Name]** from **[start date]** to **[end date]**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
-I participated in **[briefly describe the main project or task]**, through which I improved my skills in **[list skills: programming, analysis, reporting, communication, etc.]**.  
+In the **Smart Campus Platform** project, my primary role was **Backend Developer**. My core responsibilities included designing the NoSQL database, developing APIs using the **FastAPI** framework, and particularly proposing **Technical Solutions** to handle complex business logic. Specifically, I directly proposed and designed workflows such as:
+- Solving the bottleneck of uploading large report files through API Gateway by using **Amazon S3 Presigned URL**.
+- Optimizing attendance and task data queries using **Denormalization** techniques and creating Global Secondary Indexes (GSI) on **Amazon DynamoDB**.
+- Securing the system with a multi-layered authentication architecture, integrating **Amazon Cognito** combined with writing Middleware to intercept and decode JWT Tokens (using python-jose).
+- Designing a flexible Role-Based Access Control (RBAC) system for Admin, Manager, and Staff roles.
+- Packaging the entire Backend into an ultra-fast Serverless architecture using the **Mangum** library running on **AWS Lambda** & **Amazon API Gateway**.
 
-In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
+Regarding my work ethic, I always strive to complete tasks on time, proactively research technical documentation to propose optimal architectures (Best Practices), and actively support other team members (Frontend, DevOps) to ensure the smoothest system integration process.
 
-To objectively reflect on my internship period, I would like to evaluate myself based on the following criteria:
+To objectively reflect on my internship process, I would like to self-evaluate based on the following criteria:
 
-| No. | Criteria                            | Description                                                                                      | Good | Fair | Average |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---- | ------- |
-| 1   | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ✅    | ☐    | ☐       |
-| 2   | **Ability to learn**                | Ability to absorb new knowledge and learn quickly                                                | ☐    | ✅    | ☐       |
-| 3   | **Proactiveness**                   | Taking initiative, seeking out tasks without waiting for instructions                            | ✅    | ☐    | ☐       |
-| 4   | **Sense of responsibility**         | Completing tasks on time and ensuring quality                                                    | ✅    | ☐    | ☐       |
-| 5   | **Discipline**                      | Adhering to schedules, rules, and work processes                                                 | ☐    | ☐    | ✅       |
-| 6   | **Progressive mindset**             | Willingness to receive feedback and improve oneself                                              | ☐    | ✅    | ☐       |
-| 7   | **Communication**                   | Presenting ideas and reporting work clearly                                                      | ☐    | ✅    | ☐       |
-| 8   | **Teamwork**                        | Working effectively with colleagues and participating in teams                                   | ✅    | ☐    | ☐       |
-| 9   | **Professional conduct**            | Respecting colleagues, partners, and the work environment                                        | ✅    | ☐    | ☐       |
-| 10  | **Problem-solving skills**          | Identifying problems, proposing solutions, and showing creativity                                | ☐    | ✅    | ☐       |
-| 11  | **Contribution to project/team**    | Work effectiveness, innovative ideas, recognition from the team                                  | ✅    | ☐    | ☐       |
-| 12  | **Overall**                         | General evaluation of the entire internship period                                               | ✅    | ☐    | ☐       |
+| No. | Criteria | Description | Good | Fair | Average |
+|-----|----------|-------------|:----:|:----:|:-------:|
+| 1 | **Professional Knowledge** | Mastered Serverless AWS architecture and API development with FastAPI. | ✅ | ☐ | ☐ |
+| 2 | **Learning Ability** | Quickly grasped new technologies and independently resolved technical issues. | ✅ | ☐ | ☐ |
+| 3 | **Proactiveness** | Proactively researched documentation and proposed suitable architectural solutions. | ✅ | ☐ | ☐ |
+| 4 | **Responsibility** | Ensured timely completion of assigned Backend tasks. | ✅ | ☐ | ☐ |
+| 5 | **Discipline** | Strictly adhered to rules, meeting schedules, and fully updated work progress. | ☐ | ✅ | ☐ |
+| 6 | **Progressive Attitude** | Continuously optimized code and updated best practices from AWS. | ✅ | ☐ | ☐ |
+| 7 | **Communication** | Exchanged information clearly and effectively with team members. | ☐ | ✅ | ☐ |
+| 8 | **Teamwork** | Coordinated well with Frontend and DevOps teams for system integration. | ✅ | ☐ | ☐ |
+| 9 | **Conduct** | Always listened to feedback, maintaining a polite and professional attitude. | ✅ | ☐ | ☐ |
+| 10 | **Problem Solving** | Good at analyzing logic problems and effectively handling system errors. | ☐ | ✅ | ☐ |
+| 11 | **Contribution** | Successfully built the entire Backend system for Smart Campus. | ✅ | ☐ | ☐ |
+| 12 | **Overall Evaluation** | Successfully completed internship goals, accumulated much practical experience. | ✅ | ☐ | ☐ |
 
-### Needs Improvement
+### Areas for Improvement
 
-* Strengthen discipline and strictly comply with the rules and regulations of the company or any organization  
-* Improve problem-solving thinking  
-* Enhance communication skills in both daily interactions and professional contexts, including handling situations effectively
+* **Time Estimation Discipline:** Need to practice breaking down tasks into smaller pieces and setting clear time-boxes, avoiding letting a complex bug consume too much time without a checkpoint to re-evaluate the approach.
+* **Reading Technical Documentation in English:** Need to improve the speed of reading original AWS documentation in English, reducing reliance on online tutorials to access information more accurately.
+* **Presentation Skills:** Need to further practice the ability to explain system architecture concisely and briefly.
+* **Systematic Debugging Mindset:** When encountering errors, need to build the habit of carefully checking Amazon CloudWatch Logs and inspecting layer by layer instead of guessing the error boundaries intuitively.
