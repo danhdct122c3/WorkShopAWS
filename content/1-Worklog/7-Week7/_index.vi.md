@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
-# Tuần 7: Phân quyền (RBAC) & API Gateway
 
-**Thành viên:** Backend Developer
+
+
 
 ## 1. Mục tiêu công việc
 Cài đặt phân quyền Admin, Manager, Staff. Đóng gói mã nguồn (Mangum) và tích hợp Amazon API Gateway.

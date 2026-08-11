@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-# Tuần 5: Xử lý Upload file (Presigned URL)
 
-**Thành viên:** Backend Developer
+
+
 
 ## 1. Mục tiêu công việc
 Xử lý bài toán upload bằng cách cấp phát Presigned URL (AWS S3) thay vì tải qua API Gateway để tránh timeout và limit dung lượng.

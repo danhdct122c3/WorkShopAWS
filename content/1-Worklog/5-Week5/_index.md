@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-# Week 5: Handle File Uploads (Presigned URL)
 
-**Team Member:** Backend Developer
+
+
 
 ## 1. Weekly Goals
 Handle the file upload problem by issuing Presigned URLs (AWS S3) instead of passing through API Gateway to avoid timeouts and payload limits.

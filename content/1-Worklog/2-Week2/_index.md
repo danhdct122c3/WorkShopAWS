@@ -6,9 +6,8 @@ chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-# Week 2: Business Analysis & ERD Diagram
 
-**Team Member:** Backend Developer
+
 
 ## 1. Weekly Goals
 Analyze business requirements. Design the NoSQL Entity Relationship Diagram (ERD) on paper, define PKs and GSIs.

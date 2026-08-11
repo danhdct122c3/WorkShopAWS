@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-# Tuần 2: Phân tích Nghiệp vụ & Sơ đồ ERD
 
-**Thành viên:** Backend Developer
+
+
 
 ## 1. Mục tiêu công việc
 Phân tích yêu cầu bài toán. Thiết kế mô hình dữ liệu (ERD) NoSQL trên giấy, xác định các PK và GSI.

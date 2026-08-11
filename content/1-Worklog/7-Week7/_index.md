@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
-# Week 7: Role-Based Access Control (RBAC) & API Gateway
 
-**Team Member:** Backend Developer
+
+
 
 ## 1. Weekly Goals
 Implement Admin, Manager, Staff authorization. Package source code (Mangum) and integrate with Amazon API Gateway.

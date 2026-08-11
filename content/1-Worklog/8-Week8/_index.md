@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 1.8. </b> "
 ---
 
-# Week 8: Project Summary & Report Writing
 
-**Team Member:** Backend Developer
+
+
 
 ## 1. Weekly Goals
 Complete the internship report documents, record a demo video, design presentation slides, and prepare for the final project defense.

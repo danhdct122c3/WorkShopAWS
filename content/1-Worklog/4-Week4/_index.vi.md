@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-# Tuần 4: Xây dựng Core API & Rule Engine
 
-**Thành viên:** Backend Developer
+
+
 
 ## 1. Mục tiêu công việc
 Hoàn thành CRUD cho Users, Tasks. Viết Rule Engine tính toán logic Điểm danh trễ/đúng giờ dựa trên bảng Settings.

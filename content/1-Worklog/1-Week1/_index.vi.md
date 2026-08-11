@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-# Tuần 1: Làm quen với AWS & Chương trình thực tập
+
 
 
 ## 1. Mục tiêu công việc

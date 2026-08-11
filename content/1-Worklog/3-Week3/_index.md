@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-# Week 3: Initialize FastAPI & DynamoDB Database
 
-**Team Member:** Backend Developer
+
+
 
 ## 1. Weekly Goals
 Initialize FastAPI, define folder structure (Router/Service). Apply the database design to Amazon DynamoDB and connect via boto3.

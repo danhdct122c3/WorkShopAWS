@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-# Tuần 3: Khởi tạo FastAPI & Cơ sở dữ liệu DynamoDB
 
-**Thành viên:** Backend Developer
+
+
 
 ## 1. Mục tiêu công việc
 Khởi tạo FastAPI, cấu trúc thư mục (Router/Service). Áp dụng thiết kế lên Amazon DynamoDB và kết nối thông qua boto3.

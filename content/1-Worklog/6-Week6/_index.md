@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-# Week 6: Integrate Multi-factor Authentication (Cognito)
 
-**Team Member:** Backend Developer
+
+
 
 ## 1. Weekly Goals
 Create an Amazon Cognito User Pool. Write middleware to block APIs, only allowing requests with valid JWT Tokens to pass.

@@ -6,9 +6,8 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-# Week 4: Build Core API & Rule Engine
 
-**Team Member:** Backend Developer
+
 
 ## 1. Weekly Goals
 Complete CRUD for Users, Tasks. Write a Rule Engine to calculate On-time/Late attendance logic based on the Settings table.

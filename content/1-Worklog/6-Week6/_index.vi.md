@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-# Tuần 6: Tích hợp Xác thực Đa lớp (Cognito)
 
-**Thành viên:** Backend Developer
+
+
 
 ## 1. Mục tiêu công việc
 Tạo Amazon Cognito User Pool. Viết lớp middleware để chặn các API, chỉ cho phép đi qua khi có JWT Token hợp lệ.

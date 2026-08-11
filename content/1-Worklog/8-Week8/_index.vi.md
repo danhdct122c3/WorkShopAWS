@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 1.8. </b> "
 ---
 
-# Tuần 8: Tổng kết dự án & Viết Báo Cáo
 
-**Thành viên:** Backend Developer
+
+
 
 ## 1. Mục tiêu công việc
 Hoàn thiện tài liệu báo cáo thực tập, quay video demo, thiết kế slide thuyết trình và chuẩn bị cho buổi bảo vệ đồ án cuối khóa.

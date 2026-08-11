@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-# Week 1: Familiarize with AWS & Internship Program
+
 
 
 
