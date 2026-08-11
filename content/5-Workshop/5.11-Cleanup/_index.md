@@ -163,6 +163,17 @@ aws rekognition delete-collection --collection-id smart-campus-faces --region ap
 
 ---
 
+**Step 16: Delete SES Identities**
+
+1. Go to **Amazon SES** > **Verified identities**.
+> ![SES 1](/aws-image/cleanupses/ses_cleaning_1.png)
+> ![SES 2](/aws-image/cleanupses/ses_cleaning_2.png)
+2. Select your verified email address > Click **Delete**.
+> ![SES 3](/aws-image/cleanupses/ses_cleaning_3.png)
+> ![SES 4](/aws-image/cleanupses/ses_cleaning_4.png)
+
+---
+
 ### ✅ Check Completion
 
 After finishing deletion, go to **AWS Cost Explorer** or **Billing Dashboard** to confirm that no resources are running and incurring costs. Congratulations on completing the entire **Smart Campus Platform on AWS** Workshop! 🎉

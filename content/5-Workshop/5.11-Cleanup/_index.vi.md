@@ -163,6 +163,17 @@ aws rekognition delete-collection --collection-id smart-campus-faces --region ap
 
 ---
 
+**Bước 16: Xóa SES Identities**
+
+1. Vào **Amazon SES** > **Verified identities**.
+> ![SES 1](/aws-image/cleanupses/ses_cleaning_1.png)
+> ![SES 2](/aws-image/cleanupses/ses_cleaning_2.png)
+2. Chọn địa chỉ email đã xác thực > Bấm **Delete**.
+> ![SES 3](/aws-image/cleanupses/ses_cleaning_3.png)
+> ![SES 4](/aws-image/cleanupses/ses_cleaning_4.png)
+
+---
+
 ### ✅ Kiểm tra hoàn tất
 
-Sau khi xóa xong, vào **AWS Cost Explorer** hoặc **Billing Dashboard** để xác nhận không còn tài nguyên nào đang chạy và phát sinh chi phí. Chúc mừng bạn đã hoàn thành toàn bộ Workshop **Smart Campus Platform trên AWS**! 
+Sau khi xóa xong, vào **AWS Cost Explorer** hoặc **Billing Dashboard** để xác nhận không còn tài nguyên nào đang chạy và phát sinh chi phí. Chúc mừng bạn đã hoàn thành toàn bộ Workshop **Smart Campus Platform trên AWS**!
