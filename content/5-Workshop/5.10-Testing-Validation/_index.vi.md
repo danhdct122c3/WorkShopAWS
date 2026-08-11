@@ -22,7 +22,6 @@ Mỗi bước kiểm thử đều có **kết quả mong đợi cụ thể**, gi
 | **5.10.2** | Kiểm thử điểm danh nhận diện khuôn mặt | Rekognition, DynamoDB, S3 |
 | **5.10.3** | Kiểm thử luồng thông báo sự kiện | EventBridge, SNS, SQS |
 | **5.10.4** | Kiểm thử Log & Metric giám sát | CloudWatch, X-Ray |
-| **5.10.5** | Dọn dẹp tài nguyên (Clean-up) | Tất cả dịch vụ đã tạo |
 
 
 

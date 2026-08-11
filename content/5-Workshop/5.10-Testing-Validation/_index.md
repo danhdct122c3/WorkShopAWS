@@ -22,7 +22,7 @@ Each testing step has a **specific expected result**, helping you self-verify th
 | **5.10.2** | Facial Recognition Attendance Testing | Rekognition, DynamoDB, S3 |
 | **5.10.3** | Event Notification Flow Testing | EventBridge, SNS, SQS |
 | **5.10.4** | Monitoring Logs & Metrics Testing | CloudWatch, X-Ray |
-| **5.10.5** | Resource Cleanup (Clean-up) | All created services |
+
 
 > [!IMPORTANT]
 > Before starting testing, ensure you have **returned to section 5.5.2** to fully fill in all environment variables for the Lambda function (SNS Topic ARN, SES Email...) from section 5.6.
