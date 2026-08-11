@@ -1,47 +1,94 @@
 ---
 title: "Sharing and Feedback"
-date: 2024-01-01
+date: 2026-08-09
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+> These are my sincere sharings after **8 weeks** participating in the **First Cloud AI Journey (FCAJ)** program, with the desire to contribute feedback to help the program become even better.
 
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
+---
 
-### Overall Evaluation
+### 1. Learning & Working Environment
 
-**1. Working Environment**  
-The working environment is very friendly and open. FCAJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+The learning environment at FCAJ is very comfortable, flexible, and creates good conditions for learners. What I appreciate most is the **highly flexible working schedule** — the program does not impose rigid hours, but rather focuses on deliverables. This helps me proactively arrange my study time and develop at a pace that suits me, while still ensuring project progress.
 
-**2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+The learning content closely follows actual technology trends, not just stopping at theory but forcing learners to directly deploy on a real AWS environment — this is the most effective way of learning I have ever experienced.
 
-**3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+---
 
-**4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+### 2. Support from the Admin Team & Mentors
 
-**5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+This is the point **I am most impressed by** throughout the internship. Whenever I had questions or encountered technical issues, the admin team **responded very quickly and openly** — whether it was a simple or complex question. There was no feeling of being abandoned or having to struggle alone for too long.
 
-**6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+The team's support style is "guiding to self-resolve" rather than giving the answer straight away — this approach, while requiring more effort from the learner, helped me understand deeply and remember much longer compared to copy-pasting an existing solution.
+
+---
+
+### 3. Relevance of Content to the Industry
+
+The program's content closely follows market trends: **Serverless Architecture, Event-Driven Design, AI/ML with Rekognition and Bedrock, Observability with X-Ray and CloudWatch**. These are all highly sought-after skills by tech companies, so I feel the time invested in FCAJ is very worthwhile and practical.
+
+---
+
+### 4. Learning Opportunities & Acquired Skills
+
+Over 8 weeks, I learned and practiced:
+
+**Technical Skills:**
+- Designing end-to-end Serverless + Event-Driven architectures
+- Practically integrating 10+ AWS services: Lambda, DynamoDB, S3, Rekognition, EventBridge, SNS, SQS, CloudWatch, X-Ray, Cognito, Athena
+- Full-stack development: FastAPI (Python) Backend + React (Vite) Frontend
+- Handling real-world problems: CORS, NoSQL schema design, message queue reliability, distributed tracing
+
+**Mindset:**
+- Optimal NoSQL database design with GSI
+- Systematic debugging (Layer by layer approach)
+- Designing idempotent APIs, preventing race conditions
+
+**Soft Skills:**
+- Writing technical documentation (Workshop Documentation)
+- Self-managing an 8-week project timeline without PM supervision
+
+---
+
+### 5. Culture & Community Spirit
+
+One of the things I cherish most about FCAJ is the **very strong AWS community spirit**. The events are organized professionally and practically:
+
+- **FCAJ Community Day (27/06/2026):** A series of Live Demos on AI Agents, automated DevOps, and Voice Bots — very visual and close to reality.
+- **FCAJ x Agentic AI Build Week:** The *"Show Up. Build. Pitch. WIN!"* spirit was highly inspiring, encouraging us to step out of our comfort zones.
+- **Agent Forge HCMC Workshop:** An in-depth workshop on Agentic AI and the AWS ecosystem — bringing a very new perspective on the future of AI in business.
+
+The connections from these events — with both learners and real AWS engineers — have far more long-term value than pure technical knowledge.
+
+---
+
+### 6. Policies & Support for Participants
+
+Providing an AWS account with credits to practice directly on a real environment is a massive plus. Being able to manually create a DynamoDB table, configure a Lambda trigger, set up CloudWatch Alarms, and view a real X-Ray Service Map makes me much more confident when entering a real work environment, compared to just knowing theory or running on a simulator.
 
 ---
 
 ### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+
+**What were you most satisfied with?**
+
+Having the freedom to design and build a complete product from scratch — from database design, API building, interface development, to deploying monitoring and writing documentation. Looking back at a system with 8 complete Business Workflows that I built myself is a very proud experience.
+
+**What could the program improve?**
+
+There should be periodic **technical architecture reviews** (every 2-3 weeks) so learners can receive early feedback on system design, avoiding the need to refactor after going too deep in the wrong direction.
+
+**Would you recommend this to a friend?**
+
+Yes, absolutely. FCAJ is one of the few programs that allows you to learn AWS by **doing it for real** — not just watching demos. It is especially suitable for those who want to quickly gain combat experience on the cloud platform.
 
 ---
 
 ### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+
+- **Add specialized tracks:** There should be separate tracks for Data Engineering (Athena, Glue, Kinesis) or AI/ML (Bedrock, SageMaker) so learners can go deep instead of just touching the surface of each service.
+- **More hands-on workshops:** Events like the Agent Forge HCMC Workshop are very practical and inspiring. I hope the program organizes more, especially on AI Agents and Generative AI on AWS.
+- **Peer/Mentor Code Reviews:** The program could add code reviews or architecture reviews from mentors/alumni so learners can catch design issues early before going too deep.

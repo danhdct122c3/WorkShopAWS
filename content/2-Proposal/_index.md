@@ -1,115 +1,156 @@
 ---
 title: "2. Proposal"
-date: 2024-01-01
 weight: 2
 chapter: false
-pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
+# Project Proposal
 
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+## 1. Project Overview
+**Smart Campus Platform** is a comprehensive software system designed to modernize and digitize management processes at school/company campuses. The project shifts the model from "Passive Monitoring" to "Automated Operations", encompassing automated facial recognition attendance (AI), Task & Leave Management, and a massive Analytics Command Center.
 
-### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+Notably, the system is designed **100% Serverless on the AWS platform**, applying an Event-Driven Microservices architecture to ensure high scalability, low costs, and resilient operations.
 
-### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+## 2. Problem Statement
+The system solves painful issues in traditional management:
+- **Manual Attendance & Fraud:** Using magnetic cards or fingerprints is easily bypassed, prone to forgotten cards, or causes delays during peak hours.
+- **Fragmented Data:** HR, task, and attendance data are scattered, making it difficult for Directors/Managers to view a comprehensive report.
+- **High Server Operations Cost:** Internal systems usually do not have users 24/7 (evenings and weekends are often empty), yet businesses still have to pay to maintain physical servers.
+- **Lack of Proactive Alerts:** Management is not promptly notified when employees are late, take leave, or when tasks become overdue.
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+## 3. Objectives
+- **Automation & Accuracy:** Apply facial recognition AI combined with IP Whitelisting for quick, absolutely accurate, and fraud-proof attendance tracking.
+- **Data Centralization (Data Lake):** Build a data pipeline (Analytics Pipeline) to collect thousands of event streams to serve real-time reporting analysis.
+- **100% Cost Optimization:** Radically apply Serverless architecture (pay per API call), ensuring zero cost when no one is using the system.
+- **Cloud-Standard Security:** Strict Role-Based Access Control (RBAC) and protection of sensitive data using Firewall and Token systems.
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+## 4. Workflows & Solution Architecture
 
-### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+> **[OVERALL ARCHITECTURE DIAGRAM]**
+> ![Architecture Diagram](/aws-image/AwsArchitecture.drawio.png)
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+The system is designed based on an **Event-Driven Microservices** architecture and utilizes over 15 AWS cloud services. Below are the details of the 6 core business workflows and how AWS services coordinate to solve the problems:
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+### 4.1. Auth & Users Workflow
+- **Business Logic:** Manage the user account lifecycle, assign Role-Based Access Control (RBAC) for Admin, Manager, Staff. Force new users to change their password on first login.
+- **AWS Services:** Use **Amazon Cognito** as the Identity Provider to issue and verify JWT Tokens. The React/Vite Frontend interface is hosted on **Amazon S3** and distributed via **Amazon CloudFront**.
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+### 4.2. Face Registration Workflow
+- **Business Logic:** Prevent fraud by ensuring each employee is only allowed to register a single authentic face into the system.
+- **AWS Services:** Call the `IndexFaces` API of **Amazon Rekognition** to extract biometric features and save the FaceID. Original JPEG/PNG images are strictly secured in an **Amazon S3 Private Bucket**.
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+### 4.3. Smart Attendance Workflow
+- **Business Logic:** The check-in/check-out process is done by showing a face to the camera. The system automatically matches, checks valid timeframes, and verifies if the employee is using the correct office IP (preventing fake GPS/VPN).
+- **AWS Services:** 
+  - **AWS WAF (Web Application Firewall):** Blocks attendance requests originating outside the company network (IP Whitelisting).
+  - **Amazon Rekognition:** Calls the `SearchFacesByImage` function to check for a match (Confidence > 95%).
+  - **Amazon API Gateway & AWS Lambda:** API Gateway receives requests from the Frontend, passes them to Lambda (running FastAPI) to process logic and save the state into **Amazon DynamoDB**.
 
-### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+### 4.4. Event-driven Notifications Workflow
+- **Business Logic:** When an employee successfully checks in or is assigned a new task, the system automatically pushes multi-channel notifications to relevant personnel without slowing down the user's experience.
+- **AWS Services:** 
+  - **Amazon EventBridge:** Receives events (e.g., `AttendanceRecorded`) and routes them.
+  - **Amazon SQS:** Acts as a queue catching events from EventBridge, sending them to the Lambda Background Worker.
+  - **Amazon SNS & Amazon SES:** Sends Push Notifications, SMS (SNS), and Email (SES) to management.
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+### 4.5. Task Management Workflow
+- **Business Logic:** Assign tasks with strict deadlines and process Leave Requests. Management can attach confidential documents to tasks.
+- **AWS Services:**
+  - **Amazon DynamoDB:** Stores Tasks and Leaves data structures with Global Secondary Indexes (GSI) for fast querying.
+  - **Amazon S3 Pre-signed URL:** Generates dynamic, time-limited links to download confidential attachments, preventing data leaks.
+  - **Amazon EventBridge (Cronjob):** Runs scheduled tasks every 30 minutes to scan and alert about overdue Tasks.
 
-### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+### 4.6. Data Lake Analytics Workflow
+- **Business Logic:** Collect massive attendance logs from campuses, aggregate data so Directors can view Performance Reports (Dashboards) comparing departments.
+- **AWS Services:**
+  - **Amazon Kinesis Data Firehose:** Receives attendance log streams, automatically partitions folders by date (Dynamic Partitioning), and saves large files to the **S3 Data Lake**.
+  - **AWS Glue (Data Catalog):** Automatically crawls the schema of JSON files on S3.
+  - **Amazon Athena:** Serverless SQL query engine, reading data directly from S3 via Glue Catalog to return high-speed statistical results to the Frontend.
 
-### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+### 4.7. Core AWS Services Breakdown
+Below is a summary table of AWS services applied in the architecture diagram:
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+| No. | AWS SERVICE | ROLE & TASK IN SMART CAMPUS | REASON FOR CHOICE & TECHNICAL BENEFITS |
+| :---: | :--- | :--- | :--- |
+| 1 | **Amazon CloudFront** | Distributes React Frontend app from S3 Bucket to users. Acts as an anchor for AWS WAF. | Accelerates page load via Edge Location caching. Automatic HTTPS support, reduces bandwidth load. |
+| 2 | **AWS WAF** | Firewall protecting attendance, blocking non-office IPs. | Prevents remote attendance fraud, combats Web attacks and Spam requests. |
+| 3 | **Amazon S3** | **Bucket 1:** Hosts Frontend. <br> **Bucket 2:** Stores face images & secure docs. <br> **Bucket 3:** S3 Data Lake for logs. | Cheap storage, 99.999999999% reliability. Supports S3 Presigned URL for hiding secure files. Integrates well with Athena. |
+| 4 | **Amazon API Gateway** | RESTful/HTTP API gateway receiving requests from Frontend and calling AWS Lambda. | Supports Rate Limiting, built-in JWT authentication via Cognito Authorizer with zero code. |
+| 5 | **AWS Lambda** | **API Handler:** Processes API logic. <br> **Workers:** Processes background Events. | Pay-As-You-Go Serverless model (only pay when code runs). Instant auto-scaling, no server management. |
+| 6 | **Amazon DynamoDB** | Stores all business data (Users, Tasks, Leaves, Attendance). | Serverless NoSQL Database, millisecond response times, flexible with Global Secondary Indexes. |
+| 7 | **Amazon Cognito** | Manages User Pool, login authentication, and JWT Token issuance. | No need to build custom Auth system. High security, forces password change on first login. |
+| 8 | **Amazon EventBridge** | Event Bus routing events (e.g., `AttendanceRecorded`) and running Cronjobs. | Decouples modules following Event-Driven standards, making it easy to add new features. |
+| 9 | **Amazon SQS** | Message Queue placed before Workers. | Ensures no data loss when errors occur. Integrates Dead Letter Queue (DLQ) for retries. |
+| 10 | **Amazon Rekognition** | Matches employee faces via camera upon check-in. | Extremely powerful built-in AI, no model training time required. High accuracy (Confidence > 95%). |
+| 11 | **Amazon Kinesis Data Firehose, Glue & Athena** | The pipeline trio for aggregating S3 attendance logs, analyzing, and querying with SQL. | Automated file batching to save S3/Athena costs. Separates OLTP and OLAP systems. |
+| 12 | **AWS CodeBuild & CodePipeline** | Sets up CI/CD Pipeline to auto-build Frontend and package Lambda Backend. | Fully automated Continuous Deployment from source code. Ensures safety and consistency between releases. |
 
-Total: $0.7/month, $8.40/12 months
+### 4.8. Architecture Assessment according to the 5 Pillars of AWS Well-Architected Framework
+The entire Smart Campus Platform architecture is designed to strictly adhere to the 5 Pillars of the AWS Well-Architected Framework:
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+1. **Operational Excellence:** Manages the entire application lifecycle automatically using CI/CD scripts (CodeBuild/CodePipeline). Centralized monitoring of logs and event metrics via Amazon CloudWatch to detect bottlenecks early.
+2. **Security:** Enforces the Principle of Least Privilege via specific IAM Roles for each Lambda function. Hides sensitive attachments using S3 Pre-signed URLs, encrypts connections using CloudFront's HTTPS/TLS, and protects the API gateway with AWS WAF combined with Cognito JWT Authorizer.
+3. **Reliability:** Ensures continuous High Availability thanks to the default Multi-AZ architecture of the Serverless ecosystem. Automatic Retry mechanisms and pushing error messages into Amazon SQS's Dead-Letter Queue (DLQ) prevent attendance log loss.
+4. **Performance Efficiency:** Smoothly distributes the static Frontend app via CloudFront Edge locations. Optimizes read/write data times to milliseconds with DynamoDB, while offloading the main OLTP system by pushing large queries to the Data Lake pipeline (Firehose & Athena).
+5. **Cost Optimization:** Radically applies the 100% Serverless Event-Driven model (only pay when the system is called). Sets S3 Lifecycle Rules to automatically downgrade storage (moving old logs to Glacier), minimizing cold storage costs.
 
-### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+## 5. Expected Timeline
+| Week | Task Items |
+| :--- | :--- |
+| **Week 1-2** | Requirements analysis, system architecture design, UML and Architecture diagramming. Setup AWS network resources, CloudFront, WAF, static S3. |
+| **Week 3-5** | Build Backend API (FastAPI) on AWS Lambda and DynamoDB. Integrate Cognito and Rekognition for facial attendance features. |
+| **Week 6-8** | Design Event-Driven Architecture with EventBridge and SQS. Finalize Notification flows (SNS/SES). |
+| **Week 9-10**| Build Data Lake Pipeline (Firehose -> S3 -> Glue -> Athena) for Analytics Reporting. Build ReactJS Frontend connecting to API. |
+| **Week 11-12**| Integrate CI/CD (CodeBuild, CodePipeline), Automation Testing, performance optimization (X-Ray), summary and report writing. |
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+## 6. Monthly Budget Estimation
+The budget estimation is calculated based on the actual operating scale of a medium-sized campus: **200 employees, each checking in an average of 1 to 4 times/day** (morning arrival, lunch break, afternoon return, evening departure). In total, the system will process approximately **20,000 attendance checks/month** and about **150,000 API requests/month** (including task assignment, reporting, leaves).
 
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+To prove the optimization of Serverless, the estimate below is calculated **based on raw pricing (Pay-As-You-Go)** and does not rely on the AWS 12-month Free Tier package.
 
-### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+| AWS SERVICE | EXPECTED MONTHLY USAGE | REFERENCE PRICE (AP-SOUTHEAST-1) | MONTHLY COST (USD) |
+| :--- | :--- | :--- | :---: |
+| **AWS Lambda** | 150,000 API Requests + 40,000 Worker executions (Memory: 512MB, Avg: 1s) | $0.20 / 1M Requests + Compute time | **$1.62** |
+| **Amazon API Gateway** | 150,000 HTTP API calls | $1.00 / 1M Requests | **$0.15** |
+| **Amazon SQS** | 50,000 SQS Requests (Send & Receive) | $0.40 / 1M Requests | **$0.02** |
+| **Amazon DynamoDB** | 500,000 WCU, 500,000 RCU (On-Demand Mode) + 2GB Storage | $1.25 / 1M WCU, $0.25 / 1M RCU + $0.25/GB | **$1.26** |
+| **Amazon S3** | ~5GB Storage (Frontend, Images, Data Lake) + 100k GET/PUT | $0.025 / GB Storage + $0.004 / 1k PUT | **$0.53** |
+| **Amazon CloudFront** | 20GB Data Transfer Out + 200k HTTPS Requests | $0.09 / GB | **$1.80** |
+| **AWS WAF** | 1 Web ACL + 1 Rule (IP Match) + 150k Requests | $5.00/Web ACL + $1.00/Rule + $0.60/1M Req | **$6.09** |
+| **Amazon Cognito** | Under 1,000 MAU (Monthly Active Users) | Free (Forever under 50,000 MAU) | **$0.00** |
+| **Amazon Rekognition** | 20,000 face matching scans (SearchFacesByImage) | $0.001 / Scan | **$20.00** |
+| **Amazon Firehose & Athena** | ~1GB Data Ingestion & Scanned by Athena query | $0.03/GB Ingestion + $5.00/TB Scanned | **$0.04** |
+| **Amazon CloudWatch** | 1GB Ingestion Logs + 3 Custom Metrics | $0.57 / GB Logs | **$1.47** |
+| **AWS CodeBuild & CodePipeline** | ~100 build minutes (linux-small) + 1 Active Pipeline | $0.005 / min + $1.00/Pipeline | **$1.50** |
+| **TOTAL** | **Smart Campus Operation Cost (200 Users)** | | **~ $34.48 / month** |
+
+### 6.1. Cost Optimization Strategies
+Although the baseline operational cost is already very low, the system employs additional in-depth optimization strategies:
+1. **Pure Serverless Pay-As-You-Go Model:** Using AWS Lambda and **API Gateway HTTP API** (71% cheaper than REST API) ensures the system incurs zero server maintenance costs during nights or weekends.
+2. **S3 Lifecycle Rules & Firehose Compression:** Configuring automated attendance log compression to Parquet format via Firehose and moving logs older than 90 days to **S3 Glacier Flexible Retrieval** reduces long-term storage costs by 85%.
+3. **Using SQS Long Polling:** Configuring `ReceiveMessageWaitTimeSeconds = 20` minimizes Empty Receive Requests to SQS, significantly saving API call costs.
+4. **AWS Lambda Power Tuning:** Performing probing for the most optimal RAM level to balance response speed (Latency) and execution cost, ensuring Lambda is not over-provisioned with memory causing waste.
+
+## 7. Risk Assessment & Mitigations
+
+| No. | RISK TYPE | DETAILED RISK ANALYSIS | LEVEL | MITIGATION STRATEGY |
+| :---: | :--- | :--- | :---: | :--- |
+| 1 | **Performance** | **API Bottleneck or Lambda Cold Start:** When hundreds of employees rush to check-in at 8:00 AM, Lambda latency can spike (Cold Start). | **HIGH** | - Setup **Provisioned Concurrency** for critical Lambda functions during peak hours.<br>- Use SQS as a Buffer to absorb traffic spikes, processing asynchronously. |
+| 2 | **Security** | **API Spam / Fraud Attacks:** Malicious actors continuously send spam requests exhausting the AWS budget (Financial Exhaustion) or use fake images. | **CRITICAL** | - Enable **AWS WAF** combined with Rate Limiting and blocking unknown IPs.<br>- Require JWT verification via Cognito Authorizer before processing.<br>- Extreme Least Privilege configuration for each Lambda Role. |
+| 3 | **Operations** | **Data Loss:** While the system is processing attendance, a Lambda Worker times out or crashes unexpectedly. | **MEDIUM** | - Configure appropriate SQS `VisibilityTimeout`.<br>- Enable **Dead-Letter Queue (DLQ)** to catch messages failing more than 3 times, allowing engineers to review without losing attendance logs. |
+| 4 | **Cost Management** | **Spike Cost:** Infinite loop errors in Lambda code or logging too many errors to CloudWatch. | **MEDIUM** | - Setup **AWS Budgets Alert** to automatically warn via Email/Slack when costs exceed $40 USD/month.<br>- Configure CloudWatch Log Retention to a maximum of 14 days instead of indefinite. |
+
+## 8. Expected Outcomes
+
+Upon full deployment, the **Smart Campus** system is expected to achieve the following technical indicators and business objectives:
+
+**Technical KPIs:**
+- **Availability SLA:** Achieve at least **99.9%** stable uptime thanks to AWS's Serverless Multi-AZ infrastructure.
+- **API Latency:** **< 200ms** for standard data read/write tasks via API Gateway & DynamoDB.
+- **AI Processing Time:** **< 2.0 seconds** from sending a facial image until receiving attendance results.
+- **Concurrent Capacity:** Smoothly process a minimum of **500 concurrent attendance requests** without dropped requests or system congestion.
+
+**Business Outcomes:**
+- **Cost Optimization:** Save over **80%** of infrastructure operation costs compared to renting traditional servers (EC2/VPS), thanks to the serverless (Pay-as-you-go) model.
+- **High Maintainability:** The entire architecture is modularized into isolated Microservices (Event-Driven), meaning upgrading or bug fixing one feature won't disrupt the whole system.
+- **Superior User Experience:** Fully digitizes paperwork, providing a smart, modern, and transparent work environment for all personnel.

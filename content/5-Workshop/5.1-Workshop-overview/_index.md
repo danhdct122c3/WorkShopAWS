@@ -1,67 +1,132 @@
 ---
-title : "Overview"
+title : "Introduction"
 date : 2024-01-01 
 weight : 1
 chapter : false
 pre : " <b> 5.1. </b> "
 ---
 
-### 1. Solution Overview (Use case)
-In the context of digital transformation in education and enterprises, manual attendance tracking (magnetic cards, fingerprints) still has major limitations (pain points): congestion during peak hours, forgotten cards, or proxy check-ins. Internal physical server systems often waste resources when not in use at night, but become overloaded at 8:00 AM.
+### 1. Solution Introduction (Use case)
+In the context of digital transformation in education and enterprise, manual attendance (swiping magnetic cards, fingerprints) still presents major pain points: congestion during peak hours, forgotten cards, or proxy check-ins. Internal physical server systems often waste resources when no one is using them at night, but become overloaded during the 8:00 AM timeframe.
 
-**Smart Campus Platform** was created to completely solve this problem by combining facial recognition AI (**Amazon Rekognition**) and a **100% AWS Serverless** architecture. The system not only processes attendance at high speed but also ensures absolute security, automates notification workflows, and provides Big Data analytics solutions with optimized costs (Pay-as-you-go).
+**Smart Campus Platform** was created to completely solve this problem by combining facial recognition artificial intelligence (**Amazon Rekognition**) and a **100% AWS Serverless** architecture. The system not only processes attendance at lightning speed but also ensures absolute security, automates notification workflows, and provides a Big Data analytics solution at the most optimal cost (Pay-as-you-go).
 
-### 2. Architecture Diagram
-The architecture of the Smart Campus system includes the following blocks: Frontend & Edge, Authentication, Core API & AI, Asynchronous Event-Driven, Data Analytics, CI/CD Pipeline, and Observability.
+---
 
-> **Figure 1 - Architecture Diagram and Smart Campus Workflow**
-> ![Architecture Overview](/aws-image/Architechture.png)
+### 2. Architecture Diagram & Workflow
 
-**Overall system processing flow:**
-`Frontend -> CloudFront -> API Gateway -> Lambda -> Rekognition -> DynamoDB -> EventBridge -> SQS -> Lambda Worker -> SNS/SES`
-Simultaneously: `EventBridge -> Kinesis Firehose -> S3 Data Lake -> Athena`
+> **Figure 1 - Smart Campus Architecture and Processing Flow**
+> ![Architecture Overview](/aws-image/AwsArchitecture.drawio.png)
 
-### 3. Main Flow and Asynchronous Architecture
-One of the key and most important points of this architecture is **the application of Asynchronous processing for tasks that do not require immediate responses**.
+The Smart Campus system is designed with a 100% Serverless architecture on the AWS platform, applying an Event-Driven Architecture model to ensure high performance, auto-scalability, and cost optimization. The architecture diagram is divided into the following main business flow groups:
 
-**Why choose asynchronous processing?**
-Attendance tracking at the beginning of the day or at the end of shifts creates a massive amount of traffic at the same time (Spike Traffic). If everything is processed synchronously (saving to DB, compressing logs, sending late warning emails...), the system will respond very slowly or create bottlenecks. Separating the reporting and notification workflows from the main attendance flow (via EventBridge and SQS) allows the API to respond to users within milliseconds, while heavy tasks are pushed into a buffer queue to be processed reliably over time.
+#### Group 0: CI/CD Pipeline (Automated Deployment)
+The system uses the AWS Developer Tools suite to automate the process of testing and deploying source code whenever there are changes.
+- **C1. Push code:** Developer pushes new source code (Frontend/Backend) to the GitHub repository.
+- **C2. Trigger pipeline:** AWS CodePipeline listens to events from GitHub and automatically triggers the CI/CD flow.
+- **C3. Build & Package:** AWS CodeBuild downloads the source code, compiles (Build React), or packages libraries (Zip Python/FastAPI) into complete builds.
+- **C4. Deploy:** 
+  - *Frontend:* CodeBuild pushes static files (HTML/CSS/JS) to the S3 Frontend Bucket.
+  - *Backend:* CodeBuild pushes the zip file to AWS Lambda and updates the new version.
 
-**The End-to-End Main Flow occurs in detail through 16 steps (as numbered in the diagram):**
+#### Group 1: Access & Token Retrieval (Access & Auth)
+Protects the system from the outside and provides a secure authentication mechanism.
+- **1a. Web Access:** Users send access requests from the browser.
+- **1b. Secure Access (WAF):** AWS WAF checks IP and security rules before allowing the request to pass.
+- **2. Serve SPA:** CloudFront retrieves static web content from the S3 Frontend and distributes it quickly to users via the global CDN network.
+- **3. Trigger API:** Business requests from the Frontend are pushed into the API Gateway.
+- **4a & 4b. Authenticate:** API Gateway forwards the login request to Lambda. Lambda calls **Amazon Cognito** to authenticate the user and retrieve the JWT Token to return to the Frontend.
+- **4c. Validate Token:** Subsequent requests are intercepted by API Gateway to have Cognito check the Token's validity before proceeding.
 
-*   **(1) User access via WAF:** The user opens the frontend web application. Requests pass through the AWS WAF firewall (blocking malicious IPs, DDoS) and CloudFront CDN to load static content from S3.
-*   **(2) Login / Cognito:** The user logs into the system and receives a JWT authentication token from Amazon Cognito.
-*   **(3) API Gateway receives the request:** The interface calls the attendance API, sending the JWT Token. API Gateway will automatically validate this token.
-*   **(4) Call Lambda Core:** After successful authentication, the request is proxied to AWS Lambda (Core Logic) to begin business processing.
-*   **(5) Face Matching:** Lambda calls the Amazon Rekognition API to match the submitted facial image with the original facial database.
-*   **(6) Save original image:** For auditing and verification purposes, the photo taken during attendance is saved by Lambda to the Raw Images S3 bucket.
-*   **(7) Save attendance status:** If the faces match, Lambda saves the attendance record (Check-in/out) to Amazon DynamoDB.
-*   **(8) Emit Event (Attendance Event):** Immediately after saving to the DB, Lambda emits a successful/failed attendance event to the Amazon EventBridge Event Bus. The API returns the result to the Frontend instantly.
-*   **(9) Queueing:** EventBridge routes the event into an Amazon SQS queue serving as a buffer to prevent bottlenecks.
-*   **(10) Lambda Worker processing:** A background Lambda function retrieves events from the SQS Queue to process time-consuming tasks.
-*   **(11) Send alerts:** Lambda Worker calls Amazon SNS and Amazon SES to send messages/emails (e.g., late staff notifications or spoofing alerts).
-*   **(12) Push logs (Streaming):** Simultaneously at step 8, EventBridge also routes this log event to Amazon Kinesis Data Firehose for analysis purposes.
-*   **(13) Batching & Writing Data:** Firehose automatically batches and compresses the log data, writing it as files into the S3 Data Lake Bucket.
-*   **(14) Query & Reporting:** The HR Director uses Amazon Athena (via SQL commands) or BI Tools to generate statistical reports directly from the Data Lake without touching DynamoDB.
-*   **(15) Monitoring & Alarm:** The entire operational process (Logs & Metrics) is recorded in Amazon CloudWatch. If an error is detected (e.g., Lambda crash), CloudWatch Alarms will immediately alert the Ops Team via Email/Chat.
-*   **(16) Automated CI/CD Deploy:** Developers' code changes will go through AWS CodePipeline and AWS CodeBuild to automatically build and deploy (Serverless Deploy) to the AWS infrastructure without manual intervention.
+#### Group 2: HR Management & Face Registration
+Processes user data and generates biometric features.
+- **5. User Management:** Lambda reads/writes basic HR information into the `Users` table on DynamoDB.
+- **6. Registration Request:** The face registration flow for new employees.
+- **7. Save raw image:** Lambda uploads the raw image to the S3 Images Bucket to serve as reference material.
+- **8. Extract features:** Lambda calls **Amazon Rekognition** (IndexFaces) to extract the biometric matrix.
+- **9. Save Metadata:** The FaceID is saved into the `Faces` table on DynamoDB.
 
-### 4. In-Scope Services (MVP Scope)
-To complete this lab, the primary AWS services used include:
+#### Group 3: Core Attendance (Face Attendance)
+This is the backbone flow of the system, handling low latency (< 1s).
+- **10. Attendance Request:** User checks in, the system sends the check-in image to API Gateway.
+- **11. Retrieve info:** Lambda queries the `Users` table to cross-reference rules (Shifts, allowed times...).
+- **12. Recognize:** Lambda calls Amazon Rekognition (SearchFacesByImage) to match the face with high accuracy.
+- **13. Record:** The attendance record is immediately saved into the `Attendance` table on DynamoDB.
+- **14. Send Personal Email:** Lambda uses **Amazon SES** to send an attendance receipt (HTML) directly to that person's email.
+- **15. Publish Event:** To avoid slowing down the API, Lambda immediately fires an *"AttendanceRecorded"* event to **Amazon EventBridge** and returns HTTP 200 to the Camera.
+
+#### Group 4: Asynchronous (Event-Driven Async Flows)
+Processes heavy background tasks using a Fan-out architecture (1 event branching out).
+- **16a & 17a. Notification Flow:** EventBridge pushes the event into the SQS queue, triggering the `Notification Worker Lambda`. 
+- **18. Broadcast via SNS:** This Worker calls Amazon SNS to "broadcast" messages to multimedia channels (SMS, Mobile Push, Chatbot).
+- **16b & 17b. Data Flow (Analytics):** Simultaneously, EventBridge also pushes the event into SQS Analytics, triggering the `Analytics Worker Lambda`.
+- **19. Save to Data Lake:** This Worker packages attendance data into JSON files and pushes them to the S3 Data Lake for low-cost, long-term Cold storage.
+
+#### Group 5: Statistical Reporting (Hybrid / Lambda Architecture)
+Combines the power of Big Data analytics and real-time data retrieval.
+- **20. Catalog Data:** **AWS Glue** periodically crawls the S3 Data Lake to automatically learn and create a Data Schema.
+- **21. Report Request:** User accesses the Dashboard screen, API calls down to Dashboard Lambda (Report Lambda).
+- **22a. Retrieve Real-time Data (Hot Data):** Dashboard Lambda queries directly into **DynamoDB** (Attendance Table / Task Table) to get the latest attendance and task data of the day.
+- **22b, 22c & 22d. Retrieve Historical Data (Cold Data):** Simultaneously, Dashboard Lambda asks **Amazon Athena** to run high-speed SQL queries, combined with the schema from Glue, to scan through historical data on the S3 Data Lake.
+- **Aggregate:** Lambda automatically merges data from both flows and returns it to display accurately and optimally on the Dashboard.
+
+#### Group 6: Task & Form Management
+- **23. Task Request:** Task assignment or leave requests are pushed to Lambda.
+- **24a & 24b. Read/Write DB:** Data is saved into independent `Tasks` and `Leaves` tables.
+- **24c. Save Notification:** The notification sending history is recorded in the `Notifications` table.
+- **24d & 24e. Presigned URL Upload:** Instead of uploading heavy files through Lambda, Lambda generates a short-term secure link (Presigned URL) and returns it. The User's browser uses this link to upload PDFs/Images directly to S3 Images, optimizing server bandwidth.
+- **25. Send Notification:** Sends an email notifying about a new task/form via Amazon SES.
+
+#### Group 7: Cronjob (Overdue Scanning)
+- **26. Cron Trigger:** **EventBridge Scheduler** is scheduled to run every X minutes, automatically triggering Lambda.
+- **27. Scan overdue:** Lambda scans the `Tasks` table to find tasks nearing their deadline or already overdue.
+- **28. Warning Email:** Sends an urging email to the employee via Amazon SES.
+
+#### Group 8: Governance, Security & Monitoring (Cross-cutting)
+- **IAM (Identity and Access Management):** All services communicate using the Principle of Least Privilege. Lambda is only allowed to write to specific S3 buckets, not delete buckets.
+- **X-Ray & CloudWatch:** 
+  - Lambda continuously pushes Logs/Metrics (number of requests, processing time) to CloudWatch.
+  - AWS X-Ray draws a Trace Map to track how many milliseconds a request takes through each service.
+- **CloudWatch Alarms:** When the Faults rate exceeds the allowed threshold, an Alarm is triggered and calls Amazon SNS to shoot an emergency warning to the engineering team's phones.
+
+---
+
+### 3. In-Scope Services
+To complete this lab, the main AWS services used include:
 - **Edge & Frontend:** Amazon S3 (Static Website), Amazon CloudFront, AWS WAF.
 - **Authentication & API:** Amazon Cognito, Amazon API Gateway.
 - **Core Compute & AI:** AWS Lambda, Amazon Rekognition.
 - **Database & Storage:** Amazon DynamoDB, Amazon S3.
 - **Event & Queue:** Amazon EventBridge, Amazon SQS, Amazon SNS/SES.
-- **Data Analytics:** Amazon Kinesis Data Firehose, Amazon Athena, AWS Glue.
+- **Data Analytics:** Amazon Athena, AWS Glue.
 - **CI/CD & Observability:** AWS CodeBuild, AWS CodePipeline, Amazon CloudWatch.
 - **Security:** AWS IAM.
 
-### 5. Expected Outcomes upon Workshop Completion
-At the end of this practical series, you will have built a complete enterprise platform:
-- **Fully functional Frontend:** Features an attendance interface and a management dashboard.
-- **Multi-layer security authentication:** Prevents spoofing using IAM Least Privilege, WAF, and Cognito JWT.
-- **High-load resilient architecture:** Proficiently applies Event-Driven design (EventBridge + SQS) to eliminate peak hour bottlenecks.
-- **Automated Data Pipeline:** Owns a Data Lake system (Firehose + Athena) that completely separates OLTP and OLAP.
-- **DevOps CI/CD:** A CodePipeline system that automatically builds and deploys code without manual intervention.
-- **Cleanup:** Capable of quickly cleaning up resources to fully control AWS costs.
+### 4. Expected Outcomes upon Workshop Completion
+By the end of this practical series, you will have fully built an enterprise platform:
+- **Well-functioning Frontend:** Has an attendance interface and management dashboard.
+- **Multi-layer secure authentication:** Anti-spoofing using IAM Least Privilege, WAF, and Cognito JWT.
+- **High-load architecture:** Proficient application of Event-Driven (EventBridge + SQS) to eliminate peak hour bottlenecks.
+- **Automated Data Pipeline:** Own a Data Lake system completely separating OLTP and OLAP.
+- **DevOps CI/CD:** CodePipeline system automatically builds and deploys code without manual intervention.
+- **Cleanup:** Ability to quickly clean up resources for complete control over AWS costs.
+
+---
+
+### 5. Future Development Directions
+
+Although the Smart Campus system has completed its core features, the team has identified several potential improvement directions to upgrade the system to a higher level in the future:
+
+#### 5.1. Upgrade AI & Recognition System
+- **Liveness Detection (Anti-spoofing):** Integrate an anti-spoofing mechanism using photos or fake videos, ensuring absolute accuracy for the attendance system.
+- **Migrate to Amazon Rekognition Video:** Support facial recognition from a live camera stream instead of uploading individual images, significantly increasing processing speed.
+
+#### 5.2. Advanced Analytics
+- **Integrate Amazon QuickSight:** Instead of drawing charts manually on the Frontend, integrate **Amazon QuickSight** to create professional BI (Business Intelligence) dashboards, supporting drill-down and multi-dimensional data filtering.
+- **Machine Learning Forecasting:** Use **Amazon SageMaker** to train forecasting models for late arrival trends, predict team productivity, and propose automatic shift adjustments.
+- **Real-time Streaming with Kinesis:** Replace SQS with **Amazon Kinesis Data Streams** for extremely high-load real-time data analysis flows (millions of events/second).
+
+#### 5.3. Infrastructure & Cost Optimization
+- **Infrastructure as Code (IaC):** Migrate the entire AWS resource configuration to **AWS CDK** or **Terraform** to manage infrastructure by version control and easily reuse it.
+- **Multi-region Deployment:** Deploy the system across multiple AWS Regions to ensure High Availability and reduce latency for global users.
+- **AWS Savings Plans / Reserved Capacity:** When the system reaches a stable traffic threshold, switch from the On-demand to the Reserved model to save an additional 30-60% on operating costs.
