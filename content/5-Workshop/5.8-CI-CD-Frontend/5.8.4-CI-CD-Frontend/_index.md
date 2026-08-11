@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.8.4. </b> "
 ---
 
-#### Set up CI/CD flow for Frontend with AWS CodePipeline
+#### 5.8.4. Set up CI/CD flow for Frontend with AWS CodePipeline
 Instead of manually running a build command and dragging and dropping files to S3 every time you update the interface, we will have AWS do this completely automatically whenever there is new code pushed to GitHub.
 
 **Prerequisites:** You have pushed the Frontend source code folder to a repository on GitHub and the root directory contains the `buildspec.yml` configuration file for the frontend.

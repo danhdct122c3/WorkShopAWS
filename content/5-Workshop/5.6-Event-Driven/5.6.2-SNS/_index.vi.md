@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.6.2. </b> "
 ---
 
-#### 4.2. Cấu hình Amazon SNS (Gửi thông báo)
+#### 5.6.2. Cấu hình Amazon SNS (Gửi thông báo)
 Amazon SNS (Simple Notification Service) là dịch vụ Pub/Sub. Chúng ta sẽ tạo một "kênh phát sóng" (gọi là **Topic**) và cho phép các địa chỉ Email (như SES vừa tạo) đăng ký theo dõi (Subscribe) kênh này. Khi có tin nhắn đẩy vào Topic, tất cả những ai đang theo dõi đều sẽ nhận được.
 
 **Bước 1: Tạo SNS Topic**

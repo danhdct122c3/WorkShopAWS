@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.6.1. </b> "
 ---
 
-#### 4.1. Configure Amazon SES (Email Verification)
+#### 5.6.1. Configure Amazon SES (Email Verification)
 Amazon SES (Simple Email Service) is AWS's email sending service. Because our account is in **Sandbox** mode (a testing environment to prevent spam), AWS requires us to verify ownership of any Email address before using it as a Sender or Receiver.
 
 In this scenario, the system needs to send a successful attendance notification Email to the HR department. Therefore, we need to verify the recipient's Email.

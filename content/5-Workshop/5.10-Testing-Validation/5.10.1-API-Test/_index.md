@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.10.1. </b> "
 ---
 
-#### API Testing via Swagger UI and Postman
+#### 5.10.1. API Testing via Swagger UI and Postman
 
 The first testing step is to confirm that the API Gateway has connected correctly to Lambda and can receive/process requests. We will use **Swagger UI** (the auto-generated interface from FastAPI) and **Postman**.
 

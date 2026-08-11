@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.7.1. </b> "
 ---
 
-#### Initialize Data Lake and Analytics Worker
+#### 5.7.1. Initialize Data Lake and Analytics Worker
 Before using Glue and Athena for data analysis, we need a data storage location (S3 Data Lake) and a piece of code to automatically push attendance events from SQS into this Data Lake. Writing directly from Lambda to S3 is a very popular architecture for small and medium data streams, saving costs compared to using Kinesis Firehose.
 
 **Step 1: Create an S3 Data Lake Bucket**

@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.10.3. </b> "
 ---
 
-#### Test Event Notification Flow (EventBridge → SNS → Email & SQS)
+#### 5.10.3. Test Event Notification Flow (EventBridge → SNS → Email & SQS)
 
 After a successful attendance in step 5.10.2, Lambda will automatically emit an `AttendanceRecorded` event to **EventBridge**. This section confirms that the event has been correctly routed to the Web interface, SNS (send Email), and SQS (save to queue).
 

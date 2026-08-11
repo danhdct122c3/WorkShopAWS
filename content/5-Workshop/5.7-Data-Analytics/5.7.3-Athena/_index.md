@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.7.3. </b> "
 ---
 
-#### Data analysis with Amazon Athena
+#### 5.7.3. Data analysis with Amazon Athena
 Amazon Athena is a serverless interactive query service that makes it easy to analyze data directly in S3 using standard SQL. Since the table schema has been defined by Glue, Athena can read it instantly.
 
 **Step 1: Access Amazon Athena and Open the Query Editor**

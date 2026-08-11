@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.6.4. </b> "
 ---
 
-#### 4.4. Configure Amazon EventBridge (Event orchestration)
+#### 5.6.4. Configure Amazon EventBridge (Event orchestration)
 EventBridge is the "heart" of the event-driven architecture. Whenever Lambda finishes processing a facial recognition flow, instead of calling the email-sending API itself, it "broadcasts" an event to EventBridge.
 EventBridge will listen to this event and automatically route it to suitable Targets like SNS (to send Emails) or SQS (to save Logs).
 

@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.9.2. </b> "
 ---
 
-#### Trace API flow with AWS X-Ray
+#### 5.9.2. Trace API flow with AWS X-Ray
 With a Serverless architecture, a request from the Frontend can go through a series of services: API Gateway -> Lambda -> Rekognition -> DynamoDB -> SQS. If a request is running slow, how do we know which service is dragging down performance? That's when AWS X-Ray shines.
 
 **Enable X-Ray for Lambda**

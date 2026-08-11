@@ -1,12 +1,12 @@
 ---
-title : "Tạo AI Collection"
+title : "Cấu hình Amazon Rekognition"
 date : 2024-01-01
 weight : 1
 chapter : false
 pre : " <b> 5.5.1. </b> "
 ---
 
-#### 3.1. Tạo Collection trên Amazon Rekognition
+#### 5.5.1. Tạo Collection trên Amazon Rekognition
 Amazon Rekognition không giữ ảnh gốc để nhận diện, mà nó trích xuất và lưu trữ siêu dữ liệu (metadata/vector) của các đặc điểm khuôn mặt vào một kho chứa được gọi là **Collection**.
 
 Hiện tại, AWS Management Console **không hỗ trợ** giao diện (UI) để tạo Collection. Tuy nhiên, chúng ta không cần cài đặt phức tạp ở máy tính cá nhân. Thay vào đó, chúng ta sẽ sử dụng **AWS CloudShell** - một môi trường dòng lệnh có sẵn ngay trên trình duyệt của AWS.

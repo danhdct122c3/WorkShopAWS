@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.9.1. </b> "
 ---
 
-#### Centralized Monitoring Configuration with CloudWatch
+#### 5.9.1. Centralized Monitoring Configuration with CloudWatch
 All Lambda Logs (results printed from `print` or `console.log` statements) are pushed straight into CloudWatch Logs automatically. Our task is to know how to view logs and create alerts to monitor the system.
 
 **Step 1: View Lambda Logs**

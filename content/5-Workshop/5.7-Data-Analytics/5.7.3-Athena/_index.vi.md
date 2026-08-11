@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.7.3. </b> "
 ---
 
-#### Phân tích dữ liệu với Amazon Athena
+#### 5.7.3. Phân tích dữ liệu với Amazon Athena
 Amazon Athena là dịch vụ truy vấn tương tác serverless, giúp bạn dễ dàng phân tích dữ liệu trực tiếp trong S3 bằng SQL tiêu chuẩn. Vì cấu trúc bảng đã được Glue định nghĩa, Athena có thể đọc nó ngay lập tức.
 
 **Bước 1: Truy cập Amazon Athena và Mở Trình soạn thảo**

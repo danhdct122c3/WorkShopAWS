@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.8.2. </b> "
 ---
 
-#### Hosting Frontend trên Amazon S3
+#### 5.8.2. Hosting Frontend trên Amazon S3
 Amazon S3 có một tính năng vô cùng lợi hại là **Static Website Hosting**. Bạn chỉ việc upload các file HTML, CSS, JS (sau khi đã build) lên S3, nó sẽ biến thành một máy chủ web thực thụ mà không cần bạn phải duy trì hệ điều hành hay phần mềm web server (như Nginx/Apache).
 
 **Bước 1: Tạo S3 Bucket cho Website**

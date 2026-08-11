@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.6.2. </b> "
 ---
 
-#### 4.2. Configure Amazon SNS (Send notifications)
+#### 5.6.2. Configure Amazon SNS (Send notifications)
 Amazon SNS (Simple Notification Service) is a Pub/Sub service. We will create a "broadcast channel" (called a **Topic**) and allow Email addresses (like the SES just created) to Subscribe to this channel. When a message is pushed to the Topic, everyone who is subscribed will receive it.
 
 **Step 1: Create an SNS Topic**

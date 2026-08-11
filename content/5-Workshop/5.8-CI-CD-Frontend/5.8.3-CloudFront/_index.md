@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.8.3. </b> "
 ---
 
-#### Initialize Amazon CloudFront (CDN)
+#### 5.8.3. Initialize Amazon CloudFront (CDN)
 Although S3 can be used to host a website, it does not support SSL certificates (HTTPS) for custom domain names, nor does it have a global cache. Amazon CloudFront solves all these issues.
 
 **Step 1: Create a CloudFront Distribution**

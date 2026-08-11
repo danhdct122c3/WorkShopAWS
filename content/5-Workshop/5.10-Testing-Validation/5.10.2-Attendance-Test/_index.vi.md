@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.10.2. </b> "
 ---
 
-#### Kiểm thử luồng điểm danh nhận diện khuôn mặt qua giao diện Web
+#### 5.10.2. Kiểm thử luồng điểm danh nhận diện khuôn mặt qua giao diện Web
 
 Đây là luồng nghiệp vụ cốt lõi của hệ thống: Đăng ký khuôn mặt vào Rekognition, sau đó gửi ảnh để nhận diện và ghi nhận điểm danh vào DynamoDB. Thay vì dùng Postman, chúng ta sẽ trải nghiệm trực tiếp trên giao diện Frontend của ứng dụng.
 
@@ -78,3 +78,15 @@ Sau khi đã đăng ký khuôn mặt, giao diện Điểm danh sẽ chuyển san
 > **Kết quả mong đợi:** Hệ thống báo lỗi **"Không nhận diện được - Không phát hiện khuôn mặt trong ảnh"**.
 > ![Lỗi không nhận diện được](/aws-image/setupTestcheckin/checkin7.png)
 
+
+---
+
+**Bước 7: Kiểm thử điểm danh ngoài mạng công ty (WAF IP Whitelisting)**
+
+Để kiểm chứng tính năng chặn IP bằng AWS WAF đã thiết lập ở phần 5.5.4, hãy thử:
+1. Ngắt kết nối Wi-Fi hiện tại trên máy tính và phát Wi-Fi từ điện thoại (dùng 4G/5G) để đổi địa chỉ IP.
+2. Hoặc sử dụng một VPN để tạo một IP ảo khác mạng nội bộ.
+3. Nhấn nút **Chụp ảnh (Check in)** trên giao diện.
+
+> **Kết quả mong đợi:** Yêu cầu bị chặn ngay lập tức ở tầng WAF trước khi chạm đến API Gateway. Hệ thống báo lỗi từ chối truy cập (Ví dụ: 403 Forbidden) do không nằm trong danh sách IP được phép (IP Whitelist).
+> ![Lỗi điểm danh sai mạng](/aws-image/setupTestcheckin/checkin8.png)

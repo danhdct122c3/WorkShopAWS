@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.11. </b> "
 ---
 
-#### Dọn dẹp tài nguyên (Clean-up)
+#### 5.11. Dọn dẹp tài nguyên (Clean-up)
 
 > Sau khi hoàn thành Workshop, hãy xóa tất cả tài nguyên đã tạo để **tránh phát sinh chi phí** không mong muốn trên tài khoản AWS của bạn.
 

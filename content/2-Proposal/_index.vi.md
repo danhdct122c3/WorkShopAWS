@@ -7,7 +7,7 @@ chapter: false
 # Bản đề xuất (Project Proposal)
 
 ## 1. Tổng quan dự án (Project Overview)
-**Smart Campus Platform** là một hệ thống phần mềm toàn diện nhằm hiện đại hóa và số hóa quy trình quản lý tại các khuôn viên trường học/công ty. Dự án chuyển đổi mô hình từ "Giám sát thụ động" sang "Vận hành tự động", bao gồm tự động hóa điểm danh bằng khuôn mặt (AI), quản lý công việc và nghỉ phép (Task & Leave Management), và trung tâm báo cáo dữ liệu lớn (Analytics Command Center). 
+**Smart Campus Platform** là một hệ thống phần mềm toàn diện nhằm hiện đại hóa và số hóa quy trình quản lý công việc và điểm danh. Dự án bao gồm tự động hóa điểm danh bằng khuôn mặt, quản lý công việc, điểm danh và thống kê công việc, điểm danh của nhân viên.
 
 Đặc biệt, hệ thống được thiết kế **100% Serverless trên nền tảng AWS**, áp dụng kiến trúc Event-Driven Microservices để đảm bảo tính mở rộng cao, chi phí thấp và khả năng vận hành bền bỉ.
 
@@ -22,7 +22,7 @@ Hệ thống giải quyết các bài toán nhức nhối trong quản lý truy�
 - **Tự động hóa & Chính xác:** Ứng dụng AI nhận diện khuôn mặt kết hợp hàng rào IP (IP Whitelisting) để điểm danh nhanh chóng, chính xác tuyệt đối và chống gian lận.
 - **Tập trung hóa dữ liệu (Data Lake):** Xây dựng một đường ống dữ liệu (Analytics Pipeline) thu thập hàng ngàn luồng sự kiện để phục vụ phân tích báo cáo thời gian thực.
 - **Tối ưu chi phí 100%:** Ứng dụng triệt để kiến trúc Serverless (trả tiền theo mỗi lần gọi API), đảm bảo chi phí bằng 0 khi không có người sử dụng.
-- **Bảo mật theo tiêu chuẩn đám mây:** Phân quyền chặt chẽ (RBAC) và bảo vệ dữ liệu nhạy cảm bằng hệ thống Firewall và Token.
+- **Bảo mật theo tiêu chuẩn đám mây:** Phân quyền chặt chẽ (RBAC) và bảo vệ dữ liệu nhạy cảm bằng hệ thống Firewall.
 
 ## 4. Các luồng nghiệp vụ và Kiến trúc giải pháp (Workflows & Solution Architecture)
 
@@ -83,7 +83,7 @@ Dưới đây là bảng tổng hợp các dịch vụ AWS được ứng dụng
 | 8 | **Amazon EventBridge** | Event Bus định tuyến các sự kiện (ví dụ: `AttendanceRecorded`) và chạy Cronjob. | Tách rời các module (Decoupling) theo chuẩn Event-Driven, dễ dàng thêm nghiệp vụ mới. |
 | 9 | **Amazon SQS** | Hàng đợi tin nhắn (Queue) đứng trước các Worker. | Đảm bảo không mất dữ liệu khi có lỗi xảy ra. Tích hợp Dead Letter Queue (DLQ) để retry. |
 | 10 | **Amazon Rekognition** | So khớp khuôn mặt nhân viên qua camera khi check-in. | AI có sẵn siêu mạnh, không tốn thời gian train model. Độ chính xác cao (Confidence > 95%). |
-| 11 | **Amazon Kinesis Data Firehose, Glue & Athena** | Bộ ba pipeline gom log điểm danh trên S3, phân tích và truy vấn bằng SQL. | Batching file tự động để tiết kiệm phí S3/Athena. Tách bạch hệ thống OLTP và OLAP. |
+| 11 | **Glue & Athena** | Bộ đôi Glue & Athena pipeline gom log điểm danh trên S3, phân tích và truy vấn bằng SQL. | Batching file tự động để tiết kiệm phí S3/Athena. Tách bạch hệ thống OLTP và OLAP. |
 | 12 | **AWS CodeBuild & CodePipeline** | Thiết lập CI/CD Pipeline tự động build Frontend và đóng gói Lambda Backend. | Triển khai liên tục (Continuous Deployment) một cách hoàn toàn tự động từ source code. Đảm bảo an toàn và nhất quán giữa các lần release. |
 
 ### 4.8. Đánh giá Kiến trúc theo 5 Trụ cột AWS Well-Architected Framework

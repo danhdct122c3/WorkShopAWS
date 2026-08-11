@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.8.1. </b> "
 ---
 
-#### Set up CI/CD flow for Backend with AWS CodePipeline
+#### 5.8.1. Set up CI/CD flow for Backend with AWS CodePipeline
 The deployment of Lambda functions (Backend) every time there is new code also needs to be automated. Because the Backend architecture uses SAM (Serverless Application Model), the CI/CD process will be a bit different from the Frontend: We will use CodeBuild to directly run `sam build` and `sam deploy` commands to AWS, and **skip the Deploy step** of the Pipeline.
 
 **Prerequisites:** The Backend code is on a GitHub repository and the root directory of the project **already has a `buildspec-backend.yml` file** with the content below. If not, create this file before proceeding:

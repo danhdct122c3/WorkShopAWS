@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.10.4. </b> "
 ---
 
-#### Kiểm thử Log, Metric và Tracing (CloudWatch & X-Ray)
+#### 5.10.4. Kiểm thử Log, Metric và Tracing (CloudWatch & X-Ray)
 
 Phần này hướng dẫn bạn xem log thời gian thực, kiểm tra metric và phân tích luồng request qua X-Ray để xác nhận hệ thống giám sát đang hoạt động đúng.
 

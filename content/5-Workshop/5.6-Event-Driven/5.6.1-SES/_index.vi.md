@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.6.1. </b> "
 ---
 
-#### 4.1. Cấu hình Amazon SES (Xác thực Email)
+#### 5.6.1. Cấu hình Amazon SES (Xác thực Email)
 Amazon SES (Simple Email Service) là dịch vụ gửi email của AWS. Vì tài khoản của chúng ta đang ở chế độ **Sandbox** (môi trường thử nghiệm để chống spam), AWS yêu cầu chúng ta phải xác minh (verify) quyền sở hữu của bất kỳ địa chỉ Email nào trước khi dùng nó làm người gửi (Sender) hoặc người nhận (Receiver).
 
 Trong bài toán này, hệ thống cần gửi Email thông báo điểm danh thành công đến bộ phận nhân sự. Do đó, ta cần xác minh Email người nhận.

@@ -6,6 +6,8 @@ chapter : false
 pre : " <b> 5.2. </b> "
 ---
 
+#### 5.2. Prerequisites
+
 To begin deploying the **Smart Campus Platform**, you need to prepare some basic tools and resources on the AWS environment.
 
 ### 1. AWS Account

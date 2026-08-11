@@ -6,6 +6,8 @@ chapter : false
 pre : " <b> 5.1. </b> "
 ---
 
+#### 5.1. Introduction
+
 ### 1. Solution Introduction (Use case)
 In the context of digital transformation in education and enterprise, manual attendance (swiping magnetic cards, fingerprints) still presents major pain points: congestion during peak hours, forgotten cards, or proxy check-ins. Internal physical server systems often waste resources when no one is using them at night, but become overloaded during the 8:00 AM timeframe.
 

@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.8.4. </b> "
 ---
 
-#### Thiết lập luồng CI/CD cho Frontend với AWS CodePipeline
+#### 5.8.4. Thiết lập luồng CI/CD cho Frontend với AWS CodePipeline
 Thay vì mỗi lần cập nhật giao diện, bạn phải chạy lệnh build thủ công rồi kéo thả lên S3, chúng ta sẽ nhờ AWS làm việc này hoàn toàn tự động mỗi khi có code mới đẩy lên GitHub.
 
 **Điều kiện tiên quyết:** Bạn đã đẩy thư mục mã nguồn Frontend lên một kho lưu trữ trên GitHub và trong thư mục gốc có chứa file cấu hình `buildspec.yml` dành cho Frontend.

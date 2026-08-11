@@ -7,7 +7,7 @@ pre: " <b> 3. </b> "
 ---
 
 
-This section will list and introduce the blogs you have posted to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). For example:
+
 
 ###  [Blog 1 - PAGINATION STRATEGY IN AMAZON DYNAMODB](3.1-Blog1/)
 This blog covers the essential pagination strategy in Amazon DynamoDB using **LastEvaluatedKey** and **ExclusiveStartKey** to split query results into pages instead of loading all data at once. It demonstrates how pagination can reduce Read Capacity Units (RCU) costs by up to 10,000x, improve response time from minutes to hundreds of milliseconds, and ensure applications scale effectively with growing data.

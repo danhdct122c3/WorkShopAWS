@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.11. </b> "
 ---
 
-#### Resource Cleanup (Clean-up)
+#### 5.11. Resource Cleanup (Clean-up)
 
 > After completing the Workshop, please delete all created resources to **avoid incurring unwanted costs** on your AWS account.
 

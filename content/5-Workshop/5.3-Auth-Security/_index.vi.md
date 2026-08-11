@@ -15,7 +15,7 @@ Trong phần này, chúng ta sẽ xây dựng tuyến phòng thủ xác thực n
 
 ### Các nội dung thực hành chi tiết
 
-#### 1.1. Khởi tạo Amazon Cognito User Pool
+#### 5.3.1. Khởi tạo Amazon Cognito User Pool
 1. Truy cập vào AWS Console, tìm kiếm dịch vụ **Cognito**.
 > ![Tìm kiếm dịch vụ Cognito](/aws-image/setupCognito/cognito1.png)
 2. Tại giao diện Amazon Cognito, chọn **Create user pool**.

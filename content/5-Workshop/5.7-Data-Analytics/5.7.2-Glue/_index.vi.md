@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.7.2. </b> "
 ---
 
-#### Khởi tạo Data Catalog với AWS Glue
+#### 5.7.2. Khởi tạo Data Catalog với AWS Glue
 AWS Glue là dịch vụ Data Integration serverless. Chúng ta sẽ sử dụng tính năng **Glue Crawler** của nó để tự động đọc các file log điểm danh trong S3 bucket và suy luận ra cấu trúc bảng (Table Schema) lưu vào Data Catalog.
 
 **Bước 1: Khởi tạo Database trong AWS Glue**

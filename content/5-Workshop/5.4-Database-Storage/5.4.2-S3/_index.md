@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.4.2. </b> "
 ---
 
-#### 2.2. Initialize Amazon S3 Buckets
+#### 5.4.2. Initialize Amazon S3 Buckets
 Our system needs 2 separate buckets with different security policies:
 
 **Bucket 1: S3 Frontend (For static website)**

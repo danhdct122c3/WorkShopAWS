@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.8.1. </b> "
 ---
 
-#### Thiết lập luồng CI/CD cho Backend với AWS CodePipeline
+#### 5.8.1. Thiết lập luồng CI/CD cho Backend với AWS CodePipeline
 Việc triển khai các hàm Lambda (Backend) mỗi khi có code mới cũng cần được tự động hóa. Vì kiến trúc Backend sử dụng SAM (Serverless Application Model), nên quá trình CI/CD sẽ có chút khác biệt so với Frontend: Chúng ta sẽ dùng CodeBuild để chạy trực tiếp lệnh `sam build` và `sam deploy` lên AWS, và **bỏ qua bước Deploy** của Pipeline.
 
 **Điều kiện tiên quyết:** Code Backend đã nằm trên kho lưu trữ GitHub và trong thư mục gốc của dự án **đã có file `buildspec-backend.yml`** với nội dung như bên dưới. Nếu chưa có, hãy tạo file này trước khi tiến hành:

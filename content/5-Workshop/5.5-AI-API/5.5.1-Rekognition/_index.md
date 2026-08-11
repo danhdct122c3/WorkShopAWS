@@ -1,12 +1,12 @@
 ---
-title : "Create AI Collection"
+title : "Configure Amazon Rekognition"
 date : 2024-01-01
 weight : 1
 chapter : false
 pre : " <b> 5.5.1. </b> "
 ---
 
-#### 3.1. Create a Collection on Amazon Rekognition
+#### 5.5.1. Create a Collection on Amazon Rekognition
 Amazon Rekognition does not keep the original images for recognition; rather, it extracts and stores the metadata/vectors of facial features in a repository called a **Collection**.
 
 Currently, the AWS Management Console **does not support** a user interface (UI) for creating Collections. However, we don't need complex local computer installations. Instead, we will use **AWS CloudShell** - a command-line environment available right in the AWS browser.

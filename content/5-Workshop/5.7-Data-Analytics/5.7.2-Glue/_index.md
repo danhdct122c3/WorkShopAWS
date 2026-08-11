@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.7.2. </b> "
 ---
 
-#### Initialize Data Catalog with AWS Glue
+#### 5.7.2. Initialize Data Catalog with AWS Glue
 AWS Glue is a serverless Data Integration service. We will use its **Glue Crawler** feature to automatically read the attendance log files in the S3 bucket and infer the table structure (Table Schema) to save into the Data Catalog.
 
 **Step 1: Initialize Database in AWS Glue**

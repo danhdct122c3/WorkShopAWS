@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.9.1. </b> "
 ---
 
-#### Cấu hình giám sát tập trung bằng CloudWatch
+#### 5.9.1. Cấu hình giám sát tập trung bằng CloudWatch
 Mọi Log của Lambda (kết quả in ra từ câu lệnh `print` hoặc `console.log`) đều được đẩy thẳng vào CloudWatch Logs một cách tự động. Nhiệm vụ của chúng ta là biết cách xem log và tạo các cảnh báo để giám sát hệ thống.
 
 **Bước 1: Xem Log của Lambda**

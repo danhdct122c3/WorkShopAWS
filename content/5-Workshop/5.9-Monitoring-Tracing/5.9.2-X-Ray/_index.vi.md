@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.9.2. </b> "
 ---
 
-#### Trace (Dò vết) luồng API bằng AWS X-Ray
+#### 5.9.2. Trace (Dò vết) luồng API bằng AWS X-Ray
 Với kiến trúc Serverless, một request từ Frontend có thể đi qua hàng loạt dịch vụ: API Gateway -> Lambda -> Rekognition -> DynamoDB -> SQS. Nếu request chạy chậm, làm sao biết dịch vụ nào đang kéo tụt hiệu năng? Đó là lúc AWS X-Ray tỏa sáng.
 
 **Bật X-Ray cho Lambda**

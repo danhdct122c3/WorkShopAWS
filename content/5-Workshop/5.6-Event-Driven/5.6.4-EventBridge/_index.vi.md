@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.6.4. </b> "
 ---
 
-#### 4.4. Cấu hình Amazon EventBridge (Điều phối sự kiện)
+#### 5.6.4. Cấu hình Amazon EventBridge (Điều phối sự kiện)
 EventBridge là "trái tim" của kiến trúc hướng sự kiện. Mỗi khi Lambda xử lý xong luồng nhận diện khuôn mặt, thay vì tự nó đi gọi API gửi email, nó sẽ "phát loa" một sự kiện lên EventBridge.
 EventBridge sẽ nghe sự kiện này và tự động chuyển hướng nó tới các đích đến (Targets) phù hợp như SNS (để gửi Email) hoặc SQS (để lưu Log).
 

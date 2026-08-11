@@ -15,7 +15,7 @@ In this section, we will build the first line of defense for user authentication
 
 ### Detailed Practice Content
 
-#### 1.1. Initialize Amazon Cognito User Pool
+#### 5.3.1. Initialize Amazon Cognito User Pool
 1. Go to the AWS Console, and search for the **Cognito** service.
 > ![Search Cognito service](/aws-image/setupCognito/cognito1.png)
 2. In the Amazon Cognito interface, select **Create user pool**.

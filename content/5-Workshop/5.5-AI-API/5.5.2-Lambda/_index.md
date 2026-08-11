@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.5.2. </b> "
 ---
 
-#### 3.2. Deploy AWS Lambda (Core Logic)
+#### 5.5.2. Deploy AWS Lambda (Core Logic)
 This Lambda function will be responsible for all the API processing logic of the system (Facial recognition, logging to DynamoDB, saving images to S3...). Since the source code uses external libraries like `FastAPI`, `mangum`, `boto3`, we cannot code directly on the AWS Console but must package the source code from our local computer.
 
 **Step 1: Source Code Packaging**
@@ -80,14 +80,13 @@ This Lambda function will be responsible for all the API processing logic of the
 *(Click **Save** to save)*.
 
 **Step 5: Grant IAM Role Permissions (Security)**
-> **[IMPORTANT NOTE FOR THE DEMO]**  
-> This Lambda function requires access to multiple services. In reality, you need to grant very specific permissions (Least Privilege). However, for a smooth and fast Demo, you can attach managed policies like `AmazonS3FullAccess`, `AmazonDynamoDBFullAccess`, `AmazonRekognitionFullAccess`, and `AmazonEventBridgeFullAccess` to the Lambda's Execution Role.
+
 1. In the **Configuration** tab > **Permissions**, click on the existing Role name (e.g., `smart-campus-api-role-...`).
 > ![Open IAM Role](/aws-image/setupLambda/lambda11.png)
 2. In the new IAM window, click **Add permissions > Attach policies** to add permissions.
 > ![Configure IAM Permissions](/aws-image/setupLambda/lambda12.png)
-
-#### 3.3. Next: Create API Gateway
+> ![Configure IAM Permissions](/aws-image/setupLambda/lambdanew.png)
+#### 5.5.3. Next: Create API Gateway
 After Lambda has been deployed and fully authorized, move to the next section **5.5.3 Initialize API Gateway** to create an entry point for requests and connect Lambda to a public URL.
 
 ---

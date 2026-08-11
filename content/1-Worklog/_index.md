@@ -22,3 +22,14 @@ The project integrates over **10 AWS services**. To optimize the development pro
 | **Võ Thành Danh** (Backend) |  Core API (FastAPI), Database, User Auth |
 | **Nguyễn Huy Hoàng** (AI & Data Analytics) | Facial Recognition, Big Data Analytics |
 | **Trần Văn Khánh** (DevOps) | Event-Driven flows, Notifications, CI/CD, Monitoring |
+
+## Weekly Summary
+
+- [**Week 1:** Introduction to AWS & Internship Program](1-week1/)
+- [**Week 2:** Business Analysis & ERD Diagram](2-week2/)
+- [**Week 3:** Initialize FastAPI & DynamoDB Database](3-week3/)
+- [**Week 4:** Build Core API & Rule Engine](4-week4/)
+- [**Week 5:** Handle File Uploads (Presigned URL)](5-week5/)
+- [**Week 6:** Integrate Multi-factor Authentication (Cognito)](6-week6/)
+- [**Week 7:** Role-Based Access Control (RBAC) & API Gateway](7-week7/)
+- [**Week 8:** Project Summary & Report Writing](8-week8/)

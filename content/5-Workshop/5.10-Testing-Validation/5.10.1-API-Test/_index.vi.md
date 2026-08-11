@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.10.1. </b> "
 ---
 
-#### Kiểm thử API qua Swagger UI và Postman
+#### 5.10.1. Kiểm thử API qua Swagger UI và Postman
 
 Bước kiểm thử đầu tiên là xác nhận rằng API Gateway đã kết nối đúng với Lambda và có thể nhận/xử lý request. Chúng ta sẽ dùng **Swagger UI** (giao diện tự sinh từ FastAPI) và **Postman**.
 

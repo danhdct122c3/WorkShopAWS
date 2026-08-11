@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.7.1. </b> "
 ---
 
-#### Khởi tạo Data Lake và Analytics Worker
+#### 5.7.1. Khởi tạo Data Lake và Analytics Worker
 Trước khi dùng Glue và Athena để phân tích dữ liệu, ta cần một nơi lưu trữ dữ liệu (S3 Data Lake) và một đoạn mã để tự động đẩy sự kiện điểm danh từ SQS vào Data Lake này. Kiến trúc ghi trực tiếp từ Lambda vào S3 rất phổ biến cho các luồng dữ liệu vừa và nhỏ, giúp tiết kiệm chi phí so với việc dùng Kinesis Firehose.
 
 **Bước 1: Tạo S3 Data Lake Bucket**

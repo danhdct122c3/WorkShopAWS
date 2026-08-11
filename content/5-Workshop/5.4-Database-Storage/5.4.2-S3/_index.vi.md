@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.4.2. </b> "
 ---
 
-#### 2.2. Khởi tạo Amazon S3 Buckets
+#### 5.4.2. Khởi tạo Amazon S3 Buckets
 Hệ thống của chúng ta cần 2 bucket riêng biệt với các chính sách bảo mật khác nhau:
 
 **Bucket 1: S3 Frontend (Dành cho web tĩnh)**

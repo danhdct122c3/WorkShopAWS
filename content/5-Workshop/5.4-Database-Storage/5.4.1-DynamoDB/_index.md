@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.4.1. </b> "
 ---
 
-#### 2.1. Design and Create Tables on Amazon DynamoDB
+#### 5.4.1. Design and Create Tables on Amazon DynamoDB
 
 Amazon DynamoDB is chosen for its ultra-fast response speed (just a few milliseconds) and unlimited scalability (Serverless NoSQL), making it highly suitable for storing attendance data and user information.
 

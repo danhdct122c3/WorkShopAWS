@@ -6,6 +6,8 @@ chapter : false
 pre : " <b> 5.1. </b> "
 ---
 
+#### 5.1. Giới thiệu
+
 ### 1. Giới thiệu giải pháp (Use case)
 Trong bối cảnh chuyển đổi số giáo dục và doanh nghiệp, việc điểm danh thủ công (quẹt thẻ từ, vân tay) vẫn tồn tại nhiều hạn chế lớn (pain points): ùn tắc vào giờ cao điểm, tình trạng quên thẻ, hoặc gian lận check-in hộ. Các hệ thống máy chủ vật lý nội bộ thường lãng phí tài nguyên khi không có ai sử dụng vào ban đêm, nhưng lại quá tải vào khung giờ 8h00 sáng.
 

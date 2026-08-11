@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.10.2. </b> "
 ---
 
-#### Test Facial Recognition Attendance Flow via Web Interface
+#### 5.10.2. Test Facial Recognition Attendance Flow via Web Interface
 
 This is the core business flow of the system: Registering a face to Rekognition, then sending an image to recognize and record attendance into DynamoDB. Instead of using Postman, we will experience it directly on the application's Frontend interface.
 
@@ -77,3 +77,15 @@ To ensure the system handles correctly, try:
 
 > **Expected Result:** The system reports an error **"Cannot recognize - No face detected in image"**.
 > ![Cannot recognize error](/aws-image/setupTestcheckin/checkin7.png)
+
+---
+
+**Step 7: Test off-network attendance (WAF IP Whitelisting)**
+
+To verify the IP blocking feature using AWS WAF configured in section 5.5.4, try:
+1. Disconnect your computer's current Wi-Fi and use a Mobile Hotspot (4G/5G) to change your IP address.
+2. Alternatively, use a VPN to create a virtual IP outside the internal network.
+3. Click the **Check in** button on the interface.
+
+> **Expected Result:** The request is blocked immediately at the WAF layer before reaching the API Gateway. The system returns an access denied error (e.g., 403 Forbidden) because the IP is not in the allowed list (IP Whitelist).
+> ![Off-network attendance error](/aws-image/setupTestcheckin/checkin8.png)

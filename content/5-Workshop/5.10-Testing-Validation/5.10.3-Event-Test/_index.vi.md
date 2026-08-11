@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.10.3. </b> "
 ---
 
-#### Kiểm thử luồng thông báo sự kiện (EventBridge → SNS → Email & SQS)
+#### 5.10.3. Kiểm thử luồng thông báo sự kiện (EventBridge → SNS → Email & SQS)
 
 Sau khi điểm danh thành công ở bước 5.10.2, Lambda sẽ tự động phát một sự kiện `AttendanceRecorded` lên **EventBridge**. Phần này xác nhận rằng sự kiện đó đã được định tuyến đúng sang giao diện Web, SNS (gửi Email) và SQS (lưu hàng đợi).
 

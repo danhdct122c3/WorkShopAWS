@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.8.2. </b> "
 ---
 
-#### Hosting Frontend on Amazon S3
+#### 5.8.2. Hosting Frontend on Amazon S3
 Amazon S3 has an extremely powerful feature which is **Static Website Hosting**. You just need to upload HTML, CSS, JS files (after building) to S3, and it will turn into a real web server without you having to maintain an operating system or web server software (like Nginx/Apache).
 
 **Step 1: Create an S3 Bucket for the Website**

@@ -7,7 +7,7 @@ chapter: false
 # Project Proposal
 
 ## 1. Project Overview
-**Smart Campus Platform** is a comprehensive software system designed to modernize and digitize management processes at school/company campuses. The project shifts the model from "Passive Monitoring" to "Automated Operations", encompassing automated facial recognition attendance (AI), Task & Leave Management, and a massive Analytics Command Center.
+**Smart Campus Platform** is a comprehensive software system designed to modernize and digitize management task and check-in, check-out, leave requests for employees in at company. The project including automated facial recognition attendance (AI), Task & Attendance Management and Analytics Report, check in check out.
 
 Notably, the system is designed **100% Serverless on the AWS platform**, applying an Event-Driven Microservices architecture to ensure high scalability, low costs, and resilient operations.
 
@@ -22,7 +22,7 @@ The system solves painful issues in traditional management:
 - **Automation & Accuracy:** Apply facial recognition AI combined with IP Whitelisting for quick, absolutely accurate, and fraud-proof attendance tracking.
 - **Data Centralization (Data Lake):** Build a data pipeline (Analytics Pipeline) to collect thousands of event streams to serve real-time reporting analysis.
 - **100% Cost Optimization:** Radically apply Serverless architecture (pay per API call), ensuring zero cost when no one is using the system.
-- **Cloud-Standard Security:** Strict Role-Based Access Control (RBAC) and protection of sensitive data using Firewall and Token systems.
+- **Cloud-Standard Security:** Strict Role-Based Access Control (RBAC) and protection of sensitive data using Firewall.
 
 ## 4. Workflows & Solution Architecture
 
@@ -82,7 +82,7 @@ Below is a summary table of AWS services applied in the architecture diagram:
 | 8 | **Amazon EventBridge** | Event Bus routing events (e.g., `AttendanceRecorded`) and running Cronjobs. | Decouples modules following Event-Driven standards, making it easy to add new features. |
 | 9 | **Amazon SQS** | Message Queue placed before Workers. | Ensures no data loss when errors occur. Integrates Dead Letter Queue (DLQ) for retries. |
 | 10 | **Amazon Rekognition** | Matches employee faces via camera upon check-in. | Extremely powerful built-in AI, no model training time required. High accuracy (Confidence > 95%). |
-| 11 | **Amazon Kinesis Data Firehose, Glue & Athena** | The pipeline trio for aggregating S3 attendance logs, analyzing, and querying with SQL. | Automated file batching to save S3/Athena costs. Separates OLTP and OLAP systems. |
+| 11 | **Amazon Glue & Athena** | The pipeline of Glue & Athena for aggregating S3 attendance logs, analyzing, and querying with SQL. | Automated file batching to save S3/Athena costs. Separates OLTP and OLAP systems. |
 | 12 | **AWS CodeBuild & CodePipeline** | Sets up CI/CD Pipeline to auto-build Frontend and package Lambda Backend. | Fully automated Continuous Deployment from source code. Ensures safety and consistency between releases. |
 
 ### 4.8. Architecture Assessment according to the 5 Pillars of AWS Well-Architected Framework

@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.8.3. </b> "
 ---
 
-#### Khởi tạo Amazon CloudFront (CDN)
+#### 5.8.3. Khởi tạo Amazon CloudFront (CDN)
 Mặc dù S3 có thể dùng để host website, nhưng nó không hỗ trợ chứng chỉ SSL (HTTPS) cho tên miền tuỳ chỉnh và cũng không có bộ đệm (cache) toàn cầu. Amazon CloudFront giải quyết toàn bộ các vấn đề này.
 
 **Bước 1: Tạo CloudFront Distribution**

@@ -24,3 +24,14 @@ Dự án sử dụng hơn **10 dịch vụ AWS** tích hợp chặt chẽ với 
 | **Trần Văn Khánh (Cloud & DevOps)** | Event-Driven, Thông báo, CI/CD, Giám sát hệ thống |
 
 
+
+## Tóm tắt các tuần
+
+- [**Tuần 1:** Làm quen với AWS & Chương trình thực tập](1-week1/)
+- [**Tuần 2:** Phân tích Nghiệp vụ & Sơ đồ ERD](2-week2/)
+- [**Tuần 3:** Khởi tạo FastAPI & Cơ sở dữ liệu DynamoDB](3-week3/)
+- [**Tuần 4:** Xây dựng Core API & Rule Engine](4-week4/)
+- [**Tuần 5:** Xử lý Upload file (Presigned URL)](5-week5/)
+- [**Tuần 6:** Tích hợp Xác thực Đa lớp (Cognito)](6-week6/)
+- [**Tuần 7:** Phân quyền (RBAC) & API Gateway](7-week7/)
+- [**Tuần 8:** Tổng kết dự án & Viết Báo Cáo](8-week8/)

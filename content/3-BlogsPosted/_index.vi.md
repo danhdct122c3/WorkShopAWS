@@ -7,7 +7,7 @@ pre: " <b> 3. </b> "
 ---
 
 
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj).
+
 
 ###  [Blog 1 - PAGINATION STRATEGY TRONG AMAZON DYNAMODB](3.1-Blog1/)
 Blog này trình bày chiến lược pagination thiết yếu trong Amazon DynamoDB sử dụng **LastEvaluatedKey** và **ExclusiveStartKey** để chia nhỏ kết quả truy vấn thành từng trang thay vì load toàn bộ dữ liệu một lần. Bài viết chứng minh cách pagination giúp giảm chi phí Read Capacity Units (RCU) lên tới 10.000 lần, cải thiện thời gian phản hồi từ vài phút xuống còn vài trăm millisecond, và đảm bảo ứng dụng scale hiệu quả khi dữ liệu tăng trưởng.

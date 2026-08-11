@@ -6,6 +6,8 @@ chapter : false
 pre : " <b> 5.2. </b> "
 ---
 
+#### 5.2. Chuẩn bị tài nguyên
+
 Để bắt đầu triển khai hệ thống **Smart Campus Platform**, bạn cần chuẩn bị các công cụ và tài nguyên cơ bản trên môi trường AWS.
 
 ### 1. Tài khoản AWS (AWS Account)

@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.4.1. </b> "
 ---
 
-#### 2.1. Thiết kế và tạo bảng trên Amazon DynamoDB
+#### 5.4.1. Thiết kế và tạo bảng trên Amazon DynamoDB
 
 Amazon DynamoDB được chọn vì tốc độ phản hồi cực nhanh (chỉ vài mili-giây) và khả năng mở rộng không giới hạn (Serverless NoSQL), rất phù hợp để lưu trữ dữ liệu điểm danh và thông tin người dùng.
 

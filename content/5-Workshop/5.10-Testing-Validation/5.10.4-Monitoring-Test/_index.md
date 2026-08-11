@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.10.4. </b> "
 ---
 
-#### Log, Metric, and Tracing Testing (CloudWatch & X-Ray)
+#### 5.10.4. Log, Metric, and Tracing Testing (CloudWatch & X-Ray)
 
 This section guides you to view real-time logs, check metrics, and analyze request flows via X-Ray to confirm the monitoring system is operating correctly.
 

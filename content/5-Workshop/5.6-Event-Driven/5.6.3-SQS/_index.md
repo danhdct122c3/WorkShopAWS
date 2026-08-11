@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.6.3. </b> "
 ---
 
-#### 4.3. Configure Amazon SQS (Queue)
+#### 5.6.3. Configure Amazon SQS (Queue)
 Amazon SQS (Simple Queue Service) acts as a "buffer". By routing events into SQS before calling Lambda to process them (sending emails, writing Analytics logs), the system will never be overloaded or lose data even when thousands of students mark attendance simultaneously.
 
 

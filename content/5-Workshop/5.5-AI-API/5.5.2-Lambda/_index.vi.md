@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.5.2. </b> "
 ---
 
-#### 3.2. Triển khai AWS Lambda (Core Logic)
+#### 5.5.2. Triển khai AWS Lambda (Core Logic)
 Hàm Lambda này sẽ chịu trách nhiệm toàn bộ logic xử lý API của hệ thống (Nhận diện khuôn mặt, ghi log DynamoDB, lưu ảnh S3...). Vì mã nguồn có sử dụng các thư viện ngoài như `FastAPI`, `mangum`, `boto3`, nên chúng ta không thể code trực tiếp trên AWS Console mà phải đóng gói mã nguồn từ máy tính cá nhân.
 
 **Bước 1: Đóng gói mã nguồn (Packaging)**
@@ -80,14 +80,14 @@ Hàm Lambda này sẽ chịu trách nhiệm toàn bộ logic xử lý API của 
 *(Bấm **Save** để lưu)*.
 
 **Bước 5: Cấp quyền IAM Role (Bảo mật)**
-> **[LƯU Ý QUAN TRỌNG CHO BÀI DEMO]**  
-> Hàm Lambda này cần quyền truy cập vào nhiều dịch vụ. Trong thực tế, bạn cần cấp các quyền rất cụ thể (Least Privilege). Tuy nhiên, để Demo diễn ra trơn tru và nhanh chóng, bạn có thể đính kèm (Add permissions) các managed policies như `AmazonS3FullAccess`, `AmazonDynamoDBFullAccess`, `AmazonRekognitionFullAccess`, và `AmazonEventBridgeFullAccess` vào Execution Role của Lambda.
+
 1. Ở tab **Configuration** > **Permissions**, bấm vào tên Role đang có (Ví dụ: `smart-campus-api-role-...`).
 > ![Mở IAM Role](/aws-image/setupLambda/lambda11.png)
 2. Ở cửa sổ IAM mới, bấm **Add permissions > Attach policies** để thêm quyền.
 > ![Cấu hình Quyền IAM](/aws-image/setupLambda/lambda12.png)
+> ![Cấu hình Quyền IAM](/aws-image/setupLambda/lambdanew.png)
 
-#### 3.3. Tiếp theo: Tạo API Gateway
+#### 5.5.3. Tiếp theo: Tạo API Gateway
 Sau khi Lambda đã được triển khai và cấp quyền đầy đủ, hãy chuyển sang mục tiếp theo **5.5.3 Khởi tạo API Gateway** để tạo điểm tiếp nhận request và kết nối Lambda vào đường dẫn công khai.
 
 ---
