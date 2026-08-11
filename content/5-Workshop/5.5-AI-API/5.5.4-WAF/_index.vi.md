@@ -9,11 +9,7 @@ pre : " <b> 5.5.4. </b> "
 #### 5.5.4. Cấu hình bảo vệ API bằng AWS WAF và CloudFront
 
 
-> **Phân biệt 2 CloudFront Distribution trong workshop này:**
-> - **CloudFront này (5.3.3):** Đứng trước **API Gateway** — mục đích là gắn WAF để bảo vệ Backend API, ngăn chặn truy cập từ bên ngoài Campus.
-> - **CloudFront ở bài 5.8.2:** Đứng trước **S3 Frontend** — mục đích là tăng tốc tải trang web cho người dùng cuối.
-> 
-> Hai Distribution này hoàn toàn **độc lập**, phục vụ 2 mục đích khác nhau.
+
 
 Để đảm bảo rằng API điểm danh `/api/attendance/recognize` chỉ có thể được truy cập từ mạng nội bộ của trường học (Campus Network), chúng ta sẽ sử dụng AWS WAF. Do API Gateway loại HTTP API không hỗ trợ đính kèm WAF trực tiếp, chúng ta sẽ tạo một Web ACL (Global), sau đó triển khai một CloudFront Distribution đứng trước API Gateway để gắn WAF bảo vệ.
 
