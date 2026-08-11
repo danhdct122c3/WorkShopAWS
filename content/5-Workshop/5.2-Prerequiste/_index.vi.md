@@ -317,7 +317,7 @@ Vui lòng clone (tải về) mã nguồn chuẩn của dự án Smart Campus v�
 git clone https://github.com/danhdct122c3/WorkShopAWS.git
 cd smart-campus
 ```
-*(Cấu trúc thư mục source code sẽ bao gồm 2 phần chính: `/frontend` chứa code ReactJS và `/backend` chứa code Python cho Lambda).*
+*(Cấu trúc thư mục source code sẽ bao gồm 2 phần chính: `/frontend` chứa code ReactJS và `/backend`)*
 
 ---
 Sau khi đã chuẩn bị xong, hãy chuyển sang bài tiếp theo để bắt đầu **Phần 1: Thiết lập Xác thực & Bảo mật đa lớp**.
