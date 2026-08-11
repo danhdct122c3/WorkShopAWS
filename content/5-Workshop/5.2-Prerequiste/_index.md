@@ -321,5 +321,3 @@ cd smart-campus
 ```
 *(The source code directory structure will consist of 2 main parts: `/frontend` containing ReactJS code and `/backend`)*
 
----
-Once prepared, move on to the next lesson to start **Part 1: Multi-layer Security & Authentication Setup**.

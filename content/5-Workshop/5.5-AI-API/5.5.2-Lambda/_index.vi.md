@@ -85,7 +85,7 @@ Hàm Lambda này sẽ chịu trách nhiệm toàn bộ logic xử lý API của 
 > ![Mở IAM Role](/aws-image/setupLambda/lambda11.png)
 2. Ở cửa sổ IAM mới, bấm **Add permissions > Attach policies** để thêm quyền.
 > ![Cấu hình Quyền IAM](/aws-image/setupLambda/lambda12.png)
-> ![Cấu hình Quyền IAM](/aws-image/setupLambda/lambdanew.png)
+> ![Cấu hình Quyền IAM](/aws-image/setupLambda/lambdanew.jpg)
 
 #### 5.5.3. Tiếp theo: Tạo API Gateway
 Sau khi Lambda đã được triển khai và cấp quyền đầy đủ, hãy chuyển sang mục tiếp theo **5.5.3 Khởi tạo API Gateway** để tạo điểm tiếp nhận request và kết nối Lambda vào đường dẫn công khai.

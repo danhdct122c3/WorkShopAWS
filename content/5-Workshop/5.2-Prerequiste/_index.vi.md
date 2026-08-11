@@ -321,5 +321,3 @@ cd smart-campus
 ```
 *(Cấu trúc thư mục source code sẽ bao gồm 2 phần chính: `/frontend` chứa code ReactJS và `/backend`)*
 
----
-Sau khi đã chuẩn bị xong, hãy chuyển sang bài tiếp theo để bắt đầu **Phần 1: Thiết lập Xác thực & Bảo mật đa lớp**.

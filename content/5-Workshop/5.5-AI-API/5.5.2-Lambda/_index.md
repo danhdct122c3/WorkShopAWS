@@ -85,7 +85,7 @@ This Lambda function will be responsible for all the API processing logic of the
 > ![Open IAM Role](/aws-image/setupLambda/lambda11.png)
 2. In the new IAM window, click **Add permissions > Attach policies** to add permissions.
 > ![Configure IAM Permissions](/aws-image/setupLambda/lambda12.png)
-> ![Configure IAM Permissions](/aws-image/setupLambda/lambdanew.png)
+> ![Configure IAM Permissions](/aws-image/setupLambda/lambdanew.jpg)
 #### 5.5.3. Next: Create API Gateway
 After Lambda has been deployed and fully authorized, move to the next section **5.5.3 Initialize API Gateway** to create an entry point for requests and connect Lambda to a public URL.
 

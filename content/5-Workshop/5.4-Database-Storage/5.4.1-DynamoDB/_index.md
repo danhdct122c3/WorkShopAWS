@@ -55,5 +55,3 @@ For the Smart Campus system to operate perfectly as designed by the Backend, the
 
 Repeat the process from Step 1 to Step 4 for the other tables (such as `smart-campus-faces`, `smart-campus-users`...) by referring to the configuration in the summary table at the beginning of the lesson.
 
-> **[IMPORTANT NOTE FOR THE DEMO]**  
-> Although the actual architecture of the Smart Campus system requires up to **9 tables** and complex **Indexes** as above to comprehensively manage data (User, Face, Attendance, Leave, Holidays...). However, **within the scope of this Demo Workshop**, to save practice time, you can **just symbolically create 1 single table** (e.g., `smart-campus-attendance`) to simulate the Read/Write data flow from Lambda down to DynamoDB. You can create the remaining tables yourself with similar configurations (based on the information table above) if you want to deploy the entire Backend source code!

@@ -8,31 +8,25 @@ pre: " <b> 7. </b> "
 
 > These are my sincere sharings after **8 weeks** participating in the **First Cloud AI Journey (FCAJ)** program, with the desire to contribute feedback to help the program become even better.
 
----
+## Overall Assessment
 
-### 1. Learning & Working Environment
+**1. Learning & Working Environment**
 
 The learning environment at FCAJ is very comfortable, flexible, and creates good conditions for learners. What I appreciate most is the **highly flexible working schedule** — the program does not impose rigid hours, but rather focuses on deliverables. This helps me proactively arrange my study time and develop at a pace that suits me, while still ensuring project progress.
 
 The learning content closely follows actual technology trends, not just stopping at theory but forcing learners to directly deploy on a real AWS environment — this is the most effective way of learning I have ever experienced.
 
----
-
-### 2. Support from the Admin Team & Mentors
+**2. Support from the Admin Team & Mentors**
 
 This is the point **I am most impressed by** throughout the internship. Whenever I had questions or encountered technical issues, the admin team **responded very quickly and openly** — whether it was a simple or complex question. There was no feeling of being abandoned or having to struggle alone for too long.
 
 The team's support style is "guiding to self-resolve" rather than giving the answer straight away — this approach, while requiring more effort from the learner, helped me understand deeply and remember much longer compared to copy-pasting an existing solution.
 
----
+**3. Relevance of Content to the Industry**
 
-### 3. Relevance of Content to the Industry
+The program's content closely follows market trends. These are all highly sought-after skills by tech companies, so I feel the time invested in FCAJ is very worthwhile and practical.
 
-The program's content closely follows market trends: **Serverless Architecture, Event-Driven Design, AI/ML with Rekognition and Bedrock, Observability with X-Ray and CloudWatch**. These are all highly sought-after skills by tech companies, so I feel the time invested in FCAJ is very worthwhile and practical.
-
----
-
-### 4. Learning Opportunities & Acquired Skills
+**4. Learning Opportunities & Acquired Skills**
 
 Over 8 weeks, I learned and practiced:
 
@@ -51,27 +45,17 @@ Over 8 weeks, I learned and practiced:
 - Writing technical documentation (Workshop Documentation)
 - Self-managing an 8-week project timeline without PM supervision
 
----
+**5. Culture & Community Spirit**
 
-### 5. Culture & Community Spirit
-
-One of the things I cherish most about FCAJ is the **very strong AWS community spirit**. The events are organized professionally and practically:
-
-- **FCAJ Community Day (27/06/2026):** A series of Live Demos on AI Agents, automated DevOps, and Voice Bots — very visual and close to reality.
-- **FCAJ x Agentic AI Build Week:** The *"Show Up. Build. Pitch. WIN!"* spirit was highly inspiring, encouraging us to step out of our comfort zones.
-- **Agent Forge HCMC Workshop:** An in-depth workshop on Agentic AI and the AWS ecosystem — bringing a very new perspective on the future of AI in business.
+One of the things I cherish most about FCAJ is the **very strong AWS community spirit**. The events are organized professionally and practically.
 
 The connections from these events — with both learners and real AWS engineers — have far more long-term value than pure technical knowledge.
 
----
-
-### 6. Policies & Support for Participants
+**6. Policies & Support for Participants**
 
 Providing an AWS account with credits to practice directly on a real environment is a massive plus. Being able to manually create a DynamoDB table, configure a Lambda trigger, set up CloudWatch Alarms, and view a real X-Ray Service Map makes me much more confident when entering a real work environment, compared to just knowing theory or running on a simulator.
 
----
-
-### Additional Questions
+## Personal Reflections after the Internship
 
 **What were you most satisfied with?**
 
@@ -85,10 +69,7 @@ There should be periodic **technical architecture reviews** (every 2-3 weeks) so
 
 Yes, absolutely. FCAJ is one of the few programs that allows you to learn AWS by **doing it for real** — not just watching demos. It is especially suitable for those who want to quickly gain combat experience on the cloud platform.
 
----
+## Suggestions & Expectations
 
-### Suggestions & Expectations
-
-- **Add specialized tracks:** There should be separate tracks for Data Engineering (Athena, Glue, Kinesis) or AI/ML (Bedrock, SageMaker) so learners can go deep instead of just touching the surface of each service.
-- **More hands-on workshops:** Events like the Agent Forge HCMC Workshop are very practical and inspiring. I hope the program organizes more, especially on AI Agents and Generative AI on AWS.
-- **Peer/Mentor Code Reviews:** The program could add code reviews or architecture reviews from mentors/alumni so learners can catch design issues early before going too deep.
+- **More hands-on workshops:** Events are very practical and inspiring. I hope the program organizes more, especially on AI Agents and Generative AI on AWS.
+- **1-1 sessions:** The program could add 1-1 discussions with mentors, ask any questions and catch design issues early before going too deep.

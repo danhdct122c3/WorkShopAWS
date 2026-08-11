@@ -55,5 +55,4 @@ Amazon DynamoDB được chọn vì tốc độ phản hồi cực nhanh (chỉ 
 
 Lặp lại quy trình từ Bước 1 đến Bước 4 cho các bảng khác (như `smart-campus-faces`, `smart-campus-users`...) bằng cách tham chiếu với cấu hình trong bảng tổng hợp ở đầu bài.
 
-> **[LƯU Ý QUAN TRỌNG CHO BÀI DEMO]**  
-> Mặc dù kiến trúc thực tế của hệ thống Smart Campus cần tới **9 bảng** và các **Index** phức tạp như trên để quản lý toàn vẹn dữ liệu (User, Khuôn mặt, Điểm danh, Nghỉ phép, Ngày lễ...). Tuy nhiên, **trong khuôn khổ bài Workshop Demo này**, để tiết kiệm thời gian thực hành, bạn có thể **chỉ cần tạo tượng trưng 1 bảng duy nhất** (ví dụ: `smart-campus-attendance`) để mô phỏng luồng Ghi/Đọc dữ liệu từ Lambda xuống DynamoDB. Các bảng còn lại bạn có thể tự tạo với cấu hình tương tự (dựa trên bảng thông tin ở trên) nếu muốn triển khai toàn bộ mã nguồn Backend!
+
