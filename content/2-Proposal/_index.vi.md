@@ -27,7 +27,7 @@ Hệ thống giải quyết các bài toán nhức nhối trong quản lý truy�
 ## 4. Các luồng nghiệp vụ và Kiến trúc giải pháp (Workflows & Solution Architecture)
 
 > **[SƠ ĐỒ KIẾN TRÚC TỔNG THỂ]**
-> <!-- TODO: Khi vẽ xong sơ đồ kiến trúc, hãy chèn ảnh vào đây bằng cú pháp: ![Sơ đồ kiến trúc](/images/architecture.png) -->
+> ![Sơ đồ kiến trúc](/aws-image/AwsArchitecture.drawio.png)
 
 Hệ thống được thiết kế dựa trên kiến trúc **Event-Driven Microservices** và ứng dụng hơn 15 dịch vụ đám mây của AWS. Dưới đây là chi tiết 6 luồng nghiệp vụ cốt lõi và cách các dịch vụ AWS phối hợp giải quyết bài toán:
 
