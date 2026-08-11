@@ -16,8 +16,8 @@ Chương trình thực tập tại **FCAJ (First Cloud AI Journey)** kéo dài *
 
 Dự án sử dụng hơn **10 dịch vụ AWS** tích hợp chặt chẽ với nhau. Để tối ưu hóa quá trình phát triển, nhóm đã chia khối lượng công việc thành 4 mảng chính tương ứng với 4 thành viên:
 
-| Vai trò | Trách nhiệm chính |  |
-|---------|-------------------|---------------------|
+| Vai trò | Trách nhiệm chính |
+|---------|-------------------|
 | **Trần Minh Trí (Frontend)** | Giao diện ReactJS, Tích hợp API, Trải nghiệm người dùng |
 | **Võ Thành Danh (Backend)** | Core API (FastAPI), Database, Xác thực người dùng |
 | **Nguyễn Huy Hoàng (AI & Data Analytics)** | Nhận diện khuôn mặt, Phân tích dữ liệu lớn |

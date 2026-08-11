@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Week 3: Initialize FastAPI & DynamoDB Database"
 date: 2026-06-22
 weight: 3
@@ -36,4 +36,3 @@ Initialize FastAPI, define folder structure (Router/Service). Apply the database
 ## 5. Plan for Next Week
 - Review this week's completed work.
 - Begin research and implementation of tasks for Week 4.
-

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Week 1: Familiarize with AWS & Internship Program"
 date: 2026-06-22
 weight: 1
@@ -36,4 +36,3 @@ Understand the internship program rules. Get familiar with the basic AWS ecosyst
 ## 5. Plan for Next Week
 - Review this week's completed work.
 - Begin research and implementation of tasks for Week 2.
-

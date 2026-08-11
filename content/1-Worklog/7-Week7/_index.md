@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Week 7: Role-Based Access Control (RBAC) & API Gateway"
 date: 2026-06-22
 weight: 7
@@ -36,4 +36,3 @@ Implement Admin, Manager, Staff authorization. Package source code (Mangum) and 
 ## 5. Plan for Next Week
 - Review this week's completed work.
 - Begin research and implementation of tasks for Week 8.
-

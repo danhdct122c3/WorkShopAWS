@@ -1,39 +1,38 @@
-﻿---
-title: "Tuáº§n 2: PhÃ¢n tÃ­ch Nghiá»‡p vá»¥ & SÆ¡ Ä‘á»“ ERD"
+---
+title: "Tuần 2: Phân tích Nghiệp vụ & Sơ đồ ERD"
 date: 2026-06-22
 weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-# Tuáº§n 2: PhÃ¢n tÃ­ch Nghiá»‡p vá»¥ & SÆ¡ Ä‘á»“ ERD
+# Tuần 2: Phân tích Nghiệp vụ & Sơ đồ ERD
 
-**ThÃ nh viÃªn:** Backend Developer
+**Thành viên:** Backend Developer
 
-## 1. Má»¥c tiÃªu cÃ´ng viá»‡c
-PhÃ¢n tÃ­ch yÃªu cáº§u bÃ i toÃ¡n. Thiáº¿t káº¿ mÃ´ hÃ¬nh dá»¯ liá»‡u (ERD) NoSQL trÃªn giáº¥y, xÃ¡c Ä‘á»‹nh cÃ¡c PK vÃ  GSI.
+## 1. Mục tiêu công việc
+Phân tích yêu cầu bài toán. Thiết kế mô hình dữ liệu (ERD) NoSQL trên giấy, xác định các PK và GSI.
 
-## 2. Nháº­t kÃ½ cÃ´ng viá»‡c chi tiáº¿t
+## 2. Nhật ký công việc chi tiết
 
-| Thá»© | CÃ´ng viá»‡c | NgÃ y báº¯t Ä‘áº§u | NgÃ y hoÃ n thÃ nh | Nguá»“n tÃ i liá»‡u |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 |---|---|---|---|---|
-| 2 | - Tháº£o luáº­n, Brainstorm Ã½ tÆ°á»Ÿng dá»± Ã¡n cuá»‘i khÃ³a.<br>- Chá»‘t Ä‘á» tÃ i: Smart Campus Platform. | 29/06/2026 | 29/06/2026 | |
-| 3 | - PhÃ¢n tÃ­ch yÃªu cáº§u bÃ i toÃ¡n thá»±c táº¿.<br>- XÃ¡c Ä‘á»‹nh cÃ¡c chá»©c nÄƒng chÃ­nh (Äiá»ƒm danh khuÃ´n máº·t, Quáº£n lÃ½ cÃ´ng viá»‡c...). | 30/06/2026 | 30/06/2026 | |
-| 4 | - LÃªn danh sÃ¡ch cÃ¡c dá»‹ch vá»¥ AWS sáº½ sá»­ dá»¥ng cho tá»«ng module.<br>- PhÃ¢n cÃ´ng vai trÃ² cho tá»«ng thÃ nh viÃªn trong nhÃ³m. | 01/07/2026 | 01/07/2026 | |
-| 5 | - Thiáº¿t káº¿ sÆ¡ Ä‘á»“ kiáº¿n trÃºc tá»•ng thá»ƒ (Architecture Diagram).<br>- Váº½ luá»“ng Ä‘i cá»§a dá»¯ liá»‡u (Data flow). | 02/07/2026 | 02/07/2026 | draw.io |
-| 6 | - Thiáº¿t káº¿ Database Schema / Wireframe cÆ¡ báº£n.<br>- Láº­p káº¿ hoáº¡ch chi tiáº¿t cho cÃ¡c tuáº§n phÃ¡t triá»ƒn tiáº¿p theo. | 03/07/2026 | 03/07/2026 | Figma |
+| 2 | - Thảo luận, Brainstorm ý tưởng dự án cuối khóa.<br>- Chốt đề tài: Smart Campus Platform. | 29/06/2026 | 29/06/2026 | |
+| 3 | - Phân tích yêu cầu bài toán thực tế.<br>- Xác định các chức năng chính (Điểm danh khuôn mặt, Quản lý công việc...). | 30/06/2026 | 30/06/2026 | |
+| 4 | - Lên danh sách các dịch vụ AWS sẽ sử dụng cho từng module.<br>- Phân công vai trò cho từng thành viên trong nhóm. | 01/07/2026 | 01/07/2026 | |
+| 5 | - Thiết kế sơ đồ kiến trúc tổng thể (Architecture Diagram).<br>- Vẽ luồng đi của dữ liệu (Data flow). | 02/07/2026 | 02/07/2026 | draw.io |
+| 6 | - Thiết kế Database Schema / Wireframe cơ bản.<br>- Lập kế hoạch chi tiết cho các tuần phát triển tiếp theo. | 03/07/2026 | 03/07/2026 | Figma |
 
 
-## 3. CÃ¡c káº¿t quáº£ Ä‘áº¡t Ä‘Æ°á»£c
-- HoÃ n thÃ nh cÃ¡c tÃ­nh nÄƒng vÃ  má»¥c tiÃªu Ä‘á» ra trong tuáº§n.
-- TÃ­ch há»£p thÃ nh cÃ´ng vá»›i cÃ¡c dá»‹ch vá»¥ AWS liÃªn quan (náº¿u cÃ³).
-- Äáº£m báº£o cháº¥t lÆ°á»£ng cÃ´ng viá»‡c Ä‘Ã¡p á»©ng yÃªu cáº§u cá»§a dá»± Ã¡n.
+## 3. Các kết quả đạt được
+- Hoàn thành các tính năng và mục tiêu đề ra trong tuần.
+- Tích hợp thành công với các dịch vụ AWS liên quan (nếu có).
+- Đảm bảo chất lượng công việc đáp ứng yêu cầu của dự án.
 
-## 4. KhÃ³ khÄƒn & HÆ°á»›ng giáº£i quyáº¿t
-- **KhÃ³ khÄƒn:** QuÃ¡ trÃ¬nh tÃ¬m hiá»ƒu vÃ  tÃ­ch há»£p Ä‘Ã´i lÃºc gáº·p lá»—i khÃ´ng mong muá»‘n. Cáº§n nhiá»u thá»i gian Ä‘á»c log vÃ  tÃ i liá»‡u ká»¹ thuáº­t cá»§a AWS.
-- **Giáº£i phÃ¡p:** Phá»‘i há»£p cÃ¹ng cÃ¡c thÃ nh viÃªn khÃ¡c trong nhÃ³m Ä‘á»ƒ trao Ä‘á»•i, Ä‘á»c ká»¹ tÃ i liá»‡u hÆ°á»›ng dáº«n vÃ  tham kháº£o thÃªm Ã½ kiáº¿n cá»§a Mentor.
+## 4. Khó khăn & Hướng giải quyết
+- **Khó khăn:** Quá trình tìm hiểu và tích hợp đôi lúc gặp lỗi không mong muốn. Cần nhiều thời gian đọc log và tài liệu kỹ thuật của AWS.
+- **Giải pháp:** Phối hợp cùng các thành viên khác trong nhóm để trao đổi, đọc kỹ tài liệu hướng dẫn và tham khảo thêm ý kiến của Mentor.
 
-## 5. Káº¿ hoáº¡ch tuáº§n tiáº¿p theo
-- RÃ  soÃ¡t láº¡i cÃ´ng viá»‡c cá»§a tuáº§n nÃ y (Review).
-- Báº¯t tay vÃ o nghiÃªn cá»©u vÃ  triá»ƒn khai cÃ¡c nhiá»‡m vá»¥ cá»§a Tuáº§n 3.
-
+## 5. Kế hoạch tuần tiếp theo
+- Rà soát lại công việc của tuần này (Review).
+- Bắt tay vào nghiên cứu và triển khai các nhiệm vụ của Tuần 3.
