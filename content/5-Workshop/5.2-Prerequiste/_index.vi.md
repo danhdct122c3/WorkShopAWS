@@ -314,8 +314,8 @@ Mặc dù bạn có thể cấu hình toàn bộ hệ thống bằng giao diện
 Vui lòng clone (tải về) mã nguồn chuẩn của dự án Smart Campus về máy tính cá nhân của bạn để sử dụng cho các bước tiếp theo:
 
 ```bash
-git clone https://github.com/your-username/smart-campus-serverless.git
-cd smart-campus-serverless
+git clone https://github.com/danhdct122c3/WorkShopAWS.git
+cd smart-campus
 ```
 *(Cấu trúc thư mục source code sẽ bao gồm 2 phần chính: `/frontend` chứa code ReactJS và `/backend` chứa code Python cho Lambda).*
 

@@ -314,8 +314,8 @@ Although you can configure the entire system using the UI (AWS Console), install
 Please clone (download) the standard source code of the Smart Campus project to your personal computer to use for the next steps:
 
 ```bash
-git clone https://github.com/your-username/smart-campus-serverless.git
-cd smart-campus-serverless
+git clone https://github.com/danhdct122c3/WorkShopAWS.git
+cd smart-campus
 ```
 *(The source code directory structure will consist of 2 main parts: `/frontend` containing ReactJS code and `/backend` containing Python code for Lambda).*
 
