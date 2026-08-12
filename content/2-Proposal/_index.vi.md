@@ -10,7 +10,7 @@ chapter: false
 **Smart Campus Platform** là một hệ thống phần mềm toàn diện nhằm hiện đại hóa và số hóa quy trình quản lý công việc và điểm danh. Dự án bao gồm tự động hóa điểm danh bằng khuôn mặt, quản lý công việc, điểm danh và thống kê công việc, điểm danh của nhân viên.
 
 Đặc biệt, hệ thống được thiết kế **100% Serverless trên nền tảng AWS**, áp dụng kiến trúc Event-Driven  để đảm bảo tính mở rộng cao, chi phí thấp và khả năng vận hành bền bỉ.
-
+> ![Project Overview](/aws-image/overview/overview1.png)
 ## 2. Vấn đề cần giải quyết (Problem Statement)
 Hệ thống giải quyết các bài toán nhức nhối trong quản lý truyền thống:
 - **Điểm danh thủ công & gian lận:** Việc sử dụng thẻ từ hay vân tay dễ bị lách luật, quên thẻ, hoặc chậm trễ vào giờ cao điểm.
@@ -33,14 +33,18 @@ Hệ thống được thiết kế dựa trên kiến trúc **Event-Driven ** v�
 
 ### 4.1. Luồng Xác thực & Phân quyền (Auth & Users Workflow)
 - **Nghiệp vụ:** Quản lý vòng đời tài khoản người dùng, phân quyền Role-Based Access Control (RBAC) cho Admin, Manager, Staff. Bắt buộc người dùng mới phải đổi mật khẩu ở lần đăng nhập đầu tiên.
+> ![Workflow 1](/aws-image/overview/overview2.png)
 - **Dịch vụ AWS:** Sử dụng **Amazon Cognito** làm Identity Provider để cấp phát và xác thực JWT Token. Giao diện Frontend React/Vite được lưu trữ trên **Amazon S3** và phân phối qua **Amazon CloudFront**.
 
 ### 4.2. Luồng Đăng ký Khuôn mặt (Face Registration Workflow)
 - **Nghiệp vụ:** Chống gian lận bằng cách mỗi nhân viên chỉ được phép đăng ký duy nhất 1 khuôn mặt chính chủ vào hệ thống.
+> ![Workflow 2](/aws-image/overview/overview3.png)
 - **Dịch vụ AWS:** Gọi API `IndexFaces` của **Amazon Rekognition** để trích xuất đặc trưng sinh trắc học và lưu FaceID. Hình ảnh gốc định dạng JPEG/PNG được bảo mật tuyệt đối trong **Amazon S3 Private Bucket**.
 
 ### 4.3. Luồng Điểm danh Thông minh (Smart Attendance Workflow)
-- **Nghiệp vụ:** Quá trình check-in/check-out được thực hiện bằng cách đưa khuôn mặt qua camera. Hệ thống tự động so khớp, kiểm tra khung giờ hợp lệ, và đối chiếu xem nhân viên có đang sử dụng đúng IP của văn phòng hay không (chống fake GPS/VPN).
+- **Nghiệp vụ:** Quá trình check-in được thực hiện bằng cách đưa khuôn mặt qua camera. Hệ thống tự động so khớp, kiểm tra khung giờ hợp lệ, và đối chiếu xem nhân viên có đang sử dụng đúng IP của văn phòng hay không (chống fake GPS/VPN).
+> ![Workflow 3](/aws-image/overview/overview4.png)
+> ![Workflow 3](/aws-image/overview/overview5.png)
 - **Dịch vụ AWS:** 
   - **AWS WAF (Web Application Firewall):** Chặn các request điểm danh đến từ ngoài mạng công ty (IP Whitelisting).
   - **Amazon Rekognition:** Gọi hàm `SearchFacesByImage` để đối chiếu độ trùng khớp (Confidence > 95%).
@@ -48,6 +52,8 @@ Hệ thống được thiết kế dựa trên kiến trúc **Event-Driven ** v�
 
 ### 4.4. Luồng Xử lý Sự kiện & Thông báo (Event-driven Notifications)
 - **Nghiệp vụ:** Khi một nhân viên điểm danh thành công hoặc bị giao việc mới, hệ thống tự động đẩy thông báo đa kênh cho người liên quan mà không làm chậm trải nghiệm của người dùng.
+> ![Workflow 4](/aws-image/overview/overview6.png)
+> ![Workflow 4](/aws-image/overview/overview7.png)
 - **Dịch vụ AWS:** 
   - **Amazon EventBridge:** Nhận sự kiện (ví dụ `AttendanceRecorded`) và phân luồng (Routing).
   - **Amazon SQS:** Làm hàng đợi hứng sự kiện từ EventBridge, gửi cho Lambda Background Worker.
@@ -55,6 +61,10 @@ Hệ thống được thiết kế dựa trên kiến trúc **Event-Driven ** v�
 
 ### 4.5. Luồng Quản lý Công việc (Task Management Workflow)
 - **Nghiệp vụ:** Phân công công việc (Task) với thời hạn nghiêm ngặt (Deadline) và xử lý quy trình xin nghỉ phép (Leave Request). Quản lý có thể đính kèm tài liệu mật vào task.
+> ![Workflow 5](/aws-image/overview/overview8.png)
+> ![Workflow 5](/aws-image/overview/overview9.png)
+> ![Workflow 5](/aws-image/overview/overview10.png)
+
 - **Dịch vụ AWS:**
   - **Amazon DynamoDB:** Lưu cấu trúc dữ liệu Tasks và Leaves với các Global Secondary Index (GSI) để truy vấn nhanh.
   - **Amazon S3 Pre-signed URL:** Sinh link động có thời hạn để tải tài liệu mật đính kèm, ngăn chặn rò rỉ dữ liệu.
@@ -62,6 +72,8 @@ Hệ thống được thiết kế dựa trên kiến trúc **Event-Driven ** v�
 
 ### 4.6. Luồng Phân tích Dữ liệu lớn (Data Lake Analytics Workflow)
 - **Nghiệp vụ:** Thu thập log điểm danh khổng lồ từ các khuôn viên, gom nhóm dữ liệu để Giám đốc có thể xem Báo cáo hiệu suất (Dashboard) so sánh giữa các phòng ban.
+> ![Workflow 6](/aws-image/overview/overview1.png)
+> ![Workflow 6](/aws-image/overview/overview11.png)
 - **Dịch vụ AWS:**
   - **AWS Glue (Data Catalog):** Tự động thu thập cấu trúc (Schema) của các file JSON trên S3.
   - **Amazon Athena:** Động cơ truy vấn SQL Serverless, đọc trực tiếp dữ liệu từ S3 qua Glue Catalog để trả về kết quả thống kê siêu tốc cho Frontend.

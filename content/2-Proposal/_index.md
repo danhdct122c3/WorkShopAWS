@@ -8,7 +8,7 @@ chapter: false
 
 ## 1. Project Overview
 **Smart Campus Platform** is a comprehensive software system designed to modernize and digitize management task and check-in, check-out, leave requests for employees in at company. The project including automated facial recognition attendance (AI), Task & Attendance Management and Analytics Report, check in check out.
-
+> ![Project Overview](/aws-image/overview/overview1.png)
 Notably, the system is designed **100% Serverless on the AWS platform**, applying an Event-Driven architecture to ensure high scalability, low costs, and resilient operations.
 
 ## 2. Problem Statement
@@ -33,14 +33,18 @@ The system is designed based on an **Event-Driven** architecture and utilizes ov
 
 ### 4.1. Auth & Users Workflow
 - **Business Logic:** Manage the user account lifecycle, assign Role-Based Access Control (RBAC) for Admin, Manager, Staff. Force new users to change their password on first login.
+> ![Workflow 1](/aws-image/overview/overview2.png)
 - **AWS Services:** Use **Amazon Cognito** as the Identity Provider to issue and verify JWT Tokens. The React/Vite Frontend interface is hosted on **Amazon S3** and distributed via **Amazon CloudFront**.
 
 ### 4.2. Face Registration Workflow
 - **Business Logic:** Prevent fraud by ensuring each employee is only allowed to register a single authentic face into the system.
+> ![Workflow 2](/aws-image/overview/overview3.png)
 - **AWS Services:** Call the `IndexFaces` API of **Amazon Rekognition** to extract biometric features and save the FaceID. Original JPEG/PNG images are strictly secured in an **Amazon S3 Private Bucket**.
 
 ### 4.3. Smart Attendance Workflow
-- **Business Logic:** The check-in/check-out process is done by showing a face to the camera. The system automatically matches, checks valid timeframes, and verifies if the employee is using the correct office IP (preventing fake GPS/VPN).
+- **Business Logic:** The check-in process is done by showing a face to the camera. The system automatically matches, checks valid timeframes, and verifies if the employee is using the correct office IP (preventing fake GPS/VPN).
+> ![Workflow 3](/aws-image/overview/overview4.png)
+> ![Workflow 3](/aws-image/overview/overview5.png)
 - **AWS Services:** 
   - **AWS WAF (Web Application Firewall):** Blocks attendance requests originating outside the company network (IP Whitelisting).
   - **Amazon Rekognition:** Calls the `SearchFacesByImage` function to check for a match (Confidence > 95%).
@@ -48,6 +52,8 @@ The system is designed based on an **Event-Driven** architecture and utilizes ov
 
 ### 4.4. Event-driven Notifications Workflow
 - **Business Logic:** When an employee successfully checks in or is assigned a new task, the system automatically pushes multi-channel notifications to relevant personnel without slowing down the user's experience.
+> ![Workflow 4](/aws-image/overview/overview6.png)
+> ![Workflow 4](/aws-image/overview/overview7.png)
 - **AWS Services:** 
   - **Amazon EventBridge:** Receives events (e.g., `AttendanceRecorded`) and routes them.
   - **Amazon SQS:** Acts as a queue catching events from EventBridge, sending them to the Lambda Background Worker.
@@ -55,6 +61,9 @@ The system is designed based on an **Event-Driven** architecture and utilizes ov
 
 ### 4.5. Task Management Workflow
 - **Business Logic:** Assign tasks with strict deadlines and process Leave Requests. Management can attach confidential documents to tasks.
+> ![Workflow 5](/aws-image/overview/overview8.png)
+> ![Workflow 5](/aws-image/overview/overview9.png)
+> ![Workflow 5](/aws-image/overview/overview10.png)
 - **AWS Services:**
   - **Amazon DynamoDB:** Stores Tasks and Leaves data structures with Global Secondary Indexes (GSI) for fast querying.
   - **Amazon S3 Pre-signed URL:** Generates dynamic, time-limited links to download confidential attachments, preventing data leaks.
@@ -62,6 +71,8 @@ The system is designed based on an **Event-Driven** architecture and utilizes ov
 
 ### 4.6. Data Lake Analytics Workflow
 - **Business Logic:** Collect massive attendance logs from campuses, aggregate data so Directors can view Performance Reports (Dashboards) comparing departments.
+> ![Workflow 6](/aws-image/overview/overview1.png)
+> ![Workflow 6](/aws-image/overview/overview11.png)
 - **AWS Services:**
   
   - **AWS Glue (Data Catalog):** Automatically crawls the schema of JSON files on S3.
