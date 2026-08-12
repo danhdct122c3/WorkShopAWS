@@ -29,7 +29,7 @@ pre: " <b> 4.1. </b> "
 
 #### Session 1: Cloud & AI Agents Modernization - Góc nhìn từ Doanh nghiệp và Định hướng Sự nghiệp
 
-- **Nợ công nghệ và Sự phức tạp (Complexity):** Khi các hệ thống doanh nghiệp (như ngân hàng, tài chính) phát triển và chuyển dịch lên Microservices trên Cloud, độ phức tạp tăng cao dẫn đến phát sinh "nợ công nghệ". Doanh nghiệp phải tiêu tốn rất nhiều chi phí cho nhân sự (DevOps, SRE, NOC) và các công cụ giám sát (Observability Tools).
+- **Nợ công nghệ và Sự phức tạp (Complexity):** Khi các hệ thống doanh nghiệp (như ngân hàng, tài chính) phát triển và chuyển dịch lên trên Cloud, độ phức tạp tăng cao dẫn đến phát sinh "nợ công nghệ". Doanh nghiệp phải tiêu tốn rất nhiều chi phí cho nhân sự (DevOps, SRE, NOC) và các công cụ giám sát (Observability Tools).
 - **Xu hướng tuyển dụng thời đại AI:** Thị trường đang bão hòa ở phân khúc lập trình viên phổ thông. Doanh nghiệp có xu hướng dừng tuyển dụng ồ ạt hoặc chỉ ưu tiên tuyển các kỹ sư cấp cao (Senior) có năng lực phối hợp và ứng dụng tốt các công cụ AI nhằm tối ưu hóa năng suất.
 - **Kiến trúc Multi-Agent vs. Super Agent:**
   - *Multi-Agent Architecture:* Giúp tối ưu hóa chi phí (sử dụng model nhỏ cho tác vụ đơn giản, model lớn cho reasoning) và tránh loãng Context. Hỗ trợ tốt cơ chế phân quyền (Role-Based Access Control) theo ranh giới nghiệp vụ. Tuy nhiên, nhược điểm là khó phát triển và bảo trì.
@@ -80,7 +80,7 @@ pre: " <b> 4.1. </b> "
 ### Ứng Dụng Vào Công Việc / Đồ Án Thực Tập
 
 - **Áp dụng AI vào quy trình phát triển (SDLC):** Thử nghiệm tích hợp Amazon Q Developer / GitHub Copilot vào IDE để hỗ trợ review code, viết test coverage tự động nhằm tối ưu chất lượng kiểm soát (Quality Control).
-- **Thiết kế Microservices hướng sự kiện (Event-Driven):** Thay thế các kết nối gọi trực tiếp đồng bộ (Synchronous) bằng hàng đợi thông điệp bất đồng bộ (Asynchronous messaging) để giảm tính liên kết lỏng (Loose coupling), tăng khả năng mở rộng và độ chịu lỗi cho hệ thống.
+- **Thiết kế hướng sự kiện (Event-Driven):** Thay thế các kết nối gọi trực tiếp đồng bộ (Synchronous) bằng hàng đợi thông điệp bất đồng bộ (Asynchronous messaging) để giảm tính liên kết lỏng (Loose coupling), tăng khả năng mở rộng và độ chịu lỗi cho hệ thống.
 - **Tối ưu hóa quy trình Đồ án/Dự án:** Ứng dụng kỹ thuật cấu hình các "Skill" chuyên biệt trên các Chat Agent (như cấu hình form chuẩn hóa tiểu luận, báo cáo) để tự động hóa khâu xử lý tài liệu nội bộ.
 - **Chuẩn bị hồ sơ nghề nghiệp:** Tinh chỉnh và viết CV lập trình bài bản, tập trung làm nổi bật các từ khóa kỹ thuật (Keywords) tương thích với mô tả công việc (JD) mục tiêu, nhằm vượt qua các bộ lọc Screening CV bằng AI của các doanh nghiệp lớn hiện nay.
 

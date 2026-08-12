@@ -9,7 +9,7 @@ chapter: false
 ## 1. Tổng quan dự án (Project Overview)
 **Smart Campus Platform** là một hệ thống phần mềm toàn diện nhằm hiện đại hóa và số hóa quy trình quản lý công việc và điểm danh. Dự án bao gồm tự động hóa điểm danh bằng khuôn mặt, quản lý công việc, điểm danh và thống kê công việc, điểm danh của nhân viên.
 
-Đặc biệt, hệ thống được thiết kế **100% Serverless trên nền tảng AWS**, áp dụng kiến trúc Event-Driven Microservices để đảm bảo tính mở rộng cao, chi phí thấp và khả năng vận hành bền bỉ.
+Đặc biệt, hệ thống được thiết kế **100% Serverless trên nền tảng AWS**, áp dụng kiến trúc Event-Driven  để đảm bảo tính mở rộng cao, chi phí thấp và khả năng vận hành bền bỉ.
 
 ## 2. Vấn đề cần giải quyết (Problem Statement)
 Hệ thống giải quyết các bài toán nhức nhối trong quản lý truyền thống:
@@ -29,7 +29,7 @@ Hệ thống giải quyết các bài toán nhức nhối trong quản lý truy�
 > **[SƠ ĐỒ KIẾN TRÚC TỔNG THỂ]**
 > ![Sơ đồ kiến trúc](/aws-image/AwsArchitecture.drawio.png)
 
-Hệ thống được thiết kế dựa trên kiến trúc **Event-Driven Microservices** và ứng dụng hơn 15 dịch vụ đám mây của AWS. Dưới đây là chi tiết 6 luồng nghiệp vụ cốt lõi và cách các dịch vụ AWS phối hợp giải quyết bài toán:
+Hệ thống được thiết kế dựa trên kiến trúc **Event-Driven ** và ứng dụng hơn 15 dịch vụ đám mây của AWS. Dưới đây là chi tiết 6 luồng nghiệp vụ cốt lõi và cách các dịch vụ AWS phối hợp giải quyết bài toán:
 
 ### 4.1. Luồng Xác thực & Phân quyền (Auth & Users Workflow)
 - **Nghiệp vụ:** Quản lý vòng đời tài khoản người dùng, phân quyền Role-Based Access Control (RBAC) cho Admin, Manager, Staff. Bắt buộc người dùng mới phải đổi mật khẩu ở lần đăng nhập đầu tiên.
@@ -150,5 +150,5 @@ Sau khi hoàn thành triển khai, hệ thống **Smart Campus** dự kiến đ�
 
 **Giá Trị Vận Hành & Kinh Doanh (Business Outcomes):**
 - **Tối ưu chi phí:** Tiết kiệm hơn **80%** chi phí vận hành hạ tầng so với việc thuê máy chủ truyền thống (EC2/VPS), nhờ mô hình không dùng máy chủ (Pay-as-you-go).
-- **Khả năng bảo trì cao:** Toàn bộ kiến trúc được module hóa thành các Microservices tách biệt (Event-Driven), giúp việc nâng cấp hay sửa lỗi một tính năng không làm gián đoạn toàn bộ hệ thống.
+
 - **Trải nghiệm người dùng vượt trội:** Số hóa hoàn toàn thủ tục giấy tờ, cung cấp môi trường làm việc thông minh, hiện đại và minh bạch cho toàn bộ nhân sự.

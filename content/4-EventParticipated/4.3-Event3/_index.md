@@ -77,7 +77,7 @@ Lab 2 applied the Agentic Workflow model to automate the Returns & Refunds proce
 
 By bridging autonomous system theory with AWS practice, the AgentCore architecture opens up many powerful application directions for modern software development:
 
-* **Integrating AI into Microservices Architecture:** When designing Backend systems (e.g., Booking or E-commerce systems), instead of handling all logic with rigid sequential code, I can package an AI Agent into an independent service. This service will communicate with other services (like Product Service, Payment Service) via RESTful APIs or event streaming (Apache Kafka) to handle dynamic, highly analytical business operations.
+* **Integrating AI into  Architecture:** When designing Backend systems (e.g., Booking or E-commerce systems), instead of handling all logic with rigid sequential code, I can package an AI Agent into an independent service. This service will communicate with other services (like Product Service, Payment Service) via RESTful APIs or event streaming (Apache Kafka) to handle dynamic, highly analytical business operations.
 * **Optimizing Database Design for AI:** Practicing with DynamoDB helped reinforce non-relational database (NoSQL) design thinking for storing context (Memory) and communication history, which is a mandatory component when designing APIs for AI chatbots.
 * **Developing Vibe Coding & DevOps Skills:** Using tools like Kiro or AgentCore Harness helps familiarize with the mindset of using AI to generate code, write tests, and automate CI/CD deployments, thereby optimizing the software development lifecycle in preparation for entering real corporate environments.
 

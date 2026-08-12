@@ -29,7 +29,7 @@ pre: " <b> 4.1. </b> "
 
 #### Session 1: Cloud & AI Agents Modernization - Enterprise Perspectives and Career Orientation
 
-- **Technical Debt and Complexity:** As enterprise systems (e.g., banking, finance) grow and migrate to Cloud Microservices, complexity increases, leading to "technical debt." Businesses have to spend significant costs on personnel (DevOps, SRE, NOC) and monitoring tools (Observability Tools).
+- **Technical Debt and Complexity:** As enterprise systems (e.g., banking, finance) grow and migrate to Cloud, complexity increases, leading to "technical debt." Businesses have to spend significant costs on personnel (DevOps, SRE, NOC) and monitoring tools (Observability Tools).
 - **Hiring Trends in the AI Era:** The market is saturated with entry-level developers. Companies tend to pause mass hiring or prioritize hiring Senior engineers capable of coordinating and utilizing AI tools to optimize productivity.
 - **Multi-Agent vs. Super Agent Architectures:**
   - *Multi-Agent Architecture:* Helps optimize costs (using small models for simple tasks, large models for reasoning) and avoids Context dilution. Supports Role-Based Access Control (RBAC) across business boundaries. However, the downside is that it is difficult to develop and maintain.
@@ -80,7 +80,7 @@ pre: " <b> 4.1. </b> "
 ### Applications to Work / Internship Project
 
 - **Applying AI to the Software Development Life Cycle (SDLC):** Experimenting with Amazon Q Developer / GitHub Copilot integration into the IDE to assist with code reviews and automated test coverage writing to optimize Quality Control.
-- **Designing Event-Driven Microservices:** Replacing Synchronous direct calls with Asynchronous message queues to achieve loose coupling, increasing system scalability and fault tolerance.
+- **Designing Event-Driven:** Replacing Synchronous direct calls with Asynchronous message queues to achieve loose coupling, increasing system scalability and fault tolerance.
 - **Optimizing Project Workflows:** Applying techniques to configure specialized "Skills" on Chat Agents (like setting up standard formats for essays and reports) to automate internal document processing.
 - **Preparing Career Portfolio:** Refining and writing a professional developer CV, focusing on highlighting technical Keywords compatible with target Job Descriptions (JD) to pass AI CV Screening filters of major enterprises today.
 

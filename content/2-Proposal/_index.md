@@ -9,7 +9,7 @@ chapter: false
 ## 1. Project Overview
 **Smart Campus Platform** is a comprehensive software system designed to modernize and digitize management task and check-in, check-out, leave requests for employees in at company. The project including automated facial recognition attendance (AI), Task & Attendance Management and Analytics Report, check in check out.
 
-Notably, the system is designed **100% Serverless on the AWS platform**, applying an Event-Driven Microservices architecture to ensure high scalability, low costs, and resilient operations.
+Notably, the system is designed **100% Serverless on the AWS platform**, applying an Event-Driven architecture to ensure high scalability, low costs, and resilient operations.
 
 ## 2. Problem Statement
 The system solves painful issues in traditional management:
@@ -29,7 +29,7 @@ The system solves painful issues in traditional management:
 > **[OVERALL ARCHITECTURE DIAGRAM]**
 > ![Architecture Diagram](/aws-image/AwsArchitecture.drawio.png)
 
-The system is designed based on an **Event-Driven Microservices** architecture and utilizes over 15 AWS cloud services. Below are the details of the 6 core business workflows and how AWS services coordinate to solve the problems:
+The system is designed based on an **Event-Driven** architecture and utilizes over 15 AWS cloud services. Below are the details of the 6 core business workflows and how AWS services coordinate to solve the problems:
 
 ### 4.1. Auth & Users Workflow
 - **Business Logic:** Manage the user account lifecycle, assign Role-Based Access Control (RBAC) for Admin, Manager, Staff. Force new users to change their password on first login.
@@ -151,5 +151,5 @@ Upon full deployment, the **Smart Campus** system is expected to achieve the fol
 
 **Business Outcomes:**
 - **Cost Optimization:** Save over **80%** of infrastructure operation costs compared to renting traditional servers (EC2/VPS), thanks to the serverless (Pay-as-you-go) model.
-- **High Maintainability:** The entire architecture is modularized into isolated Microservices (Event-Driven), meaning upgrading or bug fixing one feature won't disrupt the whole system.
+
 - **Superior User Experience:** Fully digitizes paperwork, providing a smart, modern, and transparent work environment for all personnel.
