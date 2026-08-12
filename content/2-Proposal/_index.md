@@ -63,7 +63,7 @@ The system is designed based on an **Event-Driven Microservices** architecture a
 ### 4.6. Data Lake Analytics Workflow
 - **Business Logic:** Collect massive attendance logs from campuses, aggregate data so Directors can view Performance Reports (Dashboards) comparing departments.
 - **AWS Services:**
-  - **Amazon Kinesis Data Firehose:** Receives attendance log streams, automatically partitions folders by date (Dynamic Partitioning), and saves large files to the **S3 Data Lake**.
+  
   - **AWS Glue (Data Catalog):** Automatically crawls the schema of JSON files on S3.
   - **Amazon Athena:** Serverless SQL query engine, reading data directly from S3 via Glue Catalog to return high-speed statistical results to the Frontend.
 
@@ -91,7 +91,7 @@ The entire Smart Campus Platform architecture is designed to strictly adhere to 
 1. **Operational Excellence:** Manages the entire application lifecycle automatically using CI/CD scripts (CodeBuild/CodePipeline). Centralized monitoring of logs and event metrics via Amazon CloudWatch to detect bottlenecks early.
 2. **Security:** Enforces the Principle of Least Privilege via specific IAM Roles for each Lambda function. Hides sensitive attachments using S3 Pre-signed URLs, encrypts connections using CloudFront's HTTPS/TLS, and protects the API gateway with AWS WAF combined with Cognito JWT Authorizer.
 3. **Reliability:** Ensures continuous High Availability thanks to the default Multi-AZ architecture of the Serverless ecosystem. Automatic Retry mechanisms and pushing error messages into Amazon SQS's Dead-Letter Queue (DLQ) prevent attendance log loss.
-4. **Performance Efficiency:** Smoothly distributes the static Frontend app via CloudFront Edge locations. Optimizes read/write data times to milliseconds with DynamoDB, while offloading the main OLTP system by pushing large queries to the Data Lake pipeline (Firehose & Athena).
+4. **Performance Efficiency:** Smoothly distributes the static Frontend app via CloudFront Edge locations. Optimizes read/write data times to milliseconds with DynamoDB, while offloading the main OLTP system by pushing large queries to the Data Lake pipeline (Athena).
 5. **Cost Optimization:** Radically applies the 100% Serverless Event-Driven model (only pay when the system is called). Sets S3 Lifecycle Rules to automatically downgrade storage (moving old logs to Glacier), minimizing cold storage costs.
 
 ## 5. Expected Timeline
@@ -103,7 +103,7 @@ The entire Smart Campus Platform architecture is designed to strictly adhere to 
 | **Week 7-8** | Integrate CI/CD (CodeBuild, CodePipeline), Automation Testing, finalize Notification flows (SNS/SES), summary and report writing. |
 
 ## 6. Monthly Budget Estimation
-The budget estimation is calculated based on the actual operating scale of a medium-sized campus: **200 employees, each checking in an average of 1 to 4 times/day** (morning arrival, lunch break, afternoon return, evening departure). In total, the system will process approximately **20,000 attendance checks/month** and about **150,000 API requests/month** (including task assignment, reporting, leaves).
+The budget estimation is calculated based on the actual operating scale of a medium-sized campus: **200 employees, each checking in an average of 1 to 3 times/day**. In total, the system will process approximately **15,000 attendance checks/month** and about **150,000 API requests/month** (including task assignment, reporting, leaves).
 
 To prove the optimization of Serverless, the estimate below is calculated **based on raw pricing (Pay-As-You-Go)** and does not rely on the AWS 12-month Free Tier package.
 
@@ -117,18 +117,18 @@ To prove the optimization of Serverless, the estimate below is calculated **base
 | **Amazon CloudFront** | 20GB Data Transfer Out + 200k HTTPS Requests | $0.09 / GB | **$1.80** |
 | **AWS WAF** | 1 Web ACL + 1 Rule (IP Match) + 150k Requests | $5.00/Web ACL + $1.00/Rule + $0.60/1M Req | **$6.09** |
 | **Amazon Cognito** | Under 1,000 MAU (Monthly Active Users) | Free (Forever under 50,000 MAU) | **$0.00** |
-| **Amazon Rekognition** | 20,000 face matching scans (SearchFacesByImage) | $0.001 / Scan | **$20.00** |
-| **Amazon Firehose & Athena** | ~1GB Data Ingestion & Scanned by Athena query | $0.03/GB Ingestion + $5.00/TB Scanned | **$0.04** |
+| **Amazon Rekognition** | 10,000 face matching scans (SearchFacesByImage) | $0.001 / Scan | **$10.00** |
+| **Amazon Athena** | ~1GB Data Scanned by Athena query | $5.00/TB Scanned | **$0.04** |
 | **Amazon CloudWatch** | 1GB Ingestion Logs + 3 Custom Metrics | $0.57 / GB Logs | **$1.47** |
 | **AWS CodeBuild & CodePipeline** | ~100 build minutes (linux-small) + 1 Active Pipeline | $0.005 / min + $1.00/Pipeline | **$1.50** |
-| **TOTAL** | **Smart Campus Operation Cost (200 Users)** | | **~ $34.48 / month** |
+| **TOTAL** | **Smart Campus Operation Cost (200 Users)** | | **~ $24.48 / month** |
 
 ### 6.1. Cost Optimization Strategies
 Although the baseline operational cost is already very low, the system employs additional in-depth optimization strategies:
 1. **Pure Serverless Pay-As-You-Go Model:** Using AWS Lambda and **API Gateway HTTP API** (71% cheaper than REST API) ensures the system incurs zero server maintenance costs during nights or weekends.
-2. **S3 Lifecycle Rules & Firehose Compression:** Configuring automated attendance log compression to Parquet format via Firehose and moving logs older than 90 days to **S3 Glacier Flexible Retrieval** reduces long-term storage costs by 85%.
-3. **Using SQS Long Polling:** Configuring `ReceiveMessageWaitTimeSeconds = 20` minimizes Empty Receive Requests to SQS, significantly saving API call costs.
-4. **AWS Lambda Power Tuning:** Performing probing for the most optimal RAM level to balance response speed (Latency) and execution cost, ensuring Lambda is not over-provisioned with memory causing waste.
+
+2. **Using SQS Long Polling:** Configuring `ReceiveMessageWaitTimeSeconds = 20` minimizes Empty Receive Requests to SQS, significantly saving API call costs.
+3. **AWS Lambda Power Tuning:** Performing probing for the most optimal RAM level to balance response speed (Latency) and execution cost, ensuring Lambda is not over-provisioned with memory causing waste.
 
 ## 7. Risk Assessment & Mitigations
 

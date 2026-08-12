@@ -25,4 +25,4 @@ Handle the file upload problem by issuing Presigned URLs (AWS S3) instead of pas
 
 
 ## 3. Achievements
-- Successfully deployed Data Lake (Firehose, Glue, Athena) and SNS event notification system.
+- Successfully deployed Data Lake (Athena) and SNS event notification system.

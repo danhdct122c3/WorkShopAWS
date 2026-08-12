@@ -63,7 +63,6 @@ Hệ thống được thiết kế dựa trên kiến trúc **Event-Driven Micro
 ### 4.6. Luồng Phân tích Dữ liệu lớn (Data Lake Analytics Workflow)
 - **Nghiệp vụ:** Thu thập log điểm danh khổng lồ từ các khuôn viên, gom nhóm dữ liệu để Giám đốc có thể xem Báo cáo hiệu suất (Dashboard) so sánh giữa các phòng ban.
 - **Dịch vụ AWS:**
-  - **Amazon Kinesis Data Firehose:** Nhận stream log điểm danh, tự động chia folder theo ngày tháng (Dynamic Partitioning) và lưu thành file lớn xuống **S3 Data Lake**.
   - **AWS Glue (Data Catalog):** Tự động thu thập cấu trúc (Schema) của các file JSON trên S3.
   - **Amazon Athena:** Động cơ truy vấn SQL Serverless, đọc trực tiếp dữ liệu từ S3 qua Glue Catalog để trả về kết quả thống kê siêu tốc cho Frontend.
 
@@ -92,7 +91,7 @@ Toàn bộ kiến trúc của Smart Campus Platform được thiết kế tuân 
 1. **Operational Excellence (Vận hành xuất sắc):** Quản lý toàn bộ vòng đời ứng dụng tự động bằng kịch bản CI/CD (CodeBuild/CodePipeline). Giám sát tập trung log và các luồng sự kiện (event metrics) qua Amazon CloudWatch để phát hiện sớm điểm nghẽn.
 2. **Security (Bảo mật):** Thực thi nguyên tắc Đặc quyền tối thiểu (Least Privilege) qua các IAM Roles cụ thể cho từng hàm Lambda. Ẩn tài liệu đính kèm nhạy cảm bằng S3 Pre-signed URL, mã hóa kết nối bằng HTTPS/TLS của CloudFront, và bảo vệ cổng API bằng AWS WAF kết hợp Cognito JWT Authorizer.
 3. **Reliability (Độ tin cậy):** Đảm bảo tính khả dụng (High Availability) liên tục nhờ kiến trúc Multi-AZ mặc định của hệ sinh thái Serverless. Cơ chế Retry tự động và đẩy tin nhắn lỗi vào Dead-Letter Queue (DLQ) của Amazon SQS giúp ngăn ngừa mất mát log điểm danh.
-4. **Performance Efficiency (Hiệu năng):** Phân phối ứng dụng Frontend tĩnh mượt mà qua các Edge locations của CloudFront. Tối ưu thời gian đọc/ghi dữ liệu ở mức mili-giây với DynamoDB, đồng thời giải tải cho hệ thống OLTP chính bằng cách đẩy dữ liệu truy vấn lớn sang luồng Data Lake (Firehose & Athena).
+4. **Performance Efficiency (Hiệu năng):** Phân phối ứng dụng Frontend tĩnh mượt mà qua các Edge locations của CloudFront. Tối ưu thời gian đọc/ghi dữ liệu ở mức mili-giây với DynamoDB, đồng thời giải tải cho hệ thống OLTP chính bằng cách đẩy dữ liệu truy vấn lớn sang luồng Data Lake (Athena).
 5. **Cost Optimization (Tối ưu chi phí):** Áp dụng triệt để mô hình 100% Serverless Event-Driven (chỉ trả tiền khi hệ thống được gọi). Thiết lập S3 Lifecycle Rules để tự động hạ tầng lưu trữ (chuyển log cũ sang Glacier), tối thiểu hóa chi phí lưu trữ lạnh.
 
 ## 5. Timeline dự kiến
@@ -104,7 +103,7 @@ Toàn bộ kiến trúc của Smart Campus Platform được thiết kế tuân 
 | **Tuần 7-8** | Tích hợp CI/CD (CodeBuild, CodePipeline), Automation Testing, hoàn thiện luồng Gửi thông báo (SNS/SES), tổng kết và viết báo cáo. |
 
 ## 6. Ước Tính Ngân Sách Hàng Tháng (Monthly Budget Estimation)
-Dự toán ngân sách được tính dựa trên quy mô vận hành thực tế tại 1 khuôn viên vừa: **200 nhân viên, mỗi người điểm danh trung bình từ 1 đến 4 lượt/ngày** (sáng đến, trưa đi ăn, chiều quay lại, tối về). Tổng cộng hệ thống sẽ xử lý khoảng **20.000 lượt điểm danh/tháng** và khoảng **150.000 API requests/tháng** (bao gồm cả giao việc, báo cáo, nghỉ phép).
+Dự toán ngân sách được tính dựa trên quy mô vận hành thực tế tại 1 khuôn viên vừa: **200 nhân viên, mỗi người điểm danh trung bình từ 1 đến 3 lượt/ngày** (sáng đến, trưa đi ăn, chiều quay lại, tối về). Tổng cộng hệ thống sẽ xử lý khoảng **15.000 lượt điểm danh/tháng** và khoảng **150.000 API requests/tháng** (bao gồm cả giao việc, báo cáo, nghỉ phép).
 
 Để chứng minh tính tối ưu của Serverless, dự toán dưới đây được tính **dựa trên đơn giá gốc (Pay-As-You-Go)** mà không phụ thuộc vào gói Free Tier 12 tháng của AWS.
 
@@ -118,18 +117,17 @@ Dự toán ngân sách được tính dựa trên quy mô vận hành thực t�
 | **Amazon CloudFront** | 20GB Data Transfer Out + 200k HTTPS Requests | $0.09 / GB | **$1.80** |
 | **AWS WAF** | 1 Web ACL + 1 Rule (IP Match) + 150k Requests | $5.00/Web ACL + $1.00/Rule + $0.60/1M Req | **$6.09** |
 | **Amazon Cognito** | Dưới 1,000 MAU (Monthly Active Users) | Miễn phí (Dưới 50,000 MAU vĩnh viễn) | **$0.00** |
-| **Amazon Rekognition** | 20,000 lần quét ảnh đối chiếu khuôn mặt (SearchFacesByImage) | $0.001 / Ảnh quét | **$20.00** |
-| **Amazon Firehose & Athena** | ~1GB Data Ingestion & Scanned by Athena query | $0.03/GB Ingestion + $5.00/TB Scanned | **$0.04** |
+| **Amazon Rekognition** | 15,000 lần quét ảnh đối chiếu khuôn mặt (SearchFacesByImage) | $0.001 / Ảnh quét | **$15.00** |
+| **Amazon Athena** | ~1GB Data Scanned by Athena query | $5.00/TB Scanned | **$0.04** |
 | **Amazon CloudWatch** | 1GB Ingestion Logs + 3 Custom Metrics | $0.57 / GB Logs | **$1.47** |
 | **AWS CodeBuild & CodePipeline** | ~100 phút build (linux-small) + 1 Active Pipeline | $0.005 / phút + $1.00/Pipeline | **$1.50** |
-| **TỔNG CỘNG** | **Chi phí vận hành mô hình Smart Campus (200 Users)** | | **~ $34.48 / tháng** |
+| **TỔNG CỘNG** | **Chi phí vận hành mô hình Smart Campus (200 Users)** | | **~ $24.48 / tháng** |
 
 ### 6.1. Chiến Lược Tối Ưu Chi Phí
 Mặc dù chi phí vận hành cơ bản đã rất thấp, hệ thống vẫn áp dụng thêm các chiến lược tối ưu chuyên sâu:
 1. **Mô hình Pure Serverless Pay-As-You-Go:** Sử dụng AWS Lambda và **API Gateway HTTP API** (rẻ hơn 71% so với REST API) giúp hệ thống không tốn bất kỳ chi phí duy trì máy chủ nào trong khung giờ ban đêm hoặc cuối tuần.
-2. **S3 Lifecycle Rules & Firehose Compression:** Cấu hình tự động nén log điểm danh thành định dạng Parquet qua Firehose và chuyển các log cũ hơn 90 ngày sang **S3 Glacier Flexible Retrieval** giúp giảm 85% chi phí lưu trữ dài hạn.
-3. **Sử dụng SQS Long Polling:** Cấu hình `ReceiveMessageWaitTimeSeconds = 20` giúp giảm thiểu lượng request rỗng (Empty Receive Requests) tới SQS, tiết kiệm đáng kể chi phí gọi API.
-4. **AWS Lambda Power Tuning:** Thực hiện dò tìm mức RAM tối ưu nhất để cân bằng giữa tốc độ phản hồi (Latency) và chi phí thực thi, đảm bảo Lambda không bị cấp dư thừa bộ nhớ gây lãng phí.
+2. **Sử dụng SQS Long Polling:** Cấu hình `ReceiveMessageWaitTimeSeconds = 20` giúp giảm thiểu lượng request rỗng (Empty Receive Requests) tới SQS, tiết kiệm đáng kể chi phí gọi API.
+3. **AWS Lambda Power Tuning:** Thực hiện dò tìm mức RAM tối ưu nhất để cân bằng giữa tốc độ phản hồi (Latency) và chi phí thực thi, đảm bảo Lambda không bị cấp dư thừa bộ nhớ gây lãng phí.
 
 ## 7. Đánh giá Rủi ro & Biện pháp giảm thiểu (Risks & Mitigations)
 
