@@ -103,7 +103,7 @@ Toàn bộ kiến trúc của Smart Campus Platform được thiết kế tuân 
 | **Tuần 7-8** | Tích hợp CI/CD (CodeBuild, CodePipeline), Automation Testing, hoàn thiện luồng Gửi thông báo (SNS/SES), tổng kết và viết báo cáo. |
 
 ## 6. Ước Tính Ngân Sách Hàng Tháng (Monthly Budget Estimation)
-Dự toán ngân sách được tính dựa trên quy mô vận hành thực tế tại 1 khuôn viên vừa: **200 nhân viên, mỗi người điểm danh trung bình từ 1 đến 3 lượt/ngày** (sáng đến, trưa đi ăn, chiều quay lại, tối về). Tổng cộng hệ thống sẽ xử lý khoảng **15.000 lượt điểm danh/tháng** và khoảng **150.000 API requests/tháng** (bao gồm cả giao việc, báo cáo, nghỉ phép).
+Dự toán ngân sách được tính dựa trên quy mô vận hành thực tế tại 1 khuôn viên vừa: **200 nhân viên, mỗi người điểm danh trung bình từ 1 đến 3 lượt/ngày**. Tổng cộng hệ thống sẽ xử lý khoảng **15.000 lượt điểm danh/tháng** và khoảng **150.000 API requests/tháng** (bao gồm cả giao việc, báo cáo, nghỉ phép).
 
 Để chứng minh tính tối ưu của Serverless, dự toán dưới đây được tính **dựa trên đơn giá gốc (Pay-As-You-Go)** mà không phụ thuộc vào gói Free Tier 12 tháng của AWS.
 
