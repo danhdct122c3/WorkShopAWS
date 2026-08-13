@@ -1,5 +1,5 @@
 ---
-title : "Attendance Testing"
+title : "End-to-End Testing of Attendance Workflow"
 date : 2024-01-01
 weight : 2
 chapter : false
