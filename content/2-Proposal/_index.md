@@ -132,7 +132,7 @@ To prove the optimization of Serverless, the estimate below is calculated **base
 | **Amazon Athena** | ~1GB Data Scanned by Athena query | $5.00/TB Scanned | **$0.04** |
 | **Amazon CloudWatch** | 1GB Ingestion Logs + 3 Custom Metrics | $0.57 / GB Logs | **$1.47** |
 | **AWS CodeBuild & CodePipeline** | ~100 build minutes (linux-small) + 1 Active Pipeline | $0.005 / min + $1.00/Pipeline | **$1.50** |
-| **TOTAL** | **Smart Campus Operation Cost (200 Users)** | | **~ $24.48 / month** |
+| **TOTAL** | **Smart Campus Operation Cost (200 Users)** | | **~ $29.48 / month** |
 
 ### 6.1. Cost Optimization Strategies
 Although the baseline operational cost is already very low, the system employs additional in-depth optimization strategies:

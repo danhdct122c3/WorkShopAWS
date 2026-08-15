@@ -133,7 +133,7 @@ Dự toán ngân sách được tính dựa trên quy mô vận hành thực t�
 | **Amazon Athena** | ~1GB Data Scanned by Athena query | $5.00/TB Scanned | **$0.04** |
 | **Amazon CloudWatch** | 1GB Ingestion Logs + 3 Custom Metrics | $0.57 / GB Logs | **$1.47** |
 | **AWS CodeBuild & CodePipeline** | ~100 phút build (linux-small) + 1 Active Pipeline | $0.005 / phút + $1.00/Pipeline | **$1.50** |
-| **TỔNG CỘNG** | **Chi phí vận hành mô hình Smart Campus (200 Users)** | | **~ $24.48 / tháng** |
+| **TỔNG CỘNG** | **Chi phí vận hành mô hình Smart Campus (200 Users)** | | **~ $29.48 / tháng** |
 
 ### 6.1. Chiến Lược Tối Ưu Chi Phí
 Mặc dù chi phí vận hành cơ bản đã rất thấp, hệ thống vẫn áp dụng thêm các chiến lược tối ưu chuyên sâu:
