@@ -4,6 +4,7 @@ date : 2024-01-01
 weight : 4
 chapter : false
 pre : " <b> 5.4. </b> "
+hidden: true       # <-- Thêm dòng này để ẩn khỏi sidebar và thanh điều hướng
 ---
 
 ### Goal

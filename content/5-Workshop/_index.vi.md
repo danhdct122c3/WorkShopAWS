@@ -4,6 +4,7 @@ date: 2024-01-01
 weight: 5
 chapter: false
 pre: " <b> </b> "
+hidden: true       # <-- Thêm dòng này để ẩn khỏi sidebar và thanh điều hướng
 ---
 
 # Triển khai Hệ thống Smart Campus Platform (Serverless) trên AWS

@@ -4,6 +4,7 @@ date : 2024-01-01
 weight : 2
 chapter : false
 pre : " <b> 5.2. </b> "
+hidden: true       # <-- Thêm dòng này để ẩn khỏi sidebar và thanh điều hướng
 ---
 
 #### 5.2. Prerequisites

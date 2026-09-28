@@ -4,6 +4,7 @@ date : 2024-01-01
 weight : 6
 chapter : false
 pre : " <b> 5.6. </b> "
+hidden: true       # <-- Thêm dòng này để ẩn khỏi sidebar và thanh điều hướng
 ---
 
 # Phần 4: Kiến trúc Hướng sự kiện (Event-Driven)
