@@ -4,6 +4,7 @@ date: 2026-06-01
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
+hidden: true       # <-- Thêm dòng này để ẩn khỏi sidebar và thanh điều hướng
 ---
 
 # Event Report: "FCAJ Community Day - June 2026"

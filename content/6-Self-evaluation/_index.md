@@ -3,7 +3,7 @@ title: "Self Evaluation"
 date: 2026-08-09
 weight: 6
 chapter: false
-pre: " <b> 6. </b> "
+pre: " <b>  </b> "
 ---
 
 During my internship at **FCAJ (First Cloud AI Journey)** from **June 22, 2026** to **August 15, 2026**, I had the opportunity to learn, practice, and apply my programming knowledge in a real-world environment on the AWS cloud platform.

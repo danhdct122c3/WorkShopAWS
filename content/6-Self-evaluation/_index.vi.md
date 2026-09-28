@@ -3,7 +3,7 @@ title: "Tự đánh giá"
 date: 2026-08-09
 weight: 6
 chapter: false
-pre: " <b> 6. </b> "
+pre: " <b> </b> "
 ---
 
 Trong suốt thời gian thực tập tại **FCAJ (First Cloud AI Journey)** từ ngày **22/06/2026** đến **15/08/2026**, mình đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức lập trình vào môi trường thực tế trên nền tảng điện toán đám mây AWS.

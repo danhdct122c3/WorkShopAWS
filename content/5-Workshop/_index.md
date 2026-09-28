@@ -3,7 +3,7 @@ title: "Workshop"
 date: 2024-01-01
 weight: 5
 chapter: false
-pre: " <b> 5. </b> "
+pre: " <b>  </b> "
 ---
 
 # Deploying the Smart Campus Platform (Serverless) on AWS
